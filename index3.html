@@ -770,7 +770,34 @@ card.addEventListener("mouseleave", handleMouseLeave);
 card.addEventListener("mousemove", handleMouseMove);
 //# sourceURL=pen.js
   </script>
+<script>
+	function showMessage(nameStr, contentStr, textColor) {
 
+    var node = document.getElementById("chatbox");
+    var nameNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan", textColor);
+
+    nameNode.setAttribute("x", 100);
+    nameNode.setAttribute("dy", 20);
+    nameNode.setAttribute("fill", textColor);
+    nameNode.appendChild(document.createTextNode(nameStr));
+
+    node.appendChild(nameNode);
+
+    var contentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+
+    contentStr = contentStr.replace(/((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?)/g,
+        '<a fill="purple" target="blank" xlink:href="$1">$1</a>'); // "xlink:" added!
+
+    contentNode.setAttribute("x", 200);
+    contentNode.setAttribute("fill", textColor);
+    contentNode.innerHTML = contentStr;
+
+    // Add the name to the text node
+    node.appendChild(contentNode);
+}
+// Sample call:
+showMessage('John Doe', 'click this http://www.example.com', 'blue');
+	</script>
 </body>
 
 </html>
