@@ -193,7 +193,10 @@ span.i {
     color: #fff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
 }
-
+video {
+  width: 100%;
+  max-width: 32rem;
+}	
 	</style> 
 
 
@@ -201,10 +204,17 @@ span.i {
   window.console = window.console || function(t) {};
 </script>	
 	
-	</head><body><div id="three-container"></div>
+	</head><body>
+
+	
 	  <div align="center" style="position: relative; top: 0px;"> 
-			<img src="files/logo.png" alt="NADIR JEWELRY USA" width="130" height="130"></div>
+			<img src="files/logo.png" alt="NADIR JEWELRY USA" width="130" height="130">
+	
+	</div>
 	<br/>
+		<video>
+  <source src="/files/logovid.mp4" />
+</video>
 	<div align="center"><font size="1" color="#f0d8a9" face="verdana">HAND MADE CUSTOM GOLD & SILVER JEWELRY</font></div>
 	<br/>
 	<div align="center"><font size="1" color="#4b2432" face="verdana">...</font></div>
@@ -216,7 +226,36 @@ span.i {
 	<br/>
 	<br/>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
-	
+	<script>
+	const video = document.querySelector("video");
+
+function startPreview() {
+  video.muted = true;
+  video.currentTime = 1;
+  video.playbackRate = 0.5;
+  video.play();
+}
+
+function stopPreview() {
+  video.currentTime = 0;
+  video.playbackRate = 1;
+  video.pause();
+}
+
+let previewTimeout = null;
+
+video.addEventListener("mouseenter", () => {
+  startPreview();
+  previewTimeout = setTimeout(stopPreview, 4000);
+});
+
+video.addEventListener("mouseleave", () => {
+  clearTimeout(previewTimeout);
+  previewTimeout = null;
+  stopPreview();
+});
+
+	</script>
 	 <script src='//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js'></script>
