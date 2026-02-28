@@ -192,11 +192,39 @@ span.i {
     color: #fff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
 }
+.container {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
 
+}
+.imageBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.imageAfter {
+  width: 0;
+  transition: 2s;
+  overflow: hidden;
+}
+.container:hover .imageAfter {
+  width: 100%;
+}
 	</style> 
 	</head><body>
-	  <div align="center" style="position: relative; top: 0px;"> 
-			<img src="files/logo.png" alt="NADIR JEWELRY USA" width="130" height="130"></div>
+<div class="container">
+  <div class="imageBox imageBefore">
+				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
+ </div>
+  <div class="imageBox imageAfter">
+
+<img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
+		  </div>
+</div>
 	<br/>
 	<div align="center"><font size="1" color="#f0d8a9" face="verdana">HAND MADE CUSTOM GOLD & SILVER JEWELRY</font></div>
 	<br/>
