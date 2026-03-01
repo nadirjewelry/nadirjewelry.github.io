@@ -657,7 +657,7 @@ body {
             
 			  <div style="position: relative; top: 0px; left: 0px; color: #FFD18D;"> 		  
 				  
-    <image src="files/logo1.png" width="200" height="200"/>
+    <image src="files/logo1.png" width="200" height="200" id="clickableImage"/>
 
 			</div>
 			
@@ -683,7 +683,18 @@ body {
 
   </div>
 </div>
-  
+  <script>
+// Select the image element by its ID
+const imageElement = document.getElementById('clickableImage');
+
+// Add a 'click' event listener
+imageElement.addEventListener('click', function() {
+    // Code to execute when the image is clicked
+    alert('Image clicked!');
+    // Example: redirect to another page
+    // window.location.href = 'https://nadirjewelry.com'; 
+});
+</script>
     <script id="rendered-js" >
 const card = document.querySelector(".card");
 
