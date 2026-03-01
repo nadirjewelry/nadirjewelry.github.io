@@ -192,9 +192,7 @@ span.i {
     color: #fff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
 }
-	.popup-gallery{
-  text-align:center
-}
+
 .container {
   position: absolute;
   top: 15%;
@@ -217,10 +215,7 @@ span.i {
 .container:hover .imageAfter {
   width: 100%;
 }
-	video {
-  pointer-events: none;
 
-}
 	</style> 
 
 	</head><body>
@@ -237,7 +232,7 @@ span.i {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130" onclick="openVideoPopup('VIDEO_ID_HERE')" style="cursor: pointer;">
 	  <div id="video-popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;">
   <div id="video-popup-container" style="position: relative;">
-    <span onclick="closeVideoPopup()" style="position: absolute; top: 25px; right: -20px; ">&times;</span>
+    <span onclick="closeVideoPopup()" style="position: absolute; top: 30px; right: -20px; ">&times;</span>
 <iframe id="video-iframe" width="420" height="236" src="" muted="1" loop="1" frameborder="0" controls="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
   </div>
@@ -262,25 +257,12 @@ span.i {
 function openVideoPopup(videoId) {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
-  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?muted&loop&autoplay=1`;
+  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?autoplay=1`;
   overlay.style.display = 'flex';
   // Optional: hide scrollbar on body
   document.body.style.overflow = 'hidden'; 
-	if (videoElement) {
-    // Hide controls by default
-    videoElement.controls = false;
-
-    // Show controls on mouseover
-    videoElement.addEventListener('mouseover', function() {
-        this.controls = true;
-    }, false);
-
-    // Hide controls on mouseout
-    videoElement.addEventListener('mouseout', function() {
-        this.controls = false;
-    }, false);
 }
-		
+
 function closeVideoPopup() {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
@@ -294,7 +276,6 @@ document.getElementById('video-popup-overlay').addEventListener('click', functio
   if (event.target === this) {
     closeVideoPopup();
   }
-	
 });
 
 </script>
