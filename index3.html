@@ -220,6 +220,9 @@ span.i {
 	video {
   pointer-events: none;
 }
+	video::-webkit-media-controls {
+  display: none;
+}
 	</style> 
 
 	</head><body>
@@ -236,8 +239,8 @@ span.i {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130" onclick="openVideoPopup('VIDEO_ID_HERE')" style="cursor: pointer;">
 	  <div id="video-popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;">
   <div id="video-popup-container" style="position: relative;">
-    <span onclick="closeVideoPopup()" style="position: absolute; top: 20px; right: -20px; color: white; cursor: pointer; font-size: 24px;">&times;</span>
-    <iframe id="video-iframe" width="420" height="236" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <span onclick="closeVideoPopup()" style="position: absolute; top: 25px; right: -20px; color: white; cursor: pointer; font-size: 24px;">&times;</span>
+    <iframe id="video-iframe" width="420" height="236" src="" frameborder="0" controls="false" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
 </div>
 		  </div>
@@ -255,6 +258,21 @@ span.i {
 	<br/>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script>
+	//For Firefox we have to handle it in JavaScript 
+var vids = $("video"); 
+$.each(vids, function(){
+       this.controls = false; 
+}); 
+//Loop though all Video tags and set Controls as false
+
+$("video").click(function() {
+  //console.log(this); 
+  if (this.paused) {
+    this.play();
+  } else {
+    this.pause();
+  }
+	
 function openVideoPopup(videoId) {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
