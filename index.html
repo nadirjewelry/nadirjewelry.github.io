@@ -214,6 +214,47 @@ span.i {
 .container:hover .imageAfter {
   width: 100%;
 }
+	.glowing-text span {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
+}
+
+@keyframes glowing {
+  0% {
+    filter: drop-shadow(0 0 1px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    opacity: 1;
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5215686275)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.0431372549));
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 2px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    opacity: 1;
+  }
+}
+@keyframes colorChange {
+  0% {
+    color: #d4af37;
+  }
+  33% {
+    color: #ffffff;
+  }
+  66% {
+    color: #deff67;
+  }
+  100% {
+    color: #d4af37;
+  }
+}
+	  .half-space {
+    /* 0.5em is typically half the height of the current font size */
+    margin-bottom: 0.5em; 
+    display: block; /* Ensures the margin is applied correctly */
+  }
 	</style> 
 	</head><body>
 <div class="container">
@@ -225,11 +266,8 @@ span.i {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
 </div>
-	<br/>
-	<div align="center"><font size="1" color="#f0d8a9" face="verdana">HAND MADE CUSTOM GOLD & SILVER JEWELRY</font></div>
-	<br/>
-	<div align="center"><font size="1" color="#4b2432" face="verdana">...</font></div>
-	<br/>
+
+	<p class="half-space"></p><div id="root"></div><p class="half-space"></p>
 <h2 data-gold="#NadirJewelry">#NadirJewelry</h2>
 <h2 data-silver="Nadir Jewelry">Nadir Jewelry</h2>
 	<br/><br/>
@@ -237,6 +275,30 @@ span.i {
 	<br/>
 	<br/>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
+    <script id="rendered-js" >
+const GlowingText = ({ text }) => {
+  const letters = typeof text === 'string' ? text.split('') : [];
+
+  return /*#__PURE__*/(
+    React.createElement("div", { className: "glowing-text" },
+    letters.map((letter, index) => /*#__PURE__*/
+    React.createElement("span", {
+      key: index,
+      style: { animationDelay: `${index * 0.3}s`, marginRight: letter === ' ' ? '0' : '0.2em' } },
+
+    letter === ' ' ? '\u00A0' : letter))));
+
+
+
+
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
+//# sourceURL=pen.js
+  </script>
 </body>
 
 </html>
