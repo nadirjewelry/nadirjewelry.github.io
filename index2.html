@@ -238,7 +238,8 @@ span.i {
 	  <div id="video-popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;">
   <div id="video-popup-container" style="position: relative;">
     <span onclick="closeVideoPopup()" style="position: absolute; top: 25px; right: -20px; ">&times;</span>
-    <iframe id="video-iframe" width="420" height="236" src="" frameborder="0" controls="false" allow="autoplay; fullscreen" allowfullscreen></iframe>
+   <video autoplay loop muted> <iframe id="video-iframe" width="420" height="236" src="" frameborder="0" controls="false" allow="autoplay; fullscreen" allowfullscreen></iframe>
+	   Your browser does not support the video tag.</video>
   </div>
 </div>
 		  </div>
@@ -277,12 +278,12 @@ $("video").click(function() {
 function openVideoPopup(videoId) {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
-  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?autoplay=1&controls=0`;
+  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?muted&loop&autoplay=1`;
   overlay.style.display = 'flex';
   // Optional: hide scrollbar on body
   document.body.style.overflow = 'hidden'; 
 }
-
+		
 function closeVideoPopup() {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
@@ -296,6 +297,19 @@ document.getElementById('video-popup-overlay').addEventListener('click', functio
   if (event.target === this) {
     closeVideoPopup();
   }
+	// Get the video element by its ID
+const videoElement = document.getElementById('video-iframe');
+
+// Function to hide the controls
+function hideControls() {
+    if (videoElement) {
+        videoElement.removeAttribute('controls');
+    }
+}
+
+// Call the function to hide the controls on page load or at any other time
+hideControls();
+	
 });
 
 </script>
