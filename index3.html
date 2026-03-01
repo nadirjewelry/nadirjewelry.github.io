@@ -192,6 +192,9 @@ span.i {
     color: #fff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
 }
+	.popup-gallery{
+  text-align:center
+}
 .container {
   position: absolute;
   top: 15%;
@@ -215,17 +218,25 @@ span.i {
   width: 100%;
 }
 	</style> 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
 	</head><body>
+	
+	
+	
 <div class="container">
   <div class="imageBox imageBefore">
+	
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
  </div>
   <div class="imageBox imageAfter">
 
-<a class="popup-youtube" href="https://www.youtube.com/embed/GvAMrelC9_s?si=RdZjhizXViGCY7iB?autoplay=1"><img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
+<img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130" onclick="openVideoPopup('VIDEO_ID_HERE')" style="cursor: pointer;">
+	  <div id="video-popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;">
+  <div id="video-popup-container" style="position: relative;">
+    <span onclick="closeVideoPopup()" style="position: absolute; top: -20px; right: -20px; color: white; cursor: pointer; font-size: 24px;">&times;</span>
+    <iframe id="video-iframe" width="560" height="315" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
 		  </div>
 </div>
 	<br/>
@@ -241,16 +252,30 @@ span.i {
 	<br/>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script>
-$(function() {
-    $('.popup-youtube, .popup-vimeo').magnificPopup({
-        disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false
-    });
+function openVideoPopup(videoId) {
+  const overlay = document.getElementById('video-popup-overlay');
+  const iframe = document.getElementById('video-iframe');
+  iframe.src = `https://www.youtube.com{x7qGBX1S7uY}?autoplay=1`;
+  overlay.style.display = 'flex';
+  // Optional: hide scrollbar on body
+  document.body.style.overflow = 'hidden'; 
+}
+
+function closeVideoPopup() {
+  const overlay = document.getElementById('video-popup-overlay');
+  const iframe = document.getElementById('video-iframe');
+  iframe.src = ''; // Stop video playback
+  overlay.style.display = 'none';
+  document.body.style.overflow = 'auto'; // Restore scrollbar
+}
+
+// Close popup if the overlay area (but not the video container itself) is clicked
+document.getElementById('video-popup-overlay').addEventListener('click', function(event) {
+  if (event.target === this) {
+    closeVideoPopup();
+  }
 });
+
 </script>
 </body>
 
