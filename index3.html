@@ -217,6 +217,9 @@ span.i {
 .container:hover .imageAfter {
   width: 100%;
 }
+	video {
+  pointer-events: none;
+}
 	</style> 
 
 	</head><body>
@@ -255,7 +258,7 @@ span.i {
 function openVideoPopup(videoId) {
   const overlay = document.getElementById('video-popup-overlay');
   const iframe = document.getElementById('video-iframe');
-  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?autoplay=1`;
+  iframe.src = `https://nadirjewelry.com/files/nvid.mp4?autoplay=1&controls=0`;
   overlay.style.display = 'flex';
   // Optional: hide scrollbar on body
   document.body.style.overflow = 'hidden'; 
