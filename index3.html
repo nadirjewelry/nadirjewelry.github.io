@@ -368,6 +368,60 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
 //# sourceURL=pen.js
   </script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src='https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'></script>
+    <script>
+const defaultItemCount = 7;
+const itemWidth = 130;
+
+const wrapper = document.getElementById("InfiniteScrollWrapper");
+const content = document.getElementById("InfiniteScroll");
+
+const manageChildren = childCount => {
+  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
+    content.removeChild(content.lastChild);
+  }window.CP.exitedLoop(0);
+
+  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
+    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
+      const clone = content.children[j].cloneNode(true);
+      content.appendChild(clone);
+    }window.CP.exitedLoop(2);
+  }window.CP.exitedLoop(1);
+
+  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
+};
+
+const core = width => {
+  if (width <= 1920) {
+    manageChildren(2);
+  } else if (width <= 2560) {
+    manageChildren(3);
+  } else if (width <= 3840) {
+    manageChildren(4);
+  } else {
+    manageChildren(8);
+  }
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, delay);
+  };
+};
+
+const handleResize = debounce(() => core(window.innerWidth), 600);
+
+window.addEventListener("load", () => {
+  core(window.innerWidth);
+});
+
+window.addEventListener("resize", handleResize);
+//# sourceURL=pen.js
+  </script>	
 </body>
 
 </html>
