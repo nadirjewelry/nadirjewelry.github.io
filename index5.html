@@ -265,29 +265,79 @@ span.i {
   }
 .div-space { margin-bottom: 40px; }
   }
-	    .img-expand{
-  width:20%;
-  height:200px;
-  background-color: blue;
-  margin-right: -2.5px;
-  margin-left: -2.5px;
-  padding-right: 0px;
-  padding-left: 0px;
-  object-fit: cover !important;
-  
+.scroll-container {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
 }
 
-#img-container {
-  width: 70%;
+.scroll-container .infinite-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-content {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  animation: scroll 100s linear infinite;
+  width: 100%;
+  gap: 16px;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-items {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.infinite-scroll-items .item-wrap {
+  position: relative;
+  min-width: 238px;
+  height: 315px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.item-wrap img {
+  width: 100%;
   height: 100%;
-  margin: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-wrap .text {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  color: #fff;
+  font-weight: 500;
+}
+
+.item-wrap:hover img {
+  transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .infinite-scroll-wrapper:hover .infinite-scroll-content {
+    animation-play-state: paused;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 	</style>   
 
-  
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-f07739098a39bd4e74ddd974652dac904146f33fdc1ecab356e8c809a05faccb.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-100b2a29d7a68d0f5c9eb0b3f9e63783410ea00dcab106def20a0ab3cf4a8804.js"></script>
-<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
 	<script>
   window.console = window.console || function(t) {};
 </script>
@@ -311,11 +361,30 @@ span.i {
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/>
 	<br/>
-  <div id="img-container">
-    <img src="files/logomix.png" class=" img-expand" width="90" height="90">
-    <img src="files/logomix1.png" class=" img-expand" width="90" height="90">
-    <img src="files/logomix.png" class=" img-expand" width="90" height="90">   
-  </div>
+<div class="scroll-container">
+	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
+		<div id="InfiniteScroll" class="infinite-scroll-content">
+			<div class="infinite-scroll-items">
+				<div class="item-wrap">
+					<img src="https://i.pinimg.com/736x/62/95/68/629568699f7d80b6e53d31277a150f85.jpg" />
+					<span class="text">SYNK : Parallel Line</span>
+				</div>
+				<div class="item-wrap">
+					<img src="https://i.pinimg.com/736x/6f/1f/43/6f1f439f6bf10c97dfd9450be2ca1f0a.jpg" />
+					<span class="text">MAMA 2024</span>
+				</div>
+				<div class="item-wrap">
+					<img src="https://i.pinimg.com/736x/f6/ca/4e/f6ca4e472a169c12eef87d0be64a6673.jpg" />
+					<span class="text">K-Flow Concert</span>
+				</div>
+				<div class="item-wrap">
+					<img src="https://i.pinimg.com/736x/79/5b/1f/795b1ffa7ab8ffb0abb4ee0bcd7c463d.jpg" />
+					<span class="text">INGALIVE UNI-CON</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<h3 data-silver="GALLERY">GALLERY</h3>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
@@ -344,80 +413,59 @@ root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE 
   </script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
+<script src='https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'></script>
     <script>
-jQuery(document).ready(function() {
-  var imgs = jQuery('img-expand').children();
-  var contWidth = jQuery('#img-container').width();
-  
-  
-  var bigWidth = 30;
-  var smallWidth = (100 - bigWidth) / (imgs.length);
-  var mouseSmalLWidth = (100/imgs.length - 1);
-  var normalWidth = (100/ imgs.length);
-  // var smallWidth =  (contWidth - bigWidth) / (imgs.length - 1);
-  
-  console.log(smallWidth);
-  console.log(bigWidth);
-  // console.log(imgs.length);
-  // console.log(contWidth);
-  
-  jQuery('.img-expand').mouseover(function() {
-    jQuery(this).stop().animate({
-      // width: bigWidth+'%'
-      width: '40%'
-    }, 300);
-    
-    jQuery(this).siblings().stop().animate( {
-      // width: smallWidth+'%'
-      width: '15%'
-    }, 300);
-    
-  })
-  
-  jQuery('.img-expand').mouseout(function(){
-    jQuery(this).stop().animate({
-      // width: smallWidth+'%'
-      width: '20%'
-    }, 300);
-    jQuery(this).siblings().stop().animate( {
-      // width: smallWidth+'%'
-      width: '20%'
-    }, 300);
-  })
-  
-  
+const defaultItemCount = 7;
+const itemWidth = 238;
+
+const wrapper = document.getElementById("InfiniteScrollWrapper");
+const content = document.getElementById("InfiniteScroll");
+
+const manageChildren = childCount => {
+  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
+    content.removeChild(content.lastChild);
+  }window.CP.exitedLoop(0);
+
+  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
+    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
+      const clone = content.children[j].cloneNode(true);
+      content.appendChild(clone);
+    }window.CP.exitedLoop(2);
+  }window.CP.exitedLoop(1);
+
+  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
+};
+
+const core = width => {
+  if (width <= 1920) {
+    manageChildren(2);
+  } else if (width <= 2560) {
+    manageChildren(3);
+  } else if (width <= 3840) {
+    manageChildren(4);
+  } else {
+    manageChildren(8);
+  }
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, delay);
+  };
+};
+
+const handleResize = debounce(() => core(window.innerWidth), 300);
+
+window.addEventListener("load", () => {
+  core(window.innerWidth);
 });
 
-
-
-// jQuery(document).ready(function() {
-// 	jQuery('.img-expand').mouseover(function() {
-//     jQuery(this).clearQueue();
-// 		jQuery(this).stop().animate({
-// 			width: '250px' //expand to larger width
-// 		});
-//     jQuery(this).stop().siblings().animate({
-//       width: '30px'
-//     });
-//     // jQuery('.img-collapse').animate({
-//     //   width: '50px'
-//     // });
-// 	})
-
-// 	jQuery('.img-expand').mouseout(function() {
-//     jQuery(this).clearQueue();
-// 		jQuery(this).stop().animate({
-// 			width: '100px' // Back to original width
-// 		})
-// 		jQuery(this).stop().siblings().animate({
-// 			width: '100px' // Back to original width
-// 		})
-// 		// jQuery('.img-collapse').animate({
-// 		// 	width: '100px' // Back to original width
-// 		// })
-// 	})
-// });
+window.addEventListener("resize", handleResize);
+//# sourceURL=pen.js
   </script>
+
 </body>
 
 </html>
