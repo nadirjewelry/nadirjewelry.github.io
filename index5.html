@@ -266,6 +266,23 @@ span.i {
   }
 .div-space { margin-bottom: 40px; }
   }
+	.box {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  background: #888;
+  float: left;
+}
+
+.box:hover {
+  background: #999;
+  cursor: pointer;
+}
+
+.box.large {
+  background: #084;
+  z-index: 2;
+}
 	</style>   <script>
   window.console = window.console || function(t) {};
 </script>
@@ -289,21 +306,17 @@ span.i {
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/>
 	<br/>
-	<div>
-<a href="javascript:void(0)">
-  <img src="files/logomix1.png" width="20" height="20" />
-</a><a href="javascript:void(0)">
-  <img src="files/logomix.png" width="20" height="20" />
-</a><a href="javascript:void(0)">
-  <img src="files/logomix1.png" width="20" height="20" />
-</a><a href="javascript:void(0)">
-  <img src="files/logomix.png" width="20" height="20" />
-</a><a href="javascript:void(0)">
-  <img src="files/logomix1.png" width="20" height="20" />
-</a><a href="javascript:void(0)">
-  <img src="files/logomix.png" width="20" height="20" />
-</a>
-	</div>
+<div id="container1">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+
+</div>
 	<h3 data-silver="GALLERY">GALLERY</h3>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
@@ -330,46 +343,30 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
 //# sourceURL=pen.js
   </script>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script id="rendered-js" >
-$(document).ready(function () {
 
-  // loop through each image that is a link
-  $('a img').each(function () {
+    <script>
+$(function(){
 
-    // wrap the image link in a div
-    $(this).parent().wrap('<div class="img-link-wrapper" style="display: inline-block; text-align: center;"></div>');
+              var $container = $('#container1');
 
-    // set the height of the div to the height of the image
-    var imgHeight = $(this).height();
-    var imgWidth = $(this).width();
-    $(this).parents('div.img-link-wrapper').
-    css({ 'height': imgHeight,
-      'width': imgWidth });
+              var reMasonry = function() {
+                $container.masonry();
+              };
 
+              // trigger masonry
+              $container.masonry({
+                columnWidth: 300,
+                animate: true
+              });
 
-    // set the rest of the initial css
-    $(this).css({ 'height': '94%',
-      'width': 'auto',
-      'margin': '94% 0' });
-
-
-  });
-
-  // set up a .hovered class
-  $('body').append('<style>img.img-link-hovered{ margin-top: 0 !important; margin-bottom: 0 !important; height: 100% !important; }</style>');
-
-  // add/remove the class on hover
-  $('a img').hover(
-  function () {
-    $(this).addClass('img-link-hovered');
-  }, function () {
-    $(this).removeClass('img-link-hovered');
-  });
-
-
-});
-//# sourceURL=pen.js
+              $('.box').click(function(){
+                var $this = $(this),
+                    size = $this.hasClass('large') ?
+                      { width: 90, height: 90 } :
+                      { width: 290, height: 290 };
+                $this.toggleClass('large').animate( size, reMasonry );
+              });
+            });
   </script>
 </body>
 
