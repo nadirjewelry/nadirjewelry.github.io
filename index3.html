@@ -255,6 +255,11 @@ span.i {
     margin-bottom: 0.5em; 
     display: block; /* Ensures the margin is applied correctly */
   }
+	.my-container {
+  height: 200px; /* Sets a fixed height of 200 pixels */
+  width: 100%; /* Sets a responsive width of 50% of its parent container */
+  background-color: silver; /* Optional: adds a background color to make it visible */
+}
 .scroll-container {
   height: 100svh;
   display: flex;
@@ -343,7 +348,7 @@ span.i {
 	<br/>
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/>
-	<div class="scroll-container">
+	<div class="my-container"><div class="scroll-container">
 	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
 		<div id="InfiniteScroll" class="infinite-scroll-content">
 			<div class="infinite-scroll-items">
@@ -378,10 +383,11 @@ span.i {
 			</div>
 		</div>
 	</div>
-</div>
+</div></div>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
+	
     <script id="rendered-js" >
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];
@@ -447,7 +453,7 @@ const debounce = (func, delay) => {
   };
 };
 
-const handleResize = debounce(() => core(window.innerWidth), 600);
+const handleResize = debounce(() => core(window.innerWidth), 300);
 
 window.addEventListener("load", () => {
   core(window.innerWidth);
