@@ -283,7 +283,22 @@ span.i {
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/>
 	<br/>
-	<h3 data-silver="GALLERY"><a class="link2" href="https://nadirjewelry.com">G</a><a class="link2" href="https://nadirjewelry.com">A</a>LLERY</h3>
+	<div>
+<a href="javascript:void(0)">
+  <img src="files/logomix1.png" width="20" height="20" />
+</a><a href="javascript:void(0)">
+  <img src="files/logomix.png" width="20" height="20" />
+</a><a href="javascript:void(0)">
+  <img src="files/logomix1.png" width="20" height="20" />
+</a><a href="javascript:void(0)">
+  <img src="files/logomix.png" width="20" height="20" />
+</a><a href="javascript:void(0)">
+  <img src="files/logomix1.png" width="20" height="20" />
+</a><a href="javascript:void(0)">
+  <img src="files/logomix.png" width="20" height="20" />
+</a>
+	</div>
+	<h3 data-silver="GALLERY">GALLERY</h3>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts"><font size="2" color="#4b2432" face="verdana">&ensp;WATCH CONTACTS&ensp;</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
@@ -309,6 +324,45 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
 //# sourceURL=pen.js
   </script>
+	<script>
+	$(document).ready(function(){
+
+   // loop through each image that is a link
+   $( 'a img' ).each(function(){
+
+      // wrap the image link in a div
+      $( this ).parent().wrap( '<div class="img-link-wrapper" style="display: inline-block; text-align: center;"></div>' );
+
+      // set the height of the div to the height of the image
+      var imgHeight = $( this ).height();
+      var imgWidth = $( this ).width();
+      $( this ).parents( 'div.img-link-wrapper' )
+        .css({ 'height' : imgHeight,
+               'width' : imgWidth     
+             });
+     
+      // set the rest of the initial css
+     $( this ).css({ 'height' : '94%',
+                     'width' : 'auto',
+                     'margin' : '3% 0'
+                   });
+     
+   });
+
+   // set up a .hovered class
+   $( 'body' ).append( '<style>img.img-link-hovered{ margin-top: 0 !important; margin-bottom: 0 !important; height: 100% !important; }</style>' );
+
+   // add/remove the class on hover
+   $( 'a img' ).hover(
+     function() {
+     $( this ).addClass( 'img-link-hovered' );
+     }, function() {
+       $( this ).removeClass( 'img-link-hovered' );
+     }
+   );
+
+});
+	</script>
 </body>
 
 </html>
