@@ -273,9 +273,8 @@ span.i {
 .div-space { margin-bottom: 130px; }
   }
 .scroll-container {
-  height: 100%;
+  height: 100svh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #121212;
@@ -311,6 +310,7 @@ span.i {
   overflow: hidden;
 }
 
+
 .item-wrap img {
   width: 100%;
   height: 100%;
@@ -331,7 +331,7 @@ span.i {
   transform: scale(1.5);
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 100%) {
   .infinite-scroll-wrapper:hover .infinite-scroll-content {
     animation-play-state: paused;
   }
