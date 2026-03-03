@@ -658,7 +658,7 @@ body {
         <div class="social-icon-group">
 <div style="position: relative; top: 0px; left: 0px; color: #FFD18D;"> 
             
-			<iframe style="position: absolute;top: 0;left: 0;width: 200px;height: 200px;" src="files/logo1.png" scrolling="no" allow="autoplay" frameborder="0"></iframe>
+			<iframe id="myIframe" name="myIframe" style="position: relative;top: 0;left: 0;width: 200px;height: 200px;" src="files/logo1.png" scrolling="no" allow="autoplay" frameborder="0"></iframe>
 
 
 			</div>
@@ -685,7 +685,13 @@ body {
 
   </div>
 </div>
-  
+<script>
+function changeIframeSrc(url) {
+  document.getElementById('myIframe').src = url;
+}
+</script>
+  <a href="javascript:void(0);" onclick="changeIframeSrc('https://nanirjewelry.com/');">1</a>
+<a href="javascript:void(0);" onclick="changeIframeSrc('https://www.example.com/page2.html');">2</a>
     <script id="rendered-js" >
 const card = document.querySelector(".card");
 
