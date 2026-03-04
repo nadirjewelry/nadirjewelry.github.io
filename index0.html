@@ -547,7 +547,46 @@ span.i {
         background-position: top left;
     }
 }
-	.golden-grad-shad {
+footer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    font-size: 27px;
+}
+
+@media (orientation: portrait) {
+    footer {
+        bottom: 55px;
+    }
+    #logo-container {
+        top: 25%;
+    }
+
+}
+
+@media (orientation: landscape) {
+    footer {
+        bottom: 20px;
+    }
+     #logo-container {
+        top: 15%;
+    }
+}
+
+footer a {
+    text-align: center;
+}
+
+footer i {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+    margin-left: 3px;
+
+}
+
+.golden-grad-shad {
     color: transparent;
     box-shadow: 0 0 0 #f9a446;
     background: #E0AE7B;
@@ -568,6 +607,11 @@ span.i {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+
+@media (min-width: 768px) {
+    #static-bg {
+        background: url('files/bg.jpg') no-repeat center center / cover fixed;
+    }
 
 .golden-color .path1:before,
 .golden-color .path2:before,
@@ -706,7 +750,7 @@ span.i {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Puts the background at a lower stacking order */
+    z-index: 1; /* Puts the background at a lower stacking order */
     /* Add your animation styles here */
 }
 
@@ -716,7 +760,7 @@ span.i {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Puts the content at a higher stacking order (any value > 1) */
+    z-index: 10; /* Puts the content at a higher stacking order (any value > 1) */
     /* Add styles for your content, such as centering or padding */
     display: flex;
     justify-content: center;
