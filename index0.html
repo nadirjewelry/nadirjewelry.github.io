@@ -706,7 +706,7 @@ span.i {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Puts the background at a lower stacking order */
+    z-index: -1; /* Puts the background at a lower stacking order */
     /* Add your animation styles here */
 }
 
@@ -716,7 +716,7 @@ span.i {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10; /* Puts the content at a higher stacking order (any value > 1) */
+    z-index: 1; /* Puts the content at a higher stacking order (any value > 1) */
     /* Add styles for your content, such as centering or padding */
     display: flex;
     justify-content: center;
