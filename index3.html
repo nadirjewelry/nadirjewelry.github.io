@@ -45,14 +45,14 @@
 body {
     margin: 0;
     display: flex;
-	  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
+	overflow: hidden;
+	box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
 
 }
 
 canvas {
-    display: flex;
-    vertical-align: bottom;
     position: relative;
+	overflow: hidden;
 
 }
 
@@ -266,7 +266,7 @@ a {
 }
 .container {
   position: absolute;
-  top: 0;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 130px;
