@@ -46,7 +46,14 @@ body {
     display: flex;
 	overflow: hidden;
 	box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
-
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ background-image: url("/files/bg.jpg");
+            background-repeat: no-repeat; /* Prevents the image from tiling */
+            background-size: cover; /* Ensures the image covers the entire body */
+	 /* Use vh for reliable viewport height on mobile devices */
+	    background-position: center; /* Centers the image within the element */
 }
 
 canvas {
@@ -242,18 +249,6 @@ a {
     border: 1px dotted white;
 }
 
-#central-container {
-    display: table;
-    margin: 0;
-    position: initial;
-    text-align: center;
-}
-#next-container {
-    display: table;
-    margin-top: 20%;
-    position: initial;
-    text-align: center;
-}
 .not-selectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -682,7 +677,7 @@ h3 {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
 </div>
-    	
+		</div></div>	
         <div id="static-bg"></div>
 		
 		
