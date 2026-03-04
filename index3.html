@@ -377,7 +377,14 @@ a {
     -webkit-animation-delay: 0.15s; /* Safari 4.0 - 8.0 */
     animation-delay: 0.15s;
 }
-
+#text-container {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    -webkit-animation-delay: 0.15s; /* Safari 4.0 - 8.0 */
+    animation-delay: 0.15s;
+}
 .golden-grad-shad {
     color: transparent;
     box-shadow: 0 0 0 #f9a446;
@@ -449,9 +456,7 @@ a {
     display: block; /* Ensures the margin is applied correctly */
   }
 .div-container {  
-	width: 50%;
-	top: 55%;
-    left: 50%;
+	width: 100%;
 	margin-bottom: 40px; }
   }
 	.child {
@@ -657,9 +662,9 @@ h3 {
 
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
-	<div class="div-container">
-		<div class="child">
-			 <h3 data-gold=""><div id="root"></div></h3><p class="half-space"></p></div></div>
+	<div id="text-container">
+		
+			 <h3 data-gold=""><div id="root"></div></h3><p class="half-space"></p></div>
 </div>
 </div>
 </div>				
