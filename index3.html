@@ -25,18 +25,11 @@
  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
 <link rel='stylesheet' href='https://use.typekit.net/bgy2xqh.css'>
   
-
-	  <style>
+<style>
 body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
-  margin: 0;
+    margin: 0;
+    font: normal 75% museo-sans Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 canvas {
@@ -334,7 +327,64 @@ a {
     }
 }
 
+#coming-soon {
+    -webkit-animation-delay: 0.7s; /* Safari 4.0 - 8.0 */
+    animation-delay: 0.7s;
+}
 
+#logo-container {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    -webkit-animation-delay: 0.15s; /* Safari 4.0 - 8.0 */
+    animation-delay: 0.15s;
+}
+
+#social-icons {
+    display: inline-table;
+    -webkit-animation-delay: 0.75s; /* Safari 4.0 - 8.0 */
+    animation-delay: 0.75s;
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+    font-size: 27px;
+}
+
+@media (orientation: portrait) {
+    footer {
+        bottom: 55px;
+    }
+    #logo-container {
+        top: 25%;
+    }
+
+}
+
+@media (orientation: landscape) {
+    footer {
+        bottom: 20px;
+    }
+     #logo-container {
+        top: 15%;
+    }
+}
+
+footer a {
+    text-align: center;
+}
+
+footer i {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+    margin-left: 3px;
+
+}
 
 .golden-grad-shad {
     color: transparent;
@@ -364,15 +414,291 @@ a {
 .golden-color .path4:before {
     color: #E0AE7B;
 }
-	</style> 
-	</head><body>
-	
-    <section style="background: url('/files/bg.jpg') no-repeat center center fixed;"></section>
+
+footer i:before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer i:hover {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+}
+
+i.fa-instagram {
+}
+
+#static-bg {
+    background: url('../Assets/img//bg_mobile.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 950px;
+}
+
+
+
+@media (min-width: 576px) {
+    footer i {
+        font-size: 30px !important;
+        width: 32px;
+        height: 32px !important;
+    }
+
+    #wh-logo {
+        width: 31%;
+    }
+
+    .main-font {
+        font-size: 42px;
+    }
+
+    .shimmer {
+        font-size: 36px;
+    }
+
+    .second-font {
+        font-size: 37px;
+    }
+
+    .tertiary-font {
+        font-size: 12px;
+    }
+    @media (orientation: portrait) {
+        #logo-container {
+            top: 35%;
+        }
+    }
+    @media (orientation: landscape) {
+         #logo-container {
+            top: 27%;
+        }
+    }
+
+}
+
+@media (min-width: 768px) {
+    #static-bg {
+        background: url('../Assets/img//bg.jpg') no-repeat center center / cover fixed;
+    }
+
+    footer {
+        bottom: 50px;
+    }
+
+    footer i {
+        font-size: 35px !important;
+        width: 40px;
+        height: 40px !important;;
+    }
+
+    #wh-logo {
+        width: 11%;
+        height: 34%;
+    }
+
+    .shimmer {
+        font-size: 3em;
+    }
+
+    .main-font {
+        font-size: 48px;
+    }
+
+    .second-font {
+        font-size: 41px;
+    }
+
+    .tertiary-font {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 992px) {
+    footer {
+        bottom: 50px;
+    }
+
+    footer i {
+        font-size: 40px !important;
+        width: 45px;
+        height: 45px !important;;
+    }
+
+    .main-font {
+        font-size: 51px;
+    }
+
+    .shimmer {
+        font-size: 4em;
+    }
+
+    .second-font {
+        font-size: 44px;
+    }
+
+    .tertiary-font {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    footer {
+        bottom: 72px;
+    }
+
+    footer i {
+        font-size: 50px !important;
+        width: 60px;
+        height: 60px !important;
+    }
+
+    .main-font {
+        font-size: 55px;
+    }
+
+    .shimmer {
+        font-size: 4em;
+    }
+
+    .second-font {
+        font-size: 47px;
+    }
+
+    .tertiary-font {
+        font-size: 18px;
+    }
+}
+
+input[type="text"] {
+    font: normal 75% museo-sans Arial, Helvetica, sans-serif;
+    padding: 3px 70px 3px 10px;
+    background: transparent;
+    color: #E0AE7B;
+    border:  rgba(224,174,123,0.8)  solid 2px;
+    width: 250px;
+    font-size: 17px;
+    height: 31px;
+}
+
+input {
+    border-radius: 3px;
+}
+
+input:focus {
+    outline: none !important;
+    border: #D5873F solid 2px;
+    box-shadow: 0 0 10px #D5873F;
+}
+
+input[type="submit"] {
+    font: normal 75% museo-sans Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    margin-left: -80px;
+    width: 80px;
+    border-radius: 0px;
+    height: 38px;
+    box-shadow: 0 0 0 #f9a446;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d5873f+0,f19d45+51,e0ae7b+100 */
+    background: rgb(213,135,63); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(213,135,63,0.8) 0%, rgba(241,157,69,0.7) 51%, rgba(224,174,123,0.8) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(213,135,63,0.8) 0%,rgba(241,157,69,0.7) 51%,rgba(224,174,123,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(213,135,63,0.8) 0%,rgba(241,157,69,1) 51%,rgba(224,174,123,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5873f', endColorstr='#e0ae7b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    color: rgba(4,36,1, 0.85);
+    border: none;
+    -webkit-appearance: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+input[type="text"]:focus ~ input[type="submit"] {
+    color: rgba(4,36,1, 1);
+    background: rgb(213,135,63); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(213,135,63,1) 0%, rgba(241,157,69,1) 51%, rgba(224,174,123,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(213,135,63,1) 0%,rgba(241,157,69,1) 51%,rgba(224,174,123,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(213,135,63,1) 0%,rgba(241,157,69,1) 51%,rgba(224,174,123,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+}
+
+::-webkit-input-placeholder { /* Chrome */
+    color:  rgba(213,135,63,0.65);
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color:  rgba(213,135,63,0.65);
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color:  rgba(213,135,63,0.65);
+    opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color:  rgba(213,135,63,0.65);
+    opacity: 1;
+}
+
+#client-message {
+    font-size: 20px;   
+}
+
+@media (max-width: 768px) {
+    input[type="text"] {
+        padding: 2px 80px 2px 8px;
+        border:  rgba(224,174,123,0.8)  solid 1px;
+        width: 180px;
+        font-size: 15px;
+        height: 31px;
+    }
+
+    input[type="submit"] {
+        font-size: 15px;
+        border-radius: 1px;
+        width: 80px;
+        height: 38px;
+    }
+    #client-message {
+        font-size: 15px;
+        padding: 0px 70px;
+        line-height: 20px; 
+    }
+}
+</style>
 
   
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  
+  
+</head>
+
+<body translate="no">
+  <div class="hide-ie">
+        <div id="particles-js-b"></div>
+        <div id="particles-js-m"></div>
+        <div id="particles-js-f"></div>
+        <div id="particles-js-f-blur-bright"></div>
+        <div id="central-container">
+            <div id="logo-container" class="static-effect animated fadeIn">
+                <img id="wh-logo" src="files/logomix.png" class="" />
+
+            </div>
+        </div>
+    </div>
+
+    <section style="background: url('files/bg.jpg') no-repeat center center fixed;"></section>
+
+    <div class="show-ie">
+        <div id="static-bg"></div>
+    </div>
+
+    <footer>
+                <div id="social-icons" class="animated fadeInUp">
+                    <input data-val="true" data-val-required="The Email field is required." id="Email" name="Email" placeholder="Join our mailing list" type="text" value="">
+                    <input type="submit">
+                    <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                    <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/">
+                </div>
+</footer>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
     <script id="rendered-js" >
 // This is just to auto-update the data-text if you're editing it directly on the page and is not required for the actual effect
@@ -801,80 +1127,7 @@ function detectIE() {
 //# sourceURL=pen.js
   </script>
 
-    <script>
-const GlowingText = ({ text }) => {
-  const letters = typeof text === 'string' ? text.split('') : [];
-
-  return /*#__PURE__*/(
-    React.createElement("div", { className: "glowing-text" },
-    letters.map((letter, index) => /*#__PURE__*/
-    React.createElement("span", {
-      key: index,
-      style: { animationDelay: `${index * 0.3}s`, marginRight: letter === ' ' ? '0' : '0.2em' } },
-
-    letter === ' ' ? '\u00A0' : letter))));
-
-
-
-
-};
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
-//# sourceURL=pen.js
-  </script>
-
-    <script>
-const defaultItemCount = 7;
-const itemWidth = 130;
-
-const wrapper = document.getElementById("InfiniteScrollWrapper");
-const content = document.getElementById("InfiniteScroll");
-
-const manageChildren = childCount => {
-  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
-    content.removeChild(content.lastChild);
-  }window.CP.exitedLoop(0);
-
-  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
-    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
-      const clone = content.children[j].cloneNode(true);
-      content.appendChild(clone);
-    }window.CP.exitedLoop(2);
-  }window.CP.exitedLoop(1);
-
-  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
-};
-
-const core = width => {
-  if (width <= 1920) {
-    manageChildren(2);
-  } else if (width <= 2560) {
-    manageChildren(3);
-  } else if (width <= 3840) {
-    manageChildren(4);
-  } else {
-    manageChildren(8);
-  }
-};
-
-const debounce = (func, delay) => {
-  let timeout;
-  return () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, delay);
-  };
-};
-
-const handleResize = debounce(() => core(window.innerWidth), 300);
-
-window.addEventListener("load", () => {
-  core(window.innerWidth);
-});
-
-window.addEventListener("resize", handleResize);
-//# sourceURL=pen.js
-  </script>	
+  
 </body>
 
 </html>
