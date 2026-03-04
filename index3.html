@@ -26,10 +26,28 @@
 <link rel='stylesheet' href='https://use.typekit.net/bgy2xqh.css'>
   
 <style>
+    @-webkit-keyframes shine {
+  0% {
+    background-position: 110% 0%, 0 0;
+  }
+  100% {
+    background-position: -10% 0%, 0 0;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 110% 0%, 0 0;
+  }
+  100% {
+    background-position: -10% 0%, 0 0;
+  }
+}	
 body {
     margin: 0;
     font: normal 75% museo-sans Arial, Helvetica, sans-serif;
     overflow: hidden;
+	  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
+
 }
 
 canvas {
@@ -690,14 +708,6 @@ input[type="text"]:focus ~ input[type="submit"] {
         <div id="static-bg"></div>
     </div>
 
-    <footer>
-                <div id="social-icons" class="animated fadeInUp">
-                    <input data-val="true" data-val-required="The Email field is required." id="Email" name="Email" placeholder="Join our mailing list" type="text" value="">
-                    <input type="submit">
-                    <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-                    <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/">
-                </div>
-</footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
     <script id="rendered-js" >
