@@ -665,6 +665,38 @@ span.i {
 	  .wide-spacing {
       letter-spacing: 4px;
     }
+	.background-container {
+    position: relative; /* Establishes a positioning context for its children */
+    width: 100%;
+    height: 100vh; /* Make the container fill the full height of the viewport */
+    overflow: hidden; /* Hides any overflow from the animated elements */
+}
+
+.animated-background {
+    position: absolute; /* Positions the background relative to the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Puts the background at a lower stacking order */
+    /* Add your animation styles here */
+}
+
+.content-overlay {
+    position: absolute; /* Positions the content relative to the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Puts the content at a higher stacking order (any value > 1) */
+    /* Add styles for your content, such as centering or padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Example styling for visibility */
+    text-align: center;
+}
+
 	</style>   
 
 	<script>
@@ -674,7 +706,18 @@ span.i {
 <div id="particles-js-b"></div>
         <div id="particles-js-m"></div>
         <div id="particles-js-f"></div>
-        <div id="particles-js-f-blur-bright"></div>		
+        <div id="particles-js-f-blur-bright"></div>	
+	<div class="background-container">
+    <!-- Your animated background element (e.g., video, canvas, or another div with CSS animation) -->
+    <div class="animated-background"></div>
+
+    <!-- The content div you want on top -->
+    <div class="content-overlay">
+        <h1>This div is on top of the animation</h1>
+        <p>You can add any HTML content here.</p>
+    </div>
+</div>
+	
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
