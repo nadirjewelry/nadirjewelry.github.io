@@ -47,8 +47,11 @@ body {
   align-items: center;
   justify-content: center;
 	 background-image: url("/files/b1.jpg");
+	 background-size: cover; /* Ensures the image covers the whole body */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+	transition: background-image 1s ease-in-out; /* Smooth transition */
   background-color: #;
-  background-size: cover;
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
   margin: 0;
 }
@@ -407,6 +410,32 @@ span.i {
 			<font face="Source Sans Pro" color="#d8d8d8">WATCH CONTACTS</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
+	<script>
+	// Array of image paths
+const images = [
+    'b1.jpg',
+    'b2.jpg',
+    'b3.jpg',
+    'n1.jpg'
+];
+
+let index = 0;
+const bodyElement = document.body;
+
+function changeBackground() {
+    // Update the background image URL
+    bodyElement.style.backgroundImage = "url('" + images[index] + "')";
+    
+    // Cycle to the next image
+    index = (index < images.length - 1) ? index + 1 : 0;
+}
+
+// Change background every 3 seconds (3000 milliseconds)
+window.setInterval(changeBackground, 3000); 
+
+// Set the initial background image
+changeBackground();
+	</script>
     <script id="rendered-js" >
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];
