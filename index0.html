@@ -73,7 +73,7 @@ body {
 
 /* Optional: Add a dark overlay to make text more readable */
 .video-background::after {
-  content: '/files/bgv.webm';
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
@@ -391,8 +391,8 @@ span.i {
 	<script>
   window.console = window.console || function(t) {};
 </script>
-	</head><body>
-		
+	</head><body><div class="video-background"><video aria-hidden="true" playsinline="" autoplay="" muted="" loop="" poster="/files/bg1.jpg"> <source src="/files/bgv.webm" type="video/webm"> <source src="/files/bgv.mp4" type="video/mp4"></video></div>
+
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
