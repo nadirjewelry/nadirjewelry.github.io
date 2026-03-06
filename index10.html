@@ -58,37 +58,50 @@ body {
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
   margin: 0;	
 }
- .background-container {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Adjust height as needed */
-    overflow: hidden;
+/* Here Is The CSS For The Background*/
+
+/* An Overlay To Dim The Image And Make Text Readable*/
+#color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #34495e, #2c3e50);
+  opacity: 0.6;
+  z-index: -1;
 }
 
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* Ensures the image covers the element */
-    background-repeat: no-repeat;
-    /* This is the key: transition the opacity property */
-    transition: opacity 1s ease-in-out; /* Adjust duration and timing function */
+/* Setup For An Image That Fits On Most Screens And Resizes*/
+.with-bg-size {
+  background-image: url("/files/bg1.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  
+  
+  -webkit-animation: back 5s infinite; /* Safari 4+ */
+  -moz-animation:    back 5s infinite; /* Fx 5+ */
+  -o-animation:      back 5s infinite; /* Opera 12+ */
+  animation:         back 5s infinite; /* IE 10+, Fx 29+ */
+  
+  
 }
-
-/* Set the default state for the top image */
-#bg-top {
-    opacity: 1;
-    background-image: url('/files/bg1.jpg');
-}
-#bg-middle {
-    opacity: 0; /* Hidden by default, showing the one beneath it */
-    background-image: url('/files/bg4.jpg');
-}	
-#bg-bottom {
-    opacity: 0; /* Hidden by default, showing the one beneath it */
-    background-image: url('/files/bg8.jpg');
+/* The Keyframes*/
+@keyframes back {
+  25% {
+    background-image: url("/files/bg2.jpg");
+  }
+  50% {
+    background-image: url("/files/bg3.jpg");
+  }
+  
+  75%{
+    background-image: url("/files/bg4.jpg");
+  }
+  
+/* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
 }
 
 h1 {
@@ -411,37 +424,6 @@ span.i {
 			<font face="Source Sans Pro" color="#d8d8d8">WATCH CONTACTS</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
-	<script>
-	const bgTop = document.getElementById('bg-top');
-	const bgTop = document.getElementById('bg-middle');	
-const bgBottom = document.getElementById('bg-bottom');
-
-// Function to change the background image
-function changeBackground(newImageUrl) {
-    // 1. Set the new image on the bottom element
-    bgBottom.style.backgroundImage = `url('${newImageUrl}')`;
-	
-	// 2. Fade out the middle element by setting its opacity to 0
-    bgTop.style.opacity = 0;
-
-    // 3. Fade out the top element by setting its opacity to 0
-    bgTop.style.opacity = 0;
-
-    // 4. After the transition is complete, swap the images and reset opacity
-    setTimeout(() => {
-        bgTop.style.backgroundImage = `url('${newImageUrl}')`;
-        bgTop.style.opacity = 1; // Reset opacity to prepare for the next transition
-        // Optional: you might need to adjust this logic based on your specific needs, 
-        // e.g., if you have many images in a sequence.
-    }, 1000); // Duration matches the CSS transition duration
-}
-
-// Example usage (e.g., on a button click or after a delay)
-// document.getElementById('myButton').addEventListener('click', () => {
-//     changeBackground('new-image.jpg');
-// });
-
-	</script>
     <script id="rendered-js" >
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];
