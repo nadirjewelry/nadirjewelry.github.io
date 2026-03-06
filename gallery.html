@@ -5,15 +5,15 @@
 <meta http-equiv="CONTENT-LANGUAGE" content="en-US" />
 <meta http-equiv="Cache-Control" content=" no-cache, pre-check=0, post-check=0"/>
 <meta http-equiv="Expires" content="0" />
-<meta http-equiv="Last-Modified" content="Thursday,  5 March 2026"/>
+<meta http-equiv="Last-Modified" content="Thursday,  26 February 2026"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
-<meta name="Keywords" content="nadirjewelry, nadir jewelry, custom made jewelry, nadirjewelry.com" />
+<meta name="Keywords" content="nadirjewelry, nadir jewelry, nadirjewelry.com" />
 <meta name="Description" content="nadirjewelry.com | Nadir Jewelry LLC" />
 <meta name="ROBOTS" content="INDEX, FOLLOW" />
-<meta name="Copyright" content="Copyright by nadirjewelry.com" />
-<meta name="AUTHOR" content="LLusignan" />
+<meta name="Copyright" content="Copyright by nadirjewelry" />
+<meta name="AUTHOR" content="nadirjewelry" />
 <meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -22,7 +22,7 @@
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 
-	  <style>
+	  <style id="INLINE_PEN_STYLESHEET_ID">
     @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
@@ -46,79 +46,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-     transition: background-image 1s ease-in-out; /* Smooth transition */
-	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
-	/* Other background properties */
-	background-size: cover; /* Ensures the image covers the whole body */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents repeating */
-
-
-  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
-  margin: 0;	
-}
-/* Here Is The CSS For The Background*/
-
-/* An Overlay To Dim The Image And Make Text Readable*/
-#color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom right, #34495e, #2c3e50);
-  opacity: 0.6;
-  z-index: -1;
-}
-
-/* Setup For An Image That Fits On Most Screens And Resizes*/
-.with-bg-size {
-  background-image: url("/files/bg1.jpg");
-  width: 100%;
-  height: 100%;
-  background-position: center;
+  background-color: #006600;
   background-size: cover;
-  
-  
-  -webkit-animation: back 5s infinite; /* Safari 4+ */
-  -moz-animation:    back 5s infinite; /* Fx 5+ */
-  -o-animation:      back 5s infinite; /* Opera 12+ */
-  animation:         back 5s infinite; /* IE 10+, Fx 29+ */
-  
-  
+  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
+  margin: 0;
 }
-/* The Keyframes*/
-@keyframes back {
-  10%{
-    background-image: url("/files/bg2.jpg");
-  }
-  20% {
-    background-image: url("/files/bg3.jpg");
-  }
-  30% {
-    background-image: url("/files/bg4.jpg");
-  }
-  
-  40%{
-    background-image: url("/files/bg5.jpg");
-  }
-   
-  50%{
-    background-image: url("/files/bg6.jpg");
-  }
-	
-  60%{
-    background-image: url("/files/bg7.jpg");
-  }
-  
-  70%{
-    background-image: url("/files/bg8.jpg");
-  }
-	
-/* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
-}
-
 h1 {
   position: relative;
   display: inline-block;
@@ -133,8 +65,8 @@ h2 {
   position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 5vw;
+  font-weight: 200;
+  font-size: 4vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
   margin: 0;
@@ -144,7 +76,7 @@ h3 {
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 100;
-  font-size: 1.5vw;
+  font-size: 1.1vw;
   letter-spacing: 1.0vw;
   text-transform: uppercase;
   margin: 0;
@@ -227,15 +159,19 @@ span.i {
 	
 	/* Link Style 1 */
 .link1 a {
-    color: #4b2432;
+    color: #f0d8a9;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
     text-decoration: none;
-		border-bottom: .125em solid #7C6310;
-		box-shadow: inset 0 -0.125em 0 #7C6310;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
 		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .link1 a:hover {
     box-shadow: inset 0 -1.125em 0 #7C6310;
+	    text-decoration: overline;
     color: #000;
 }
 
@@ -273,7 +209,7 @@ span.i {
 }
 .container {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 130px;
@@ -334,23 +270,89 @@ span.i {
     margin-bottom: 0.5em; 
     display: block; /* Ensures the margin is applied correctly */
   }
-.div-space { margin-bottom: 130px; }
+.div-space { margin-bottom: 10px; }
   }
+.scroll-container {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+}
+
+.scroll-container .infinite-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-content {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  animation: scroll 100s linear infinite;
+  width: 100%;
+  gap: 16px;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-items {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.infinite-scroll-items .item-wrap {
+  position: relative;
+  min-width: 260px;
+  height: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.item-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-wrap .text {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  color: #fff;
+  font-weight: 500;
+}
+
+.item-wrap:hover img {
+  transform: scale(1.5);
+}
+
+@media (max-width: 600px) {
+  .infinite-scroll-wrapper:hover .infinite-scroll-content {
+    animation-play-state: paused;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 	  .wide-spacing {
       letter-spacing: 4px;
     }
-	a:link, a:visited, a:hover, a:active {
-  text-decoration: none;
-}
 	</style>   
 
 	<script>
   window.console = window.console || function(t) {};
 </script>
 	</head><body>
-		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
-
-</div>
+		
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
@@ -360,20 +362,52 @@ span.i {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
 </div>
-<br/>
+<div class="div-space"></div>
 	<p class="half-space"></p><h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
-<h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
-	<h3 data-gold=""><div id="root"></div></h3><p class="half-space"></p>
-	<br/>
-	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
-	<br/><p class="half-space"></p>
 
-	<a href="https://nadirjewelry.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
-	        <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts">
+<div class="scroll-container">
+	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
+		<div id="InfiniteScroll" class="infinite-scroll-content">
+			<div class="infinite-scroll-items">
+				<div class="item-wrap">
+					<img src="files/j1.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j2.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j3.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j4.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j5.png"/>
+					<span class="text"></span>
+				</div>
+								<div class="item-wrap">
+					<img src="files/j6.png"/>
+					<span class="text"></span>
+				</div>
+								<div class="item-wrap">
+					<img src="files/j7.png"/>
+					<span class="text"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<h3 data-silver=" GALLERY"> GALLERY</h3>
+	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
-    <script>
+    <script id="rendered-js" >
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];
 
@@ -393,6 +427,59 @@ const GlowingText = ({ text }) => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
+//# sourceURL=pen.js
+  </script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script>
+const defaultItemCount = 7;
+const itemWidth = 130;
+
+const wrapper = document.getElementById("InfiniteScrollWrapper");
+const content = document.getElementById("InfiniteScroll");
+
+const manageChildren = childCount => {
+  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
+    content.removeChild(content.lastChild);
+  }window.CP.exitedLoop(0);
+
+  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
+    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
+      const clone = content.children[j].cloneNode(true);
+      content.appendChild(clone);
+    }window.CP.exitedLoop(2);
+  }window.CP.exitedLoop(1);
+
+  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
+};
+
+const core = width => {
+  if (width <= 1920) {
+    manageChildren(2);
+  } else if (width <= 2560) {
+    manageChildren(3);
+  } else if (width <= 3840) {
+    manageChildren(4);
+  } else {
+    manageChildren(8);
+  }
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, delay);
+  };
+};
+
+const handleResize = debounce(() => core(window.innerWidth), 600);
+
+window.addEventListener("load", () => {
+  core(window.innerWidth);
+});
+
+window.addEventListener("resize", handleResize);
 //# sourceURL=pen.js
   </script>
 

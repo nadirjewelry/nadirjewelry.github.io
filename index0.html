@@ -22,7 +22,7 @@
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 
-	  <style>
+	  <style id="INLINE_PEN_STYLESHEET_ID">
     @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
@@ -46,54 +46,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-     transition: background-image 1s ease-in-out; /* Smooth transition */
-	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
-	/* Other background properties */
-	background-size: cover; /* Ensures the image covers the whole body */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents repeating */
+  background-color: #006600;
+  background-size: cover;
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
   margin: 0;
 }
-		  .video-background video {
-  position: absolute; /* or 'absolute' if within a specific container */
-  bottom: 0;
-  width: 100%;  /* Set exact width in pixels */
-  height: 100%; /* Set exact height in pixels */
-  left: 50%;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translateY(-50%) translateX(-50%);
-  z-index: -1; /* Sends the video to the background */
-  object-fit: cover; /* Ensures the video covers the entire area without distortion */
-}
-
-
-/* Optional: Add a dark overlay to make text more readable */
-.video-background::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #006600; /* Semi-transparent #006600 overlay */
-  z-index: -1;
-}
-
-/* Optional: Media query for mobile devices, where video backgrounds might be performance-intensive */
-@media (max-width: 768px) {
-  .video-background video {
-    display: none; /* Hide the video on smaller screens */
-  }
-  .video-background {
-    background-image: url('/files/bg1.jpg'); /* Use the fallback image as a static background */
-    background-size: cover;
-    background-position: center;
-  }
-}
-
 h1 {
   position: relative;
   display: inline-block;
@@ -108,8 +65,8 @@ h2 {
   position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 5vw;
+  font-weight: 200;
+  font-size: 4vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
   margin: 0;
@@ -119,7 +76,7 @@ h3 {
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 100;
-  font-size: 1vw;
+  font-size: 1.1vw;
   letter-spacing: 1.0vw;
   text-transform: uppercase;
   margin: 0;
@@ -202,15 +159,19 @@ span.i {
 	
 	/* Link Style 1 */
 .link1 a {
-    color: #4b2432;
+    color: #f0d8a9;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
     text-decoration: none;
-		border-bottom: .125em solid #7C6310;
-		box-shadow: inset 0 -0.125em 0 #7C6310;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
 		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .link1 a:hover {
     box-shadow: inset 0 -1.125em 0 #7C6310;
+	    text-decoration: overline;
     color: #000;
 }
 
@@ -309,7 +270,7 @@ span.i {
     margin-bottom: 0.5em; 
     display: block; /* Ensures the margin is applied correctly */
   }
-.div-space { margin-bottom: 130px; }
+.div-space { margin-bottom: 10px; }
   }
 .scroll-container {
   height: 100svh;
@@ -369,7 +330,7 @@ span.i {
   transform: scale(1.5);
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 600px) {
   .infinite-scroll-wrapper:hover .infinite-scroll-content {
     animation-play-state: paused;
   }
@@ -391,7 +352,7 @@ span.i {
   window.console = window.console || function(t) {};
 </script>
 	</head><body>
-
+		
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
@@ -401,26 +362,55 @@ span.i {
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
 </div>
-<br/>
+<div class="div-space"></div>
 	<p class="half-space"></p><h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
 <h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
 	<h3 data-gold=""><div id="root"></div></h3><p class="half-space"></p>
 	<br/>
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/>
-
+<div class="scroll-container">
+	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
+		<div id="InfiniteScroll" class="infinite-scroll-content">
+			<div class="infinite-scroll-items">
+				<div class="item-wrap">
+					<img src="files/j1.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j2.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j3.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j4.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j5.png"/>
+					<span class="text"></span>
+				</div>
+								<div class="item-wrap">
+					<img src="files/j6.png"/>
+					<span class="text"></span>
+				</div>
+								<div class="item-wrap">
+					<img src="files/j7.png"/>
+					<span class="text"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<h3 data-silver=" GALLERY"> GALLERY</h3>
 	       <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">WATCH CONTACTS</font></a></p></div>
-	
-	<video autoplay muted loop playsinline poster="/files/bg1.jpg" id="video-background">
-  <source src="/files/bgv-1.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
-	
+			<font face="Source Sans Pro" color="#d8d8d8">&#x1F441; WATCH CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
-	
     <script id="rendered-js" >
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];

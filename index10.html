@@ -5,15 +5,15 @@
 <meta http-equiv="CONTENT-LANGUAGE" content="en-US" />
 <meta http-equiv="Cache-Control" content=" no-cache, pre-check=0, post-check=0"/>
 <meta http-equiv="Expires" content="0" />
-<meta http-equiv="Last-Modified" content="Thursday,  26 February 2026"/>
+<meta http-equiv="Last-Modified" content="Thursday,  5 March 2026"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
-<meta name="Keywords" content="nadirjewelry, nadir jewelry, nadirjewelry.com" />
+<meta name="Keywords" content="nadirjewelry, nadir jewelry, custom made jewelry, nadirjewelry.com" />
 <meta name="Description" content="nadirjewelry.com | Nadir Jewelry LLC" />
 <meta name="ROBOTS" content="INDEX, FOLLOW" />
-<meta name="Copyright" content="Copyright by nadirjewelry" />
-<meta name="AUTHOR" content="nadirjewelry" />
+<meta name="Copyright" content="Copyright by nadirjewelry.com" />
+<meta name="AUTHOR" content="LLusignan" />
 <meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -22,7 +22,7 @@
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 
-	  <style id="INLINE_PEN_STYLESHEET_ID">
+	  <style>
     @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
@@ -336,77 +336,6 @@ span.i {
   }
 .div-space { margin-bottom: 130px; }
   }
-.scroll-container {
-  height: 100svh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #121212;
-}
-
-.scroll-container .infinite-scroll-wrapper {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-}
-
-.infinite-scroll-wrapper .infinite-scroll-content {
-  display: flex;
-  flex-direction: row;
-  white-space: nowrap;
-  animation: scroll 100s linear infinite;
-  width: 100%;
-  gap: 16px;
-}
-
-.infinite-scroll-wrapper .infinite-scroll-items {
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  gap: 16px;
-}
-
-.infinite-scroll-items .item-wrap {
-  position: relative;
-  min-width: 130px;
-  height: 130px;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.item-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.item-wrap .text {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 10;
-  color: #fff;
-  font-weight: 500;
-}
-
-.item-wrap:hover img {
-  transform: scale(1.5);
-}
-
-@media (min-width: 1024px) {
-  .infinite-scroll-wrapper:hover .infinite-scroll-content {
-    animation-play-state: paused;
-  }
-}
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 	  .wide-spacing {
       letter-spacing: 4px;
     }
@@ -439,9 +368,9 @@ span.i {
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/><p class="half-space"></p>
 
-	<a href="https://nadirjewelry.com"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
+	<a href="https://nadirjewelry.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div align="center"><p class="link2"><a href="https://nadirjewelry.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">&#x1F441; CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
     <script>
@@ -464,59 +393,6 @@ const GlowingText = ({ text }) => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
-//# sourceURL=pen.js
-  </script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script>
-const defaultItemCount = 7;
-const itemWidth = 130;
-
-const wrapper = document.getElementById("InfiniteScrollWrapper");
-const content = document.getElementById("InfiniteScroll");
-
-const manageChildren = childCount => {
-  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
-    content.removeChild(content.lastChild);
-  }window.CP.exitedLoop(0);
-
-  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
-    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
-      const clone = content.children[j].cloneNode(true);
-      content.appendChild(clone);
-    }window.CP.exitedLoop(2);
-  }window.CP.exitedLoop(1);
-
-  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
-};
-
-const core = width => {
-  if (width <= 1920) {
-    manageChildren(2);
-  } else if (width <= 2560) {
-    manageChildren(3);
-  } else if (width <= 3840) {
-    manageChildren(4);
-  } else {
-    manageChildren(8);
-  }
-};
-
-const debounce = (func, delay) => {
-  let timeout;
-  return () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, delay);
-  };
-};
-
-const handleResize = debounce(() => core(window.innerWidth), 600);
-
-window.addEventListener("load", () => {
-  core(window.innerWidth);
-});
-
-window.addEventListener("resize", handleResize);
 //# sourceURL=pen.js
   </script>
 
