@@ -76,7 +76,7 @@ body {
 
 /* Setup For An Image That Fits On Most Screens And Resizes*/
 .with-bg-size {
-  background-image: url("/files/bg0.jpg");
+  background-image: url("/files/bg1.jpg");
   width: 100%;
   height: 100%;
   background-position: center;
@@ -94,7 +94,7 @@ body {
 @keyframes back {
   
   20%{
-    background-image: url("/files/bg1.jpg");
+    background-image: url("/files/bg0.jpg");
   }
    
   40%{
@@ -589,9 +589,8 @@ h3 {
     color: white; /* Example styling for visibility */
     text-align: center;
 }
-	.sticky-element {
-  position: sticky; /* Toggles between relative and fixed based on scroll */
-  bottom: 10px;      /* Sticks to the bottom when the scroll reaches this point */
+.footer {
+  flex-shrink: 0; /* Prevents the footer from shrinking */
   /* Add other styling */
 }
 </style>
@@ -627,13 +626,13 @@ h3 {
 </div>
 		<h4 data-silver="Nadir HASANOV">Nadir HASANOV</h4>
 
-	<h3 data-gold=""><div id="root" class="sticky-element"></div></h3><p class="half-space"></p>
+		
 	<br/>	
 		<h1 data-gold="Nadir Jewelry">Nadir Jewelry</h1>	
 	<br/>
 	<h2 data-silver="laser machine repairs">laser machine repairs</h2>
 	<br/>
-		
+		<footer class="footer"><div id="root"></div></footer><p class="half-space"></p>
 		</div></div>	
        
 		
