@@ -5,19 +5,19 @@
 <meta http-equiv="CONTENT-LANGUAGE" content="en-US" />
 <meta http-equiv="Cache-Control" content=" no-cache, pre-check=0, post-check=0"/>
 <meta http-equiv="Expires" content="0" />
-<meta http-equiv="Last-Modified" content="Thursday,  26 February 2026"/>
+<meta http-equiv="Last-Modified" content="Saturday,  7 March 2026"/>
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
-<meta name="Keywords" content="nadirjewelry, nadir jewelry, nadirjewelry.com" />
-<meta name="Description" content="nadirjewelry.com | Nadir Jewelry LLC" />
+<meta name="Keywords" content="nhjeweler, nadir hasanov, nadirjewelry, nadir, hasanov, nadirjewelry, nadir jewelry, custom made jewelry, nadirjewelry.com" />
+<meta name="Description" content="nhjeweler.com / nadirjewelry.com | Nadir Jewelry LLC" />
 <meta name="ROBOTS" content="INDEX, FOLLOW" />
-<meta name="Copyright" content="Copyright by nadirjewelry" />
-<meta name="AUTHOR" content="nadirjewelry" />
+<meta name="Copyright" content="Copyright by nhjeweler / nadirjewelry.com" />
+<meta name="AUTHOR" content="LLusignan" />
 <meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-<title>Nadir Jewelry / GOLD + SILVER \ nadirjewelry.com</title>
+<title>Nadir Jewelry / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry \ nadirjewelry.com</title>
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
@@ -47,6 +47,67 @@ body {
 	overflow: hidden;
 	box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
  background-image: url("/files/bg.jpg");
+}
+/* Here Is The CSS For The Background*/
+
+/* An Overlay To Dim The Image And Make Text Readable*/
+#color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #34495e, #2c3e50);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* Setup For An Image That Fits On Most Screens And Resizes*/
+.with-bg-size {
+  background-image: url("/files/bg1.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  
+  
+  -webkit-animation: back 5s infinite; /* Safari 4+ */
+  -moz-animation:    back 5s infinite; /* Fx 5+ */
+  -o-animation:      back 5s infinite; /* Opera 12+ */
+  animation:         back 5s infinite; /* IE 10+, Fx 29+ */
+  
+  
+}
+/* The Keyframes*/
+@keyframes back {
+
+  10%{
+    background-image: url("/files/bg2.jpg");
+  }
+  20% {
+    background-image: url("/files/bg3.jpg");
+  }
+  30% {
+    background-image: url("/files/bg4.jpg");
+  }
+  
+  40%{
+    background-image: url("/files/bg5.jpg");
+  }
+   
+  50%{
+    background-image: url("/files/bg6.jpg");
+  }
+	
+  60%{
+    background-image: url("/files/bg7.jpg");
+  }
+  
+  70%{
+    background-image: url("/files/bg8.jpg");
+  }
+	
+/* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
 }
 
 canvas {
@@ -664,7 +725,10 @@ h3 {
 </head>
 
 <body>
-        <div id="particles-js-b"></div>
+      		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
+
+</div> 
+	<div id="particles-js-b"></div>
         <div id="particles-js-m"></div>
         <div id="particles-js-f"></div>
         <div id="particles-js-f-blur-bright"></div>
