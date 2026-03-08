@@ -324,9 +324,17 @@ h3 {
 }
 	.glowing-text2 span {
   display: inline-block;
+		    /* Add padding around the text content */
   font-size: 10px;
   font-weight: bold;
-  color: #006600;
+	    /* Apply display inline to wrap around content and allow text to flow naturally */
+    padding: 5px 10px; 
+    /* Set a background color for the 'padded' area */
+    background-color: #333; /* The color of the area you want to shadow */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); 		
+    color: #006600;  /* Text color */
+		    /* Apply box-shadow to the entire padded box */
+    /* Syntax: offset-x | offset-y | blur-radius | color */
   animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
 }
 @keyframes glowing {
@@ -371,7 +379,7 @@ h3 {
   text-decoration: none;
 }
 	.instagram-icon i {
-    color: #d4af37; /* Example color (part of Instagram's gradient) */
+    color: #dadada; /* Example color (part of Instagram's gradient) */
     font-weight: 100;
     font-size: 1.5vw;
 		  text-decoration-color: goldenrod;
@@ -392,7 +400,7 @@ h3 {
     }
   }
 .instagram-icon i:hover {
-    color: #7C6310; /* Change color on hover */
+    color: #cb9a52; /* Change color on hover */
 }
 	</style>   
 
