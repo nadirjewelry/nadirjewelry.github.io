@@ -253,11 +253,7 @@ h3 {
   }
 }
   </style><style>
-span.i {
-  color: #4b2432; font-family: "DejaVu Sans", "Trebuchet MS";
-  font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch;
-}
-	
+
 	/* Link Style 1 */
 .link1 a {
     color: #4b2432;
@@ -375,12 +371,28 @@ span.i {
   text-decoration: none;
 }
 	.instagram-icon i {
-    color: #d6249f; /* Example color (part of Instagram's gradient) */
-    font-size: 24px; /* Adjust size as needed */
-}
-
+    color: #d4af37; /* Example color (part of Instagram's gradient) */
+    font-weight: 100;
+    font-size: 1.5vw;
+		  text-decoration-color: goldenrod;
+  margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 5px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 10px #858585, 0 0 5px #ac733c;
+    }
+  }
 .instagram-icon i:hover {
-    color: #fd5949; /* Change color on hover */
+    color: #7C6310; /* Change color on hover */
 }
 	</style>   
 
@@ -405,7 +417,7 @@ span.i {
 <h4 data-gold="Custom Made Gold and Silver Jewelry">Custom Made Gold and Silver Jewelry</h4><p class="half-space"></p>
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/><p class="half-space"></p>
-	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<p class="link2"><a href="URL_TO_YOUR_INSTAGRAM_PROFILE" class="fab fa-instagram"></a></p></h5>
+	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://instagram.com" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
