@@ -142,6 +142,21 @@ h3 {
   text-transform: uppercase;
   margin: 0;
 }
+		  h4 {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 20px #2d9da9;
+    }
+    to {
+      text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+    }
+  }
+}  
 [data-gold] {
   color: #ac733c;
 }
@@ -286,42 +301,6 @@ span.i {
 .container:hover .imageAfter {
   width: 100%;
 }
-	.glowing-text span {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: bold;
-  color: silver;
-  animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
-}
-
-@keyframes glowing {
-  0% {
-    filter: drop-shadow(0 0 1px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
-    opacity: 1;
-  }
-  50% {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5215686275)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.0431372549));
-    opacity: 1;
-  }
-  100% {
-    filter: drop-shadow(0 0 2px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
-    opacity: 1;
-  }
-}
-@keyframes colorChange {
-  0% {
-    color: #d4af37;
-  }
-  33% {
-    color: #silver;
-  }
-  66% {
-    color: #d5d5d7;
-  }
-  100% {
-    color: #d4af37;
-  }
-}
 	.glowing-text2 span {
   display: inline-block;
   font-size: 10px;
@@ -391,7 +370,7 @@ span.i {
 <br/>
 	<p class="half-space"></p><h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
 <h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
-	<h3 data-gold=""><div id="root"></div></h3><p class="half-space"></p>
+	<h3 data-gold=""><h4><span class='one'>r</span><span class='two'>i</span><span class='three'>s</span><span class='four'>e</span> <span class='five'>u</span><span class='six'>p</span></h4></h3><p class="half-space"></p>
 	<br/>
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
 	<br/><p class="half-space"></p>
@@ -422,29 +401,9 @@ const GlowingText = ({ text }) => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root2'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC | ™LL" }));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC | CUSTOM MADE GOLD & SILVER JEWELRY" }));
   </script>
-    <script>
-const GlowingText = ({ text }) => {
-  const letters = typeof text === 'string' ? text.split('') : [];
 
-  return /*#__PURE__*/(
-    React.createElement("div", { className: "glowing-text" },
-    letters.map((letter, index) => /*#__PURE__*/
-    React.createElement("span", {
-      key: index,
-      style: { animationDelay: `${index * 0.3}s`, marginRight: letter === ' ' ? '0' : '0.2em' } },
-
-    letter === ' ' ? '\u00A0' : letter))));
-
-
-
-
-};
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
-  </script>
 </body>
 
 </html>
