@@ -293,7 +293,13 @@ span.i {
   color: white;
   animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
 }
-
+	.glowing-text span {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  color: #006600;
+  animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
+}
 @keyframes glowing {
   0% {
     filter: drop-shadow(0 0 1px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
@@ -313,7 +319,7 @@ span.i {
     color: #d4af37;
   }
   33% {
-    color: #ffffff;
+    color: #silver;
   }
   66% {
     color: #d5d5d7;
@@ -364,7 +370,8 @@ span.i {
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
-	<div id="root" style="position:fixed; bottom:10px; z-index:1; margin:0;" ></div>
+	<div id="root" style="padding-bottom: 2px;" ></div>
+	<div id="root2" style="position:fixed; bottom:10px; z-index:1; margin:0;" ></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
     <script>
@@ -385,11 +392,32 @@ const GlowingText = ({ text }) => {
 
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
+const root = ReactDOM.createRoot(document.getElementById('root2'));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "2026 &copy; NADIR JEWELRY LLC | &#8466; &#174;" }));
 //# sourceURL=pen.js
   </script>
+    <script>
+const GlowingText = ({ text }) => {
+  const letters = typeof text === 'string' ? text.split('') : [];
 
+  return /*#__PURE__*/(
+    React.createElement("div", { className: "glowing-text2" },
+    letters.map((letter, index) => /*#__PURE__*/
+    React.createElement("span", {
+      key: index,
+      style: { animationDelay: `${index * 0.3}s`, marginRight: letter === ' ' ? '0' : '0.2em' } },
+
+    letter === ' ' ? '\u00A0' : letter))));
+
+
+
+
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root2'));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
+
+  </script>
 </body>
 
 </html>
