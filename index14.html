@@ -324,17 +324,15 @@ h3 {
 }
 	.glowing-text2 span {
   display: inline-block;
-		    /* Add padding around the text content */
   font-size: 10px;
   font-weight: bold;
     color: #006600;  /* Text color */	
-background-color: #123509; /* The color of the area you want to shadow */			
-    /* Syntax: offset-x | offset-y | blur-radius | color */
+		
   animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
 }
 @keyframes glowing {
   0% {
-    filter: drop-shadow(0 0 1px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    filter: drop-shadow(0 0 1px #f0d8a9) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
     opacity: 1;
   }
   50% {
@@ -348,7 +346,7 @@ background-color: #123509; /* The color of the area you want to shadow */
 }
 @keyframes colorChange {
   0% {
-    color: #d4af37;
+    color: #f0d8a9;
   }
   33% {
     color: #silver;
@@ -447,7 +445,7 @@ const GlowingText = ({ text }) => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root2'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC | 🛠 LL" }));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC * NADIR HASANOV" }));
   </script>
 
 </body>
