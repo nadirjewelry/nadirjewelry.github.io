@@ -16,33 +16,13 @@
 <meta name="AUTHOR" content="LLusignan" />
 <meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-<title>Nadir Jewelry / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry \ nadirjewelry.com</title>
+<title>Nadir Jewelry / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry</title>
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+
 	  <style>
-		  /*
-
-All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
-        
-The 'supports' rule will only run if your browser supports CSS grid.
-
-Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
-
-*/
-		  :root {
-	/* Base font size */
-	font-size: 10px;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-    @-webkit-keyframes shine {
+		  		      @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
   }
@@ -58,37 +38,21 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
     background-position: -10% 0%, 0 0;
   }
 }
-body {
+	    /* 1. Remove default margins and paddings from html and body */
+  html, body {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-     transition: background-image 1s ease-in-out; /* Smooth transition */
-	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
-	/* Other background properties */
-	background-size: cover; /* Ensures the image covers the whole body */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents repeating */
-
-
+  background-color: #006600;
+  background-size: cover;
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
-  margin: 0;	
-}
-/* Here Is The CSS For The Background*/
-
-/* An Overlay To Dim The Image And Make Text Readable*/
-#color-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom right, #34495e, #2c3e50);
-  opacity: 0.6;
-  z-index: -1;
+  margin: 0;
+  padding: 0;  
+	        overflow: hidden; /* Hide any overflow, preventing scrollbars */
+	
 }
 
 h1 {
@@ -105,8 +69,8 @@ h2 {
   position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  font-size: 5vw;
+  font-weight: 200;
+  font-size: 4vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
   margin: 0;
@@ -116,25 +80,12 @@ h3 {
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 100;
-  font-size: 1.5vw;
+  font-size: 1.1vw;
   letter-spacing: 1.0vw;
   text-transform: uppercase;
   margin: 0;
 }
-		  h4 {
-			  
-	  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 100;
-  font-size: 1.5vw;
-  letter-spacing: 1.0vw;
-  text-transform: uppercase;
-  margin: 0;		  
-
-  }
-
-		 h5 {
+		  h5 {
 			  position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
@@ -160,7 +111,7 @@ h3 {
     }
   }
 }  		  
-		  
+		   
 [data-gold] {
   color: #ac733c;
 }
@@ -232,18 +183,26 @@ h3 {
   }
 }
   </style><style>
-
+span.i {
+  color: #4b2432; font-family: "DejaVu Sans", "Trebuchet MS";
+  font-size:240%; letter-spacing:2px; padding-top: 1px; align-content: stretch;
+}
+	
 	/* Link Style 1 */
 .link1 a {
-    color: #4b2432;
+    color: #f0d8a9;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
     text-decoration: none;
-		border-bottom: .125em solid #7C6310;
-		box-shadow: inset 0 -0.125em 0 #7C6310;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
 		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .link1 a:hover {
     box-shadow: inset 0 -1.125em 0 #7C6310;
+	    text-decoration: overline;
     color: #000;
 }
 
@@ -281,7 +240,7 @@ h3 {
 }
 .container {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 130px;
@@ -305,13 +264,13 @@ h3 {
   display: inline-block;
   font-size: 10px;
   font-weight: bold;
-  color: #f0d8a9;
+  color: white;
   animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
 }
 
 @keyframes glowing {
   0% {
-    filter: drop-shadow(0 0 1px #f0d8a9) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    filter: drop-shadow(0 0 1px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
     opacity: 1;
   }
   50% {
@@ -319,22 +278,22 @@ h3 {
     opacity: 1;
   }
   100% {
-    filter: drop-shadow(0 0 2px #goldenrod) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    filter: drop-shadow(0 0 2px #d4af37) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
     opacity: 1;
   }
 }
 @keyframes colorChange {
   0% {
-    color: #f0d8a9;
-  }
-  33% {
-    color: #silver;
-  }
-  66% {
     color: #d4af37;
   }
+  33% {
+    color: #ffffff;
+  }
+  66% {
+    color: #d5d5d7;
+  }
   100% {
-    color: #goldenrod;
+    color: #d4af37;
   }
 }
 	  .half-space {
@@ -342,15 +301,89 @@ h3 {
     margin-bottom: 0.5em; 
     display: block; /* Ensures the margin is applied correctly */
   }
-.div-space { margin-bottom: 130px; }
+.div-space { margin-bottom: 10px; }
   }
+.scroll-container {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+	 overflow: hidden;
+}
+
+.scroll-container .infinite-scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-content {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  animation: scroll 100s linear infinite;
+  width: 100%;
+  gap: 16px;
+	 overflow: hidden;
+}
+
+.infinite-scroll-wrapper .infinite-scroll-items {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  gap: 16px;
+	 overflow: hidden;
+}
+
+.infinite-scroll-items .item-wrap {
+  position: relative;
+  min-width: 260px;
+  height: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.item-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-wrap .text {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  color: #fff;
+  font-weight: 500;
+}
+
+.item-wrap:hover img {
+  transform: scale(2.0);
+}
+
+@media (max-width: 600px) {
+  .infinite-scroll-wrapper:hover .infinite-scroll-content {
+    animation-play-state: paused;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 	  .wide-spacing {
       letter-spacing: 4px;
     }
-	a:link, a:visited, a:hover, a:active {
+		a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
-	.instagram-icon i {
+		.instagram-icon i {
     color: #dadada; /* Example color (part of Instagram's gradient) */
     font-weight: 100;
     font-size: 1.5vw;
@@ -374,115 +407,144 @@ h3 {
 .instagram-icon i:hover {
     color: #cb9a52; /* Change color on hover */
 }
-	.gallery {
-	display: flex;
-	flex-wrap: wrap;
-	/* Compensate for excess margin on outer gallery flex items */
-	margin: -1rem -1rem;
-}
-
-.gallery-item {
-	/* Minimum width of 24rem and grow to fit available space */
-	flex: 1 0 24rem;
-	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
-	margin: 1rem;
-	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
-	overflow: hidden;
-}
-
-.gallery-image {
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 400ms ease-out;
-}
-
-.gallery-image:hover {
-	transform: scale(1.15);
-}
-
-/*
-
-The following rule will only run if your browser supports CSS grid.
-
-Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
-
-*/
-
-@supports (display: grid) {
-	.gallery {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-		grid-gap: 2rem;
-	}
-
-	.gallery,
-	.gallery-item {
-		margin: 0;
-	}
-}
 	</style>   
 
 	<script>
   window.console = window.console || function(t) {};
 </script>
 	</head><body>
- <div class="container">
-
-		<br/><p class="half-space"></p>
-	<h5><span class='one'>NADIR</span>&nbsp;<span class='two'>HASANOV</span><a href="https://nhjeweler.com"></a></h5>
-
-
-	<div class="gallery">  <!-- The small image (thumbnail) with the onclick handler -->
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('/files/j3.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j4.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #04" onclick="openBiggerImage('/files/j4.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j5.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #05" onclick="openBiggerImage('/files/j5.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j6.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #06" onclick="openBiggerImage('/files/j6.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j7.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #07" onclick="openBiggerImage('/files/j7.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j8.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
-
-			<div class="gallery-item">
-			<img class="gallery-image" src="/files/j9.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 900, 900)"
-       style="cursor: pointer;">
-		</div>
 		
-			<div class="gallery-item">
-			<img class="gallery-image" src="/files/j10.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j10.png', 900, 900)"
-       style="cursor: pointer;">
+<div class="container">
+  <div class="imageBox imageBefore">
+	  <a href="https://nhjeweler.com"><img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
+				
+ </div>
+  <div class="imageBox imageAfter">
+
+<a href="https://nhjeweler.com"><img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
+		  </div>
+</div>
+<div class="div-space"></div>
+	<p class="half-space"></p><a href="https://nhjeweler.com"><h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3></a>
+
+<div class="scroll-container">
+	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
+		<div id="InfiniteScroll" class="infinite-scroll-content">
+			<div class="infinite-scroll-items">
+
+				<div class="item-wrap">
+					<img src="files/j4.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j5.png"/>
+					<span class="text"></span>
+				</div>
+					<div class="item-wrap">
+					<img src="files/j6.png"/>
+					<span class="text"></span>
+				</div>
+						<div class="item-wrap">
+					<img src="files/j7.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j8.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j9.png"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j3.png"/>
+					<span class="text"></span>
+				</div>
+			</div>
 		</div>
 	</div>
-
 </div>
+	<h5><span class='one'>NADIR</span>&nbsp;<span class='two'>HASANOV</span>&nbsp;<span class='three'>JEWELRY</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
+	       <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelryo@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
 
-	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div><br>
-	<br/><div></div>
-   
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
+    <script id="rendered-js" >
+const GlowingText = ({ text }) => {
+  const letters = typeof text === 'string' ? text.split('') : [];
+
+  return /*#__PURE__*/(
+    React.createElement("div", { className: "glowing-text" },
+    letters.map((letter, index) => /*#__PURE__*/
+    React.createElement("span", {
+      key: index,
+      style: { animationDelay: `${index * 0.3}s`, marginRight: letter === ' ' ? '0' : '0.2em' } },
+
+    letter === ' ' ? '\u00A0' : letter))));
+
+
+
+
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
+//# sourceURL=pen.js
+  </script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script>
+const defaultItemCount = 7;
+const itemWidth = 130;
+
+const wrapper = document.getElementById("InfiniteScrollWrapper");
+const content = document.getElementById("InfiniteScroll");
+
+const manageChildren = childCount => {
+  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
+    content.removeChild(content.lastChild);
+  }window.CP.exitedLoop(0);
+
+  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
+    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
+      const clone = content.children[j].cloneNode(true);
+      content.appendChild(clone);
+    }window.CP.exitedLoop(2);
+  }window.CP.exitedLoop(1);
+
+  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
+};
+
+const core = width => {
+  if (width <= 1920) {
+    manageChildren(2);
+  } else if (width <= 2560) {
+    manageChildren(3);
+  } else if (width <= 3840) {
+    manageChildren(4);
+  } else {
+    manageChildren(8);
+  }
+};
+
+const debounce = (func, delay) => {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(func, delay);
+  };
+};
+
+const handleResize = debounce(() => core(window.innerWidth), 600);
+
+window.addEventListener("load", () => {
+  core(window.innerWidth);
+});
+
+window.addEventListener("resize", handleResize);
+//# sourceURL=pen.js
+  </script>
 
 </body>
 
