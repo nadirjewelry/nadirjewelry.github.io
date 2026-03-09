@@ -104,11 +104,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 }
 .container1 {
   position: absolute;
-  top: 12%;
+  top: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 130px;
   height: 130px;
+	z-index: 1;
 
 }
 .imageBox {
@@ -301,14 +302,14 @@ Remove or comment-out the code block below to see how the browser will fall-back
   
 </head>
 
-<body translate="no">
+<body translate="no"><div class="silver-background"></div>
 	
-  <div class="container2">
+  <div class="container1">
 
 		<br/><p class="half-space"></p>
 	<h5><span class='one'>NADIR</span>&nbsp;<span class='two'>HASANOV</span><a href="https://nhjeweler.com"></a></h5>
-
-
+	</div>
+<div class="container2">
 	<div class="gallery">  <!-- The small image (thumbnail) with the onclick handler -->
 
 		<div class="gallery-item">
