@@ -83,9 +83,23 @@ h3 {
   font-size: 1.6vw;
   letter-spacing: 1.0vw;
   text-transform: uppercase;
-	
-  margin: 0;
-}
+	margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 8px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 16px #858585, 0 0 8px #ac733c;
+    }
+  }
+} 
 		  h5 {
 			  position: relative;
   display: inline-block;
@@ -440,29 +454,39 @@ span.i {
 	<div id="InfiniteScrollWrapper" class="infinite-scroll-wrapper">
 		<div id="InfiniteScroll" class="infinite-scroll-content">
 			<div class="infinite-scroll-items">
-
-				<div class="item-wrap">
-					<img src="files/j4.png"/>
+<div class="item-wrap">
+					<img src="files/j10.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j10.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 				<div class="item-wrap">
-					<img src="files/j5.png"/>
+					<img src="files/j4.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j4.png', 600, 600)"
+       style="cursor: pointer;"/>
+					<span class="text"></span>
+				</div>
+				<div class="item-wrap">
+					<img src="files/j5.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j5.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 					<div class="item-wrap">
-					<img src="files/j6.png"/>
+					<img src="files/j6.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j6.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 						<div class="item-wrap">
-					<img src="files/j7.png"/>
+					<img src="files/j7.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j7.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 				<div class="item-wrap">
-					<img src="files/j8.png"/>
+					<img src="files/j8.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j8.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 				<div class="item-wrap">
-					<img src="files/j9.png"/>
+					<img src="files/j9.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j9.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 				<div class="item-wrap">
