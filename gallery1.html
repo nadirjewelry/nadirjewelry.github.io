@@ -51,7 +51,7 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 
 body {
 	min-height: 100vh;
-	background-color: #fff; 
+	background-color: #silver; 
 }
 
 .container {
@@ -206,7 +206,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
 	<div class="gallery">  <!-- The small image (thumbnail) with the onclick handler -->
 
 		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('larger_image.jpg', 900, 900)"
+			<img class="gallery-image" src="/files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('/files/j3.png', 900, 900)"
        style="cursor: pointer;">
 		</div>
 
