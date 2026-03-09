@@ -324,7 +324,7 @@ span.i {
   white-space: nowrap;
   animation: scroll 100s linear infinite;
   width: 100%;
-  gap: 16px;
+  gap: 12px;
 	 overflow: hidden;
 }
 
@@ -332,14 +332,14 @@ span.i {
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  gap: 16px;
+  gap: 12px;
 	 overflow: hidden;
 }
 
 .infinite-scroll-items .item-wrap {
   position: relative;
-  min-width: 260px;
-  height: 260px;
+  min-width: 200px;
+  height: 200px;
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -353,8 +353,8 @@ span.i {
 
 .item-wrap .text {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 12px;
+  left: 12px;
   z-index: 10;
   color: #fff;
   font-weight: 500;
@@ -411,6 +411,15 @@ span.i {
 
 	<script>
   window.console = window.console || function(t) {};
+</script>  	<script>
+  function openBiggerImage(imageUrl, imageWidth, imageHeight) {
+    // Calculate the position to center the new window (optional)
+    var left = (screen.width / 2) - (imageWidth / 2);
+    var top = (screen.height / 2) - (imageHeight / 2);
+
+    // Open a new window with specified dimensions and minimal browser chrome
+    window.open(imageUrl, 'BiggerImage', 'width=' + imageWidth + ', height=' + imageHeight + ', toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, left=' + left + ', top=' + top);
+  }
 </script>
 	</head><body>
 		
@@ -457,7 +466,8 @@ span.i {
 					<span class="text"></span>
 				</div>
 				<div class="item-wrap">
-					<img src="files/j3.png"/>
+					<img src="files/j3.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #10" onclick="openBiggerImage('/files/j13.png', 600, 600)"
+       style="cursor: pointer;"/>
 					<span class="text"></span>
 				</div>
 			</div>
