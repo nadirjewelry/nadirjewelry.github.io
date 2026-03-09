@@ -51,9 +51,12 @@ Flexbox is used as a fallback so that browsers which don't support grid will sti
 
 body {
 	min-height: 100vh;
-	background-image: url("/files/bgg.jpg");
-	  background-position: center;
-  background-size: cover;
+  /* Fallback color */
+  background-color: #c0c0c0; 
+  /* The silver gradient effect */
+  background-image: linear-gradient(to bottom, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); 
+  /* Ensures the background covers the entire page height, even if content is short */
+  background-attachment: fixed; 
 }
 
 .container2 {
