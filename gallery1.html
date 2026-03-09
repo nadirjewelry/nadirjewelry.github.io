@@ -183,7 +183,16 @@ Remove or comment-out the code block below to see how the browser will fall-back
   window.console = window.console || function(t) {};
 </script>
 
-  
+  	<script>
+  function openBiggerImage(imageUrl, imageWidth, imageHeight) {
+    // Calculate the position to center the new window (optional)
+    var left = (screen.width / 2) - (imageWidth / 2);
+    var top = (screen.height / 2) - (imageHeight / 2);
+
+    // Open a new window with specified dimensions and minimal browser chrome
+    window.open(imageUrl, 'BiggerImage', 'width=' + imageWidth + ', height=' + imageHeight + ', toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, left=' + left + ', top=' + top);
+  }
+</script>
   
 </head>
 
@@ -194,10 +203,11 @@ Remove or comment-out the code block below to see how the browser will fall-back
 	<h5><span class='one'>NADIR</span>&nbsp;<span class='two'>HASANOV</span><a href="https://nhjeweler.com"></a></h5>
 
 
-	<div class="gallery">
+	<div class="gallery">  <!-- The small image (thumbnail) with the onclick handler -->
 
 		<div class="gallery-item">
-			<img class="gallery-image" src="/files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03">
+			<img class="gallery-image" src="/files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('larger_image.jpg', 900, 900)"
+       style="cursor: pointer;">
 		</div>
 
 		<div class="gallery-item">
@@ -233,7 +243,8 @@ Remove or comment-out the code block below to see how the browser will fall-back
 
 	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div><br>
-	<br/>
+	<br/><div></div>
+
 </body>
 
 </html>
