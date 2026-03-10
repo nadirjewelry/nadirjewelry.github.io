@@ -37,6 +37,15 @@
     background-position: -10% 0%, 0 0;
   }
 }
+
+  .center-container {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center */
+    height: 100vh;           /* Full viewport height */
+  }
+
+	
 	.container {
   display: flex;
   width: fit-content; /* Or a specific width like 50% or 960px */
@@ -69,7 +78,6 @@ h2 {
   font-size: 2vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
-  align-self: center;
   margin: 0;
 }
 h3 {
@@ -353,9 +361,8 @@ figure.effect-leo p {
 figure.effect-leo:hover img {
 	opacity: 0.1;
 	-webkit-transform: translate3d(0,0,0);
-	/* Scale the image to twice its size (scale of 2) and move it */
     /* Multiple transform functions are chained in a single transform property */
-	transform: translate3d(0,0,0) translate(50px, 50px) scale(2);  
+	transform: translate3d(0,0,0) scale(1.6);  
 	/* You can use vendor prefixes like -webkit-transform for older browser support if needed */
 }
 
@@ -451,7 +458,7 @@ section {
   
 </head>
 
-	<body translate="no"><div class="center-div"><h2 data-silver="GALLERY">GALLERY</h2></div><br/>
+	<body translate="no"><div class="center-container"><h2 data-silver="GALLERY">GALLERY</h2></div><br/>
 <div class="container">
   <div class="grid">
 	<div class="center-div">
