@@ -351,9 +351,12 @@ figure.effect-leo p {
 }
 
 figure.effect-leo:hover img {
-	opacity: 0.8;
+	opacity: 0.1;
 	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0) scale(1.5);
+	/* Scale the image to twice its size (scale of 2) and move it */
+    /* Multiple transform functions are chained in a single transform property */
+	transform: translate3d(0,0,0) translate(50px, 50px) scale(2);  
+	/* You can use vendor prefixes like -webkit-transform for older browser support if needed */
 }
 
 figure.effect-leo:hover figcaption::before,
