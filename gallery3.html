@@ -20,6 +20,7 @@
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">	
 <style>
 	    @-webkit-keyframes shine {
   0% {
@@ -42,28 +43,6 @@
     display: flex;
     justify-content: center; /* Horizontal center */
   }
-.center-container2 {
-  position: absolute;
-  top: 1%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 130px;
-  height: 130px;
-
-}
-.imageBox {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.imageAfter {
-  width: 0;
-  transition: 2s;
-  overflow: hidden;
-}
-.container:hover .imageAfter {
-  width: 100%;
-}
 	
 	.container {
   display: flex;
@@ -456,7 +435,54 @@ section {
 .content > h2:first-child {
 	padding-top: 0em;
 }
+	.instagram-icon i {
+    color: #dadada; /* Example color (part of Instagram's gradient) */
+    font-weight: 100;
+    font-size: 1.5vw;
+		  text-decoration-color: goldenrod;
+  margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 5px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 10px #858585, 0 0 5px #ac733c;
+    }
+  }
+.instagram-icon i:hover {
+    color: #cb9a52; /* Change color on hover */
+}
+		/* Link Style 2 */
+.link2 a {
+    color: #silver;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+    text-decoration: none;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
+		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+}
 
+.link2 a:hover {
+    box-shadow: inset 0 -1.125em 0 #7C6310;
+    color: #000;
+}
+
+.link2 a:focus {
+    background: #fff;
+    outline: none;
+    background: #f0d8a9;
+    color: #fff;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+}
 </style>
 
   <script>
@@ -476,12 +502,10 @@ section {
   
 </head>
 
-	<body translate="no"><div class="center-container2"><div class="imageBox imageBefore">
-				<img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
+	<body translate="no"><div class="center-container">
+		<a href="index.html"><img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
  </div>
-  <div class="imageBox imageAfter">
-<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
-		  </div><br>
+ <br>
 		<div class="center-container"><h2 data-silver="GALLERY">GALLERY</h2></div><br/>
 <div class="container">
   <div class="grid">
@@ -546,8 +570,11 @@ section {
 					</figure>
 		
 				</div>
-	</div></div>
-
+	</div></div><div class="center-container">
+	<br/><p class="half-space"></p>
+	<h5><a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
+	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div></div>
   
 </body>
 
