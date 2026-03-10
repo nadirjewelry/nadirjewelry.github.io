@@ -41,8 +41,6 @@
   .center-container {
     display: flex;
     justify-content: center; /* Horizontal center */
-    align-items: center;     /* Vertical center */
-    height: 100vh;           /* Full viewport height */
   }
 
 	
@@ -359,11 +357,10 @@ figure.effect-leo p {
 }
 
 figure.effect-leo:hover img {
-	opacity: 0.1;
+	opacity: 1.0;
 	-webkit-transform: translate3d(0,0,0);
     /* Multiple transform functions are chained in a single transform property */
-	transform: translate3d(0,0,0) scale(1.6);  
-	/* You can use vendor prefixes like -webkit-transform for older browser support if needed */
+	transform: translate3d(0,0,0) scale(1.5);  
 }
 
 figure.effect-leo:hover figcaption::before,
