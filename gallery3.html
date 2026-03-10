@@ -251,29 +251,29 @@ h3 {
 /* Individual effects */
 
 /*---------------*/
-/***** Layla *****/
+/***** Leo *****/
 /*---------------*/
 
-figure.effect-layla {
-	background: #18a367;
+figure.effect-leo {
+	background: #a8c3bc;
 }
 
-figure.effect-layla img {
-	height: 390px;
+figure.effect-leo img {
+	height: 200px;
 }
 
-figure.effect-layla figcaption {
+figure.effect-leo figcaption {
 	padding: 3em;
 }
 
-figure.effect-layla figcaption::before,
-figure.effect-layla figcaption::after {
+figure.effect-leo figcaption::before,
+figure.effect-leo figcaption::after {
 	position: absolute;
 	content: '';
 	opacity: 0;
 }
 
-figure.effect-layla figcaption::before {
+figure.effect-leo figcaption::before {
 	top: 50px;
 	right: 30px;
 	bottom: 50px;
@@ -286,7 +286,7 @@ figure.effect-layla figcaption::before {
 	transform-origin: 0 0;
 }
 
-figure.effect-layla figcaption::after {
+figure.effect-leo figcaption::after {
 	top: 30px;
 	right: 50px;
 	bottom: 30px;
@@ -299,13 +299,13 @@ figure.effect-layla figcaption::after {
 	transform-origin: 100% 0;
 }
 
-figure.effect-layla h2 {
+figure.effect-leo h2 {
 	padding-top: 26%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 }
 
-figure.effect-layla p {
+figure.effect-leo p {
 	padding: 0.5em 2em;
 	text-transform: none;
 	opacity: 0;
@@ -313,115 +313,46 @@ figure.effect-layla p {
 	transform: translate3d(0,-10px,0);
 }
 
-figure.effect-layla img,
-figure.effect-layla h2 {
+figure.effect-leo img,
+figure.effect-leo h2 {
 	-webkit-transform: translate3d(0,-30px,0);
 	transform: translate3d(0,-30px,0);
 }
 
-figure.effect-layla img,
-figure.effect-layla figcaption::before,
-figure.effect-layla figcaption::after,
-figure.effect-layla p {
+figure.effect-leo img,
+figure.effect-leo figcaption::before,
+figure.effect-leo figcaption::after,
+figure.effect-leo p {
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 }
 
-figure.effect-layla:hover img {
+figure.effect-leo:hover img {
 	opacity: 0.7;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
-figure.effect-layla:hover figcaption::before,
-figure.effect-layla:hover figcaption::after {
+figure.effect-leo:hover figcaption::before,
+figure.effect-leo:hover figcaption::after {
 	opacity: 1;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
 
-figure.effect-layla:hover h2,
-figure.effect-layla:hover p {
+figure.effect-leo:hover h2,
+figure.effect-leo:hover p {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
-figure.effect-layla:hover figcaption::after,
-figure.effect-layla:hover h2,
-figure.effect-layla:hover p,
-figure.effect-layla:hover img {
+figure.effect-leo:hover figcaption::after,
+figure.effect-leo:hover h2,
+figure.effect-leo:hover p,
+figure.effect-leo:hover img {
 	-webkit-transition-delay: 0.15s;
 	transition-delay: 0.15s;
-}
-/*---------------*/
-/***** Sarah *****/
-/*---------------*/
-
-figure.effect-sarah {
-	background: #42b078;
-}
-
-figure.effect-sarah img {
-	max-width: none;
-	width: -webkit-calc(100% + 20px);
-	width: calc(100% + 20px);
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-10px,0,0);
-	transform: translate3d(-10px,0,0);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-figure.effect-sarah:hover img {
-	opacity: 0.4;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-figure.effect-sarah figcaption {
-	text-align: left;
-}
-
-figure.effect-sarah h2 {
-	position: relative;
-	overflow: hidden;
-	padding: 0.5em 0;
-}
-
-figure.effect-sarah h2::after {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 3px;
-	background: #fff;
-	content: '';
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
-	-webkit-transform: translate3d(-100%,0,0);
-	transform: translate3d(-100%,0,0);
-}
-
-figure.effect-sarah:hover h2::after {
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-figure.effect-sarah p {
-	padding: 1em 0;
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(100%,0,0);
-	transform: translate3d(100%,0,0);
-}
-
-figure.effect-sarah:hover p {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
 }
 
 *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
@@ -657,7 +588,7 @@ body #cda-remove {
 
 				<h2></h2>
 				<div class="grid">
-					<figure class="effect-layla">
+					<figure class="effect-leo">
 						<img src="files/j8.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
@@ -666,7 +597,7 @@ body #cda-remove {
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
-					<figure class="effect-layla">
+					<figure class="effect-leo">
 						<img src="files/j9.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
@@ -676,27 +607,6 @@ body #cda-remove {
 						</figcaption>			
 					</figure>
 				</div>
-				<h2></h2>
-				<div class="grid">
-					<figure class="effect-sarah">
-						<img src="files/j5.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #26" onclick="openBiggerImage('/files/j5.png', 600, 600)"
-       style="cursor: pointer;"/>
-						<figcaption>
-							<h2>Free <span>Sarah</span></h2>
-							<p>Nadir Hasanov Jewelry #26.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-					</figure>
-					<figure class="effect-sarah">
-						<img src="files/j5.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #28" onclick="openBiggerImage('/files/j5.png', 600, 600)"
-       style="cursor: pointer;"/>
-						<figcaption>
-							<h2><span></span></h2>
-							<p>Nadir Hasanov Jewelry #28.</p>
-							<a href="index.html">View more</a>
-						</figcaption>			
-					</figure>
-				</div>	
 				</div>
 				</div></div></div></div></div>
 
