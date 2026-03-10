@@ -429,11 +429,23 @@ figure.effect-sarah:hover p {
 .clearfix:after { clear: both; }
 
 body {
-	background: #006600;
-	color: #fff;
-	font-weight: 400;
-	font-size: 1em;
-	font-family: 'Raleway', Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+     transition: background-image 1s ease-in-out; /* Smooth transition */
+	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
+	/* Other background properties */
+	background-size: cover; /* Ensures the image covers the whole body */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+
+
+  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
+  margin: 0;	
 }
 
 a {
@@ -650,14 +662,14 @@ body #cda-remove {
 <div class="item-wrap">
 <div class="content">
 
-				<h2>Layla</h2>
+				<h2></h2>
 				<div class="grid">
 					<figure class="effect-layla">
 						<img src="files/j8.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
-							<h2>Crazy <span>Layla</span></h2>
-							<p>When Layla appears, she brings an eternal summer along.</p>
+							<h2><span></span></h2>
+							<p>Nadir Hasanov Jewelry #08.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
@@ -665,23 +677,20 @@ body #cda-remove {
 						<img src="files/j9.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
-							<h2>Crazy <span>Layla</span></h2>
-							<p>When Layla appears, she brings an eternal summer along.</p>
+							<h2><span></span></h2>
+							<p>Nadir Hasanov Jewelry #09.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
 				</div>
-				<h2>Zoe</h2>
-				<div class="grid">
-					
-				<h2>Sarah</h2>
+				<h2></h2>
 				<div class="grid">
 					<figure class="effect-sarah">
 						<img src="files/j5.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #26" onclick="openBiggerImage('/files/j5.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2>Free <span>Sarah</span></h2>
-							<p>Sarah likes to watch clouds. She's quite depressed.</p>
+							<p>Nadir Hasanov Jewelry #26.</p>
 							<a href="#">View more</a>
 						</figcaption>			
 					</figure>
@@ -689,15 +698,13 @@ body #cda-remove {
 						<img src="files/j5.png?w=200&h=200&fit=crop" alt="Nadir Hasanov Jewelry #28" onclick="openBiggerImage('/files/j5.png', 600, 600)"
        style="cursor: pointer;"/>
 						<figcaption>
-							<h2>Free <span>Sarah</span></h2>
-							<p>Sarah likes to watch clouds. She's quite depressed.</p>
-							<a href="#">View more</a>
+							<h2><span></span></h2>
+							<p>Nadir Hasanov Jewelry #28.</p>
+							<a href="index.html">View more</a>
 						</figcaption>			
 					</figure>
+				</div>	
 				</div>
-				
-				</div>
-			</div>
 				</div></div></div></div></div>
 
   
