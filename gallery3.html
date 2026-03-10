@@ -37,6 +37,19 @@
     background-position: -10% 0%, 0 0;
   }
 }
+	.container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  height: 100vh;           /* Ensures the container takes up the full height of the viewport */
+}
+
+.center-div {
+  /* Add other styles for visualization (e.g., width, background, border) */
+  width: 50%;
+  padding: 1px;
+  border: 1px solid goldenrod;
+}
 	h1 {
   position: relative;
   display: inline-block;
@@ -255,12 +268,12 @@ h3 {
 /*---------------*/
 
 figure.effect-leo {
-	background: #006600;
+	background: #fff;
 }
 
 figure.effect-leo img {
-	width: 500px;
-	height: 500px;	
+	width: 300px;
+	height: 300px;	
 }
 
 figure.effect-leo figcaption {
@@ -376,12 +389,12 @@ body {
 
 a {
 	outline: none;
-	color: #3498db;
+	color: #9A8B36;
 	text-decoration: none;
 }
 
 a:hover, a:focus {
-	color: #528cb3;
+	color: #006600;
 }
 
 section {
@@ -426,13 +439,14 @@ section {
   
 </head>
 
-<body translate="no">
+<body translate="no"><div class="container">
+  <div class="center-div">
 <h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
 
 	
 				<div class="grid">
 					<figure class="effect-leo">
-						<img src="files/j8.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 900, 900)"
+						<img src="files/j8.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 900, 900)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2><span></span></h2>
@@ -441,7 +455,7 @@ section {
 						</figcaption>			
 					</figure>
 					<figure class="effect-leo">
-						<img src="files/j9.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 900, 900)"
+						<img src="files/j9.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 900, 900)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2><span></span></h2>
@@ -450,7 +464,7 @@ section {
 						</figcaption>			
 					</figure>
 					<figure class="effect-leo">
-						<img src="files/j3.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('/files/j3.png', 900, 900)"
+						<img src="files/j3.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('/files/j3.png', 900, 900)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2><span></span></h2>
@@ -459,7 +473,7 @@ section {
 						</figcaption>			
 					</figure>
 					<figure class="effect-leo">
-						<img src="files/j7.png?w=500&h=500&fit=crop" alt="Nadir Hasanov Jewelry #07" onclick="openBiggerImage('/files/j7.png', 900, 900)"
+						<img src="files/j7.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #07" onclick="openBiggerImage('/files/j7.png', 900, 900)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2><span></span></h2>
@@ -468,7 +482,7 @@ section {
 						</figcaption>			
 					</figure>
 				</div>
-			
+	</div></div>
 
   
 </body>
