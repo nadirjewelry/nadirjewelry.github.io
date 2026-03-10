@@ -39,14 +39,15 @@
 }
 	.container {
   display: flex;
-  width: 100%;
+  width: fit-content; /* Or a specific width like 50% or 960px */
+  margin: 0 auto; /* Centers the block horizontally */
   justify-content: center; /* Centers horizontally */
 
 }
 
 .center-div {
   /* Add other styles for visualization (e.g., width, background, border) */
-  width: auto;
+  width: auto; /* Or a specific width like 50% or 960px */
   height: auto;
   padding: 0px;
  
@@ -65,10 +66,11 @@ h2 {
   position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 150;
-  font-size: 3vw;
+  font-weight: 100;
+  font-size: 2vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
+  align-self: center;
   margin: 0;
 }
 h3 {
@@ -212,7 +214,7 @@ h3 {
 
 .grid figure figcaption {
 	padding: 2em;
-	color: #FCFDEC;
+	color: #goldenrod;
 	text-transform: uppercase;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
@@ -267,16 +269,24 @@ h3 {
 /*---------------*/
 /***** Leo *****/
 /*---------------*/
-
+	
+.image-with-effect {
+  /* Add a solid border */
+  border: 2px solid #goldenrod; 
+  
+  /* Add a drop shadow */
+  box-shadow: 4px 4px 3px #7C6310; 
+}
+	
 figure.effect-leo {
-	background: #DBDBD9;
+	background: #fafafa;
 }
 
 figure.effect-leo img {
 	width: 300px;
 	height: 300px;	
-	border-top: 1px solid #goldenrod;
-	border-bottom: 1px solid #goldenrod;
+	border-top: 1px solid #006600;
+	border-bottom: 1px solid #006600;
 	-webkit-transform: scale(0,1);
 	transform: scale(0,1);
 	-webkit-transform-origin: 0 0;
@@ -299,8 +309,8 @@ figure.effect-leo figcaption::before {
 	right: 30px;
 	bottom: 50px;
 	left: 30px;
-	border-top: 1px solid #f0d8a9;
-	border-bottom: 1px solid #f0d8a9;
+	border-top: 1px solid #006600;
+	border-bottom: 1px solid #006600;
 	-webkit-transform: scale(0,1);
 	transform: scale(0,1);
 	-webkit-transform-origin: 0 0;
@@ -312,8 +322,8 @@ figure.effect-leo figcaption::after {
 	right: 50px;
 	bottom: 30px;
 	left: 50px;
-	border-right: 1px solid #f0d8a9;
-	border-left: 1px solid #f0d8a9;
+	border-right: 1px solid #006600;
+	border-left: 1px solid #006600;
 	-webkit-transform: scale(1,0);
 	transform: scale(1,0);
 	-webkit-transform-origin: 100% 0;
@@ -446,8 +456,8 @@ section {
   
 </head>
 
-<body translate="no">
-<div class="container"><h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2><br/>
+<body translate="no"><h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2><br/>
+<div class="container">
   <div class="grid">
 	<div class="center-div">
 				
