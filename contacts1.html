@@ -66,7 +66,7 @@
 }
 .contact_us{
     background-color: #silver;
-    padding: 120px 0px;
+    padding: 110px 0px;
 }
 
 .contact_inner{
@@ -262,7 +262,8 @@ body {
                                         <input type="text" class="form-control form-group" placeholder="Name" />
                                         <input type="text" class="form-control form-group" placeholder="Email" />
                                         <textarea class="form-control form-group" placeholder="Message"></textarea>
-                                        <button class="contact_form_submit">Send</button>
+                                        <form action="mailto:nadirjewelry@mail.com.com" method="POST">
+											<!-- form elements go here --><button id="form" class="contact_form_submit">Send</button></form>
                                     </div>
                                 </div>
                             </div>
@@ -298,8 +299,20 @@ body {
         </div>
     </section>
 <div class="center-container">
-</div>
-  
+</div><script>
+  document.getElementById("form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+  const formData = new FormData(event.target);
+
+  fetch("mailto:nadirjewelry@mail.com", {
+    method: "POST",
+    body: formData
+  }).then(response => {
+    // Handle server response (e.g., show a success message)
+  }).catch(error => {
+    // Handle errors
+  });
+});</script>
 </body>
 
 </html>
