@@ -25,23 +25,6 @@
  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>	
 <style>
-	    @-webkit-keyframes shine {
-  0% {
-    background-position: 110% 0%, 0 0;
-  }
-  100% {
-    background-position: -10% 0%, 0 0;
-  }
-}
-@keyframes shine {
-  0% {
-    background-position: 110% 0%, 0 0;
-  }
-  100% {
-    background-position: -10% 0%, 0 0;
-  }
-}
-
   .center-container {
     display: flex;
     justify-content: center; /* Horizontal center */
@@ -61,144 +44,7 @@
   padding: 0px;
  
 }
-	h1 {
-  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 100;
-  font-size: 2vw;
-  letter-spacing: 1.5vw;
-  text-transform: uppercase;
-  margin: 0;
-}
-h2 {
-  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 120;
-  font-size: 2.2vw;
-  letter-spacing: 1.5vw;
-  text-transform: uppercase;
-  margin: 0;
-}
-h3 {
-  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 100;
-  font-size: 1.1vw;
-  letter-spacing: 1.0vw;
-  text-transform: uppercase;
-  margin: 0;
-}
-	h3 {
-  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-		text-decoration-color: gold;
-  font-weight: 100;
-  font-size: 1.1vw;
-  letter-spacing: 1.0vw;
-  text-transform: uppercase;
-  margin: 0;
-}
-		  h5 {
-			  position: relative;
-  display: inline-block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 100;
-  font-size: 2vw;
-  letter-spacing: 1.0vw;
-  text-transform: uppercase;
-  text-decoration-color: goldenrod;
-  margin: 0;
-    grid-column: 1;
-    grid-row: 1;
-    z-index: 1;
-    animation: glow 2s ease-in-out infinite alternate;
-} 
-  @keyframes glow {
-    from {
-		text color: darkgoldenrod;
-      text-shadow: 0 0 8px #f0d8a9;
-    }
-    to {
-		text color: silver;
-      text-shadow: 0 0 16px #858585, 0 0 8px #ac733c;
-    }
-  }
-}  		  
-		   
-[data-gold] {
-  color: #ac733c;
-}
-@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
-  [data-gold] {
-    color: transparent;
-    background-image: linear-gradient(to right, transparent 0%, transparent 45%, white 50%, transparent 55%, transparent 100%), linear-gradient(90deg, #c78c48, #cf9147 9.4%, #cf9348 9.4%, #b2763e 33.6%, #ad743c 35.7%, #ac723d 46.9%, #b0773d 51.7%, #b0793e 52.1%, #c4914c 64.6%, #c99750 68.5%, #ce9e54 73.2%, #f4d188);
-    background-position: 110% 0%, 0 0;
-    background-size: 200% auto, auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-animation: shine 2s ease-in-out 2 alternate 2s;
-            animation: shine 2s ease-in-out 2 alternate 2s;
-  }
-}
-[data-gold]:before {
-  content: attr(data-gold);
-  color: #f0d8a9;
-  position: absolute;
-  z-index: -1;
-  top: -0.08vw;
-  left: 0px;
-  text-shadow: black 0px 0.08vw 12px;
-}
-@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
-  [data-gold]:after {
-    content: attr(data-gold);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, transparent 0%, transparent 48%, rgba(98, 16, 0, 0.5) 50%, transparent 75%);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-}
 
-[data-silver] {
-  color: #858585;
-}
-@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
-  [data-silver] {
-    color: transparent;
-    background-image: linear-gradient(to right, transparent 0%, transparent 45%, white 50%, transparent 55%, transparent 100%), linear-gradient(270deg, #8c8c8c 1.3%, #999 15%, #868686 29.6%, #828282 29.6%, #7d7d7d 31.8%, #797979 31.8%, #6a6a6a 38.9%, #d3d3d3);
-    background-position: 110% 0%, 0 0;
-    background-size: 200% auto, auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 2s ease-in-out 2 alternate-reverse 2s;
-  }
-}
-[data-silver]:before {
-  content: attr(data-silver);
-  color: #fff;
-  position: absolute;
-  z-index: -1;
-  top: -0.08vw;
-  left: 0px;
-  text-shadow: black 0px 0.08vw 12px;
-}
-@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
-  [data-silver]:after {
-    content: attr(data-silver);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, transparent 0%, transparent 48%, rgba(17, 17, 17, 0.5) 50%, transparent 75%);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-}
 .right_conatct_social_icon{
      background: linear-gradient(to top right, #1325e8 -5%, #8f10b7 100%);
 }
@@ -326,16 +172,9 @@ body {
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating */
   align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
-  margin: 0;	
+  justify-content: center;	
 }
 
-.instagram-icon i:hover {
-    color: #cb9a52; /* Change color on hover */
-	width: 50px; /* Adjust the size as needed, e.g., 50px, 2rem, etc. */
-    height: 50px; /* Maintain aspect ratio by setting both, or just one */
-}
 		/* Link Style 2 */
 .link2 a {
     color: #silver;
@@ -377,24 +216,12 @@ body {
   <script>
   window.console = window.console || function(t) {};
 </script>
-
-      	<script>
-  function openBiggerImage(imageUrl, imageWidth, imageHeight) {
-    // Calculate the position to center the new window (optional)
-    var left = (screen.width / 2) - (imageWidth / 2);
-    var top = (screen.height / 2) - (imageHeight / 2);
-
-    // Open a new window with specified dimensions and minimal browser chrome
-    window.open(imageUrl, 'BiggerImage', 'width=' + imageWidth + ', height=' + imageHeight + ', toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, left=' + left + ', top=' + top);
-  }
-</script>
   
 </head>
 
 	<body translate="no"><div class="center-container">
 		<a href="index.html"><img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
  </div>
-		<div class="center-container"><h2 data-gold="«">«</h2><h2 data-silver="CONTACT US">CONTACT US</h2><h2 data-gold="»">»</h2></div>
   <section class="contact_us">
         <div class="container">
             <div class="row">
@@ -461,9 +288,7 @@ body {
         </div>
     </section>
 <div class="center-container">
-	<div align="center"><h5><a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5></div>
-	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div></div>
+</div>
   
 </body>
 
