@@ -9,17 +9,19 @@
 <meta http-equiv="Pragma" content="no-cache"/>
 <meta name="distribution" content="global">
 <meta name="google" value="notranslate">
-<meta name="Keywords" content="nhjeweler, nadir hasanov, nadirjewelry, nadir, hasanov, nadirjewelry, nadir jewelry, custom made jewelry, nadirjewelry.com" />
+<meta name="Keywords" content="nadirjewelry, nhjeweler, nadir hasanov, nadir jewelry, nadir, hasanov, nadirjewelry, nadir jewelry, Nadir custom made jewelry, nadirjewelry.com" />
 <meta name="Description" content="nhjeweler.com / nadirjewelry.com | Nadir Jewelry LLC" />
 <meta name="ROBOTS" content="INDEX, FOLLOW" />
 <meta name="Copyright" content="Copyright by nhjeweler / nadirjewelry.com" />
 <meta name="AUTHOR" content="LLusignan" />
 <meta name="RESOURCE-TYPE" content="DOCUMENT" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nadir Jewelry / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry</title>
+	
+<title>Nadir Jewelry Gallery / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry \ nadirjewelry.com</title>
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">	
 <style>
 	    @-webkit-keyframes shine {
   0% {
@@ -37,28 +39,25 @@
     background-position: -10% 0%, 0 0;
   }
 }
-.container-grid {
-  display: grid; /* Enables CSS Grid layout */
-  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns of equal width */
-  place-items: center; /* Centers all items both horizontally and vertically within their grid cells */
-  gap: 20px; /* Adds space between grid items */
-}
 
-.box {
-  /* No width needed here as grid-template-columns defines the width */
-  width: 308px;
-  height: 308px;
-  padding: 1px;
-  border: 1px solid goldenrod;
-  text-align: center;
+  .center-container {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+  }
+	
+	.container {
+  display: flex;
+  width: fit-content; /* Or a specific width like 50% or 960px */
+  margin: 0 auto; /* Centers the block horizontally */
+  justify-content: center; /* Centers horizontally */
+
 }
 
 .center-div {
   /* Add other styles for visualization (e.g., width, background, border) */
   width: 308px;
-  height: 308px;
-  padding: 1px;
-  border: 1px solid goldenrod;
+  padding: 0px;
+ 
 }
 	h1 {
   position: relative;
@@ -74,8 +73,8 @@ h2 {
   position: relative;
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 150;
-  font-size: 3vw;
+  font-weight: 120;
+  font-size: 2.2vw;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
   margin: 0;
@@ -95,7 +94,7 @@ h3 {
   display: inline-block;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 100;
-  font-size: 1.5vw;
+  font-size: 2vw;
   letter-spacing: 1.0vw;
   text-transform: uppercase;
   text-decoration-color: goldenrod;
@@ -221,7 +220,7 @@ h3 {
 
 .grid figure figcaption {
 	padding: 2em;
-	color: #FCFDEC;
+	color: #goldenrod;
 	text-transform: uppercase;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
@@ -276,14 +275,21 @@ h3 {
 /*---------------*/
 /***** Leo *****/
 /*---------------*/
-
+	
 figure.effect-leo {
-	background: #fff;
+	background: #fafafa;
 }
 
 figure.effect-leo img {
 	width: 300px;
 	height: 300px;	
+ 
+	border-top: 1px solid #;
+	border-bottom: 1px solid #;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
 }
 
 figure.effect-leo figcaption {
@@ -302,8 +308,8 @@ figure.effect-leo figcaption::before {
 	right: 30px;
 	bottom: 50px;
 	left: 30px;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+	border-top: 1px solid #006600;
+	border-bottom: 1px solid #006600;
 	-webkit-transform: scale(0,1);
 	transform: scale(0,1);
 	-webkit-transform-origin: 0 0;
@@ -315,8 +321,8 @@ figure.effect-leo figcaption::after {
 	right: 50px;
 	bottom: 30px;
 	left: 50px;
-	border-right: 1px solid #fff;
-	border-left: 1px solid #fff;
+	border-right: 1px solid #006600;
+	border-left: 1px solid #006600;
 	-webkit-transform: scale(1,0);
 	transform: scale(1,0);
 	-webkit-transform-origin: 100% 0;
@@ -352,9 +358,10 @@ figure.effect-leo p {
 }
 
 figure.effect-leo:hover img {
-	opacity: 0.7;
+	opacity: 1.0;
 	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+    /* Multiple transform functions are chained in a single transform property */
+	transform: translate3d(0,0,0) scale(1.5);  
 }
 
 figure.effect-leo:hover figcaption::before,
@@ -429,7 +436,68 @@ section {
 .content > h2:first-child {
 	padding-top: 0em;
 }
+	.instagram-icon i {
+    color: #dadada; /* Example color (part of Instagram's gradient) */
+    font-weight: 100;
+    font-size: 1.5vw;
+		  text-decoration-color: goldenrod;
+  margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 5px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 10px #858585, 0 0 5px #ac733c;
+    }
+  }
+.instagram-icon i:hover {
+    color: #cb9a52; /* Change color on hover */
+	width: 50px; /* Adjust the size as needed, e.g., 50px, 2rem, etc. */
+    height: 50px; /* Maintain aspect ratio by setting both, or just one */
+}
+		/* Link Style 2 */
+.link2 a {
+    color: #silver;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+    text-decoration: none;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
+		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+}
 
+.link2 a:hover {
+    box-shadow: inset 0 -1.125em 0 #7C6310;
+    color: #000;
+}
+
+.link2 a:focus {
+    background: #fff;
+    outline: none;
+    background: #f0d8a9;
+    color: #fff;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+}
+	.shadowed-text {
+  color: #006600; /* Sets the main font color to Pakistan green */
+		
+		    /* 1. Add a semi-transparent background color (RGBA) */
+    background-color: rgba(255, 255, 255, 0.4); /* White with 40% opacity */
+
+    /* 2. Apply the blur effect to the background area */
+    backdrop-filter: blur(2px);
+
+  font-size: 14px; /* Example: Adjust font size for better effect */
+  text-shadow: 2px 2px 4px #goldenrod; /* Horizontal offset, Vertical offset, Blur radius, Shadow color */
+}
 </style>
 
   <script>
@@ -449,53 +517,79 @@ section {
   
 </head>
 
-<body translate="no">
-<h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
-<div class="container-grid">
+	<body translate="no"><div class="center-container">
+		<a href="index.html"><img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130"></a>
+ </div>
+		<div class="center-container"><h2 data-gold="«">«</h2><h2 data-silver="GALLERY">GALLERY</h2><h2 data-gold="»">»</h2></div>
+<div class="container">
   <div class="grid">
-	<div class="box">
+	<div class="center-div">
 				
 					<figure class="effect-leo">
-						<img src="files/j8.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #08" onclick="openBiggerImage('/files/j8.png', 900, 900)"
-       style="cursor: pointer;"/>
+						<img src="files/j5.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #05"/>
 						<figcaption>
 							<h2><span></span></h2>
-							<p>Nadir Hasanov Jewelry #08.</p>
-							<a href="#">View more</a>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #05.</p>
+							<a rel="nofollow noopener" href="/files/j5.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#05"></a>
 						</figcaption>			
-		</figure></div>
-	  <div class="box">
+		</figure>
+
 					<figure class="effect-leo">
-						<img src="files/j9.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #09" onclick="openBiggerImage('/files/j9.png', 900, 900)"
-       style="cursor: pointer;"/>
+						<img src="files/j6.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #06"/>
 						<figcaption>
 							<h2><span></span></h2>
-							<p>Nadir Hasanov Jewelry #09.</p>
-							<a href="#">View more</a>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #06.</p>
+							<a rel="nofollow noopener" href="/files/j6.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#06"></a>
 						</figcaption>			
-	  </figure></div>
-					<div class="box"><figure class="effect-leo">
-						<img src="files/j3.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #03" onclick="openBiggerImage('/files/j3.png', 900, 900)"
-       style="cursor: pointer;"/>
-						<figcaption>
-							<h2><span></span></h2>
-							<p>Nadir Hasanov Jewelry #09.</p>
-							<a href="#">View more</a>
-						</figcaption>			
-						</figure></div>
-						<div class="box">
+	  </figure>
 					<figure class="effect-leo">
+						<img src="files/j3.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #03"/>
+						<figcaption>
+							<h2><span></span></h2>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #03.</p>
+							<a rel="nofollow noopener" href="/files/j3.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#03"></a>
+						</figcaption>			
+						</figure>
+						
+					<figure class="effect-leo">
+						<img src="files/j9.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #09"/>
+						<figcaption>
+							<h2><span></span></h2>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #09.</p>
+							<a rel="nofollow noopener" href="/files/j9.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#09"></a>
+						</figcaption>			
+					</figure>
+		<figure class="effect-leo">
 						<img src="files/j7.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #07" onclick="openBiggerImage('/files/j7.png', 900, 900)"
        style="cursor: pointer;"/>
 						<figcaption>
 							<h2><span></span></h2>
-							<p>Nadir Hasanov Jewelry #09.</p>
-							<a href="#">View more</a>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #07.</p>
+							<a rel="nofollow noopener" href="/files/j7.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#07"></a>
+						</figcaption>			
+						</figure>
+						
+					<figure class="effect-leo">
+						<img src="files/j8.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #08"/>
+						<figcaption>
+							<h2><span></span></h2>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #08.</p>
+							<a rel="nofollow noopener" href="/files/j8.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=600,height=600,toolbar=1,resizable=0'); return false;" title="#08"></a>
+						</figcaption>			
+					</figure>
+		<figure class="effect-leo">
+						<img src="files/j2.png?w=300&h=300&fit=crop" alt="Nadir Hasanov Jewelry #02"/>
+						<figcaption>
+							<h2><span></span></h2>
+							<p class="shadowed-text">Nadir Hasanov Jewelry #02.</p>
+							<a rel="nofollow noopener" href="/files/j2.png" onclick="window.open(this.href, 'img', 'left=100,top=100,width=560,height=560,toolbar=1,resizable=0'); return false;" title="#08"></a>
 						</figcaption>			
 					</figure>
 				</div>
-	</div></div>
-
+	</div></div><div class="center-container">
+	<div align="center"><h5><a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5></div>
+	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div></div>
   
 </body>
 
