@@ -50,7 +50,22 @@ body {
   -webkit-animation: unicorn-slide 15s ease infinite;
   background-size: 200% 200%;
 }
-
+	  .child-div {
+    position: absolute; /* or relative, fixed, sticky */
+  z-index: 9999; /* A high value to ensure it's on top */
+  top: 50%;
+  left: 50%;
+  background-color: ;
+}
+	
+  .top-div {
+    position: absolute;
+    z-index: 5; /* This will be behind the child-div because 5 < 10 */
+    background-color: lightcoral;
+    padding: 20px;
+    top: 10px;
+    left: 10px;
+  }	
 @keyframes unicorn-slide {
   0% {
     background-position: 0% 50%;
@@ -151,14 +166,7 @@ body {
   box-sizing: border-box;
   z-index: 2;
 }
-	.top-div {
-  position: fixed; /* or absolute, relative, sticky */
-  z-index: 10000;  /* a high value to ensure it is above other elements */
-  /* Add other styling as needed, e.g., top, left, background-color, etc. */
-  top: 50%;
-  left: 50%;
-  background-color: ;
-}
+
 
 .shine {
   position: absolute;
@@ -668,8 +676,8 @@ body {
         </div>
         <div class="social-icon-group">
 	  
-	<div class="top-div"><image src="files/clear.png" width="200" height="200"/>
-<div class="social-icon"><a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></div>			  
+			<div class="child-div"><image src="files/logo.png" width="200" height="200"/></div>
+<div class="top-div"><a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></div>			  
 
 			</div>
 			
