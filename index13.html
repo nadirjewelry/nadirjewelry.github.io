@@ -21,10 +21,24 @@
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
-
- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
-  
-<style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+	  <style>
+    @-webkit-keyframes shine {
+  0% {
+    background-position: 110% 0%, 0 0;
+  }
+  100% {
+    background-position: -10% 0%, 0 0;
+  }
+}
+@keyframes shine {
+  0% {
+    background-position: 110% 0%, 0 0;
+  }
+  100% {
+    background-position: -10% 0%, 0 0;
+  }
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -32,7 +46,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+overflow: hidden;
      transition: background-image 1s ease-in-out; /* Smooth transition */
 	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
 	/* Other background properties */
@@ -57,7 +71,84 @@ body {
   opacity: 0.6;
   z-index: -1;
 }
+		  canvas {
+    position: relative;
+	overflow: hidden;
 
+}
+
+	@media (min-width: 1200px) {
+    canvas {
+        overflow: hidden;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+#particles-js-f-blur-bright {
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+#particles-js-f {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+#particles-js-m {
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+#particles-js-b {
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+	
+	background-color: #; 
+  /* Apply the linear gradient from Pakistan green #006600 to transparent */
+  background-image: linear-gradient(to bottom, #006600, rgba(0, 128, 0, 0));
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* Setup For An Image That Fits On Most Screens And Resizes*/
 .with-bg-size {
   background-image: url("/files/bg4.jpg");
@@ -97,154 +188,350 @@ body {
 	
 /* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
 :root {
-  --clr-blk: #006600;
-  --clr-bkg-clr: #cfa020;
-  --clr-txt: #f9e589;
-  --clr-txt1: #5c4003;
-  --clr-txt-sha: #ffcc00;
-  --clr-bord1: #fadc88;
-  --clr-bord2: #9c7625;
-  --cl-boxsha1: #fafac4;
-  --cl-boxsha2: #fdd832;
-  --cl-boxsha3: #f7b42f;  
+	--init-x: 0;
+	--init-y: 0;
+	--dest-x: 0;
+	--dest-y: 0;
+	--dest-z: 0;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.lingo {
+	position: absolute;
+	color: white;
+	transform: translateZ(0);
+	-webkit-animation: flythrough 5s forwards ease-in;
+  transform-origin: center;
 }
 
-html {
-  font-family: 'Poppins', sans-serif;
+#thisSelect {
+	position: absolute;
+	height: 25px;
+	z-index: 999999;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: var(--clr-blk);
+@-webkit-keyframes flythrough {
+	0% {opacity: 0; transform: perspective(0px) translate3d(var(--init-x),var(--init-y),0px);}
+	50% {opacity: 0.7;}
+	100% {opacity: 0; transform: perspective(500px) translate3d(var(--dest-x),var(--dest-y), var(--dest-z));}
 }
-
-button {
+		  
+h1 {
   position: relative;
   display: inline-block;
-  padding: .625em 1.25em;
-  color: var(--clr-txt);
-  text-decoration: none;
-  text-align: center;
-  vertical-align: center;
-  font-size: 2em;
-  font-weight: bold;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100;
+  font-size: 2vw;
+  letter-spacing: 1.5vw;
   text-transform: uppercase;
-  letter-spacing: .125em;
-  border: none;
-  border-radius: .375em;
-  text-shadow: 0 .063em 0.125em var(--clr-blk);
-  border-top: .031em solid var(--clr-bord1);
-  border-left: .031em solid var(--clr-bord2);
-  border-right: .031em solid var(--clr-bord2);
-  border-bottom: .031em solid var(--clr-bord2);
-  /*   outline-color: transparent; */
-  overflow: hidden;
-  z-index: 1;
-  transition: all 0.2s ease;
-  cursor: pointer;   
+  margin: 0;
 }
+h2 {
+  position: relative;
+  display: inline-block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 5vw;
+  letter-spacing: 1.5vw;
+  text-transform: uppercase;
+  margin: 0;
+}
+h3 {
+  position: relative;
+  display: inline-block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100;
+  font-size: 1.5vw;
+  letter-spacing: 1.0vw;
+  text-transform: uppercase;
+  margin: 0;
+}
+		  h4 {
+			  
+	  position: relative;
+  display: inline-block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100;
+  font-size: 1.5vw;
+  letter-spacing: 1.0vw;
+  text-transform: uppercase;
+  margin: 0;		  
 
-button .waves {
+  }
+
+		 h5 {
+			  position: relative;
+  display: inline-block;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100;
+  font-size: 1.5vw;
+  letter-spacing: 1.0vw;
+  text-transform: uppercase;
+  text-decoration-color: goldenrod;
+  margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 8px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 16px #858585, 0 0 8px #ac733c;
+    }
+  }
+}  		  
+		  
+[data-gold] {
+  color: #ac733c;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
+  [data-gold] {
+    color: transparent;
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, white 50%, transparent 55%, transparent 100%), linear-gradient(90deg, #c78c48, #cf9147 9.4%, #cf9348 9.4%, #b2763e 33.6%, #ad743c 35.7%, #ac723d 46.9%, #b0773d 51.7%, #b0793e 52.1%, #c4914c 64.6%, #c99750 68.5%, #ce9e54 73.2%, #f4d188);
+    background-position: 110% 0%, 0 0;
+    background-size: 200% auto, auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-animation: shine 2s ease-in-out 2 alternate 2s;
+            animation: shine 2s ease-in-out 2 alternate 2s;
+  }
+}
+[data-gold]:before {
+  content: attr(data-gold);
+  color: #f0d8a9;
   position: absolute;
-  width: 100%;
-  /* height: 6.250em;
-  top: -3.75em; */
-  height: 200px;
-  top: -60px;
-  left: 0;
-  background-color: var(--clr-bkg-clr);
-  box-shadow: inset 0 0 3.125em rgba(0, 0, 0, 0.5);
   z-index: -1;
-  transition: .5s;
+  top: -0.08vw;
+  left: 0px;
+  text-shadow: black 0px 0.08vw 12px;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
+  [data-gold]:after {
+    content: attr(data-gold);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 48%, rgba(98, 16, 0, 0.5) 50%, transparent 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
-button .waves::after,
-button .waves::before {
-  content: '';
+[data-silver] {
+  color: #858585;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
+  [data-silver] {
+    color: transparent;
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, white 50%, transparent 55%, transparent 100%), linear-gradient(270deg, #8c8c8c 1.3%, #999 15%, #868686 29.6%, #828282 29.6%, #7d7d7d 31.8%, #797979 31.8%, #6a6a6a 38.9%, #d3d3d3);
+    background-position: 110% 0%, 0 0;
+    background-size: 200% auto, auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 2s ease-in-out 2 alternate-reverse 2s;
+  }
+}
+[data-silver]:before {
+  content: attr(data-silver);
+  color: #fff;
   position: absolute;
-  width: 150%;
-  height: 100%; 
-  top: 0;
+  z-index: -1;
+  top: -0.08vw;
+  left: 0px;
+  text-shadow: black 0px 0.08vw 12px;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) or (-webkit-background-clip: text) {
+  [data-silver]:after {
+    content: attr(data-silver);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 48%, rgba(17, 17, 17, 0.5) 50%, transparent 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+  </style><style>
+
+	/* Link Style 1 */
+.link1 a {
+    color: #4b2432;
+    text-decoration: none;
+		border-bottom: .125em solid #7C6310;
+		box-shadow: inset 0 -0.125em 0 #7C6310;
+		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.link1 a:hover {
+    box-shadow: inset 0 -1.125em 0 #7C6310;
+    color: #000;
+}
+
+.link1 a:focus {
+    background: #fff;
+    outline: none;
+    background: #7C6310;
+    color: #fff;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+	/* Link Style 2 */
+.link2 a {
+    color: #silver;
+	font-family: Source Sans Pro, Sans Serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+    text-decoration: none;
+		border-bottom: .125em solid #f0d8a9;
+		box-shadow: inset 0 -0.125em 0 #f0d8a9;
+		transition: box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.link2 a:hover {
+    box-shadow: inset 0 -1.125em 0 #7C6310;
+    color: #000;
+}
+
+.link2 a:focus {
+    background: #fff;
+    outline: none;
+    background: #f0d8a9;
+    color: #fff;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
+}
+.container {
+  position: absolute;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -75%);
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+z-index: 6;
+}
+.imageBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.imageAfter {
+  width: 0;
+  transition: 2s;
+  overflow: hidden;
+}
+.container:hover .imageAfter {
+  width: 100%;
+}
+	.glowing-text span {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  color: #f0d8a9;
+  animation: glowing 1.5s ease-in-out infinite, colorChange 2s ease-in-out infinite;
 }
 
-button .waves::before {
-  border-radius: 20%;
-  background: rgba(20, 20, 20, 1);
-  animation: animate 5s linear infinite;
-}
-
-button .waves::after {
-  border-radius: 10%;
-  background: rgba(20, 20, 20, 0.5);
-  animation: animate 10s linear infinite;
-}
-
-button:hover .waves,
-button:focus .waves,
-button:active .waves{
-  /* top: -7.188em; */
-  top: -115px;
-}
-
-button:hover,
-button:focus,
-button:active {
-  color: var(--clr-txt1);
-  text-shadow: .063em .063em .188em var(--clr-txt-sha);
-  border: .5px solid var(--clr-bord1);
-  box-shadow: 0 0 .625em var(--cl-boxsha1),
-              0 0 2.5em var(--cl-boxsha2),
-              0 0 3.75em var(--cl-boxsha3);
-}
-
-@keyframes animate {
+@keyframes glowing {
   0% {
-    transform: translate(-50%, -75%) rotate(0deg);
+    filter: drop-shadow(0 0 1px #f0d8a9) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    opacity: 1;
   }
-
+  50% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5215686275)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.0431372549));
+    opacity: 1;
+  }
   100% {
-    transform: translate(-50%, -75%) rotate(360deg);
+    filter: drop-shadow(0 0 2px #goldenrod) drop-shadow(0 0 10px rgba(172, 255, 108, 0.3294117647));
+    opacity: 1;
   }
 }
-		a:link, a:visited, a:hover, a:active {
+@keyframes colorChange {
+  0% {
+    color: #f0d8a9;
+  }
+  33% {
+    color: #silver;
+  }
+  66% {
+    color: #d4af37;
+  }
+  100% {
+    color: #goldenrod;
+  }
+}
+	  .half-space {
+    /* 0.5em is typically half the height of the current font size */
+    margin-bottom: 0.5em; 
+    display: block; /* Ensures the margin is applied correctly */
+  }
+.div-space { margin-bottom: 130px; }
+  }
+	  .wide-spacing {
+      letter-spacing: 4px;
+    }
+	a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
-</style>
+	.instagram-icon i {
+    color: #dadada; /* Example color (part of Instagram's gradient) */
+    font-weight: 100;
+    font-size: 1.5vw;
+		  text-decoration-color: goldenrod;
+  margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    animation: glow 2s ease-in-out infinite alternate;
+} 
+  @keyframes glow {
+    from {
+		text color: darkgoldenrod;
+      text-shadow: 0 0 5px #f0d8a9;
+    }
+    to {
+		text color: silver;
+      text-shadow: 0 0 10px #858585, 0 0 5px #ac733c;
+    }
+  }
+.instagram-icon i:hover {
+    color: #cb9a52; /* Change color on hover */
+}
+	</style>   
 
+	<script>
+  window.console = window.console || function(t) {};
+</script>
+	</head><body>
+		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
-  
-  
-  
-</head>
+</div>       <div id="particles-js-f"></div>
+        <div id="particles-js-f-blur-bright"></div>	
+<div class="container">
+  <div class="imageBox imageBefore">
+				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
+ </div>
+  <div class="imageBox imageAfter">
 
-<body>
-
-       
-  <a href="index.html"><button>NADIR HASANOV<span class="waves"></span></button></a>
-		
-		
-   
-
+<img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
+		  </div>
+</div>
+	<h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
+<h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
+<h4 data-gold="Custom Made Gold and Silver Jewelry">Custom Made Gold and Silver Jewelry</h4>
+	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
+	<br/><div class="container">
+	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
+	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
+	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
+	</div>
+	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
-    <script id="rendered-js">
+    <script>
 const GlowingText = ({ text }) => {
   const letters = typeof text === 'string' ? text.split('') : [];
 
@@ -263,63 +550,573 @@ const GlowingText = ({ text }) => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "CUSTOM MADE GOLD & SILVER JEWELRY" }));
-//# sourceURL=pen.js
+root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC * NADIR HASANOV" }));
   </script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
     <script>
-const defaultItemCount = 7;
-const itemWidth = 130;
-
-const wrapper = document.getElementById("InfiniteScrollWrapper");
-const content = document.getElementById("InfiniteScroll");
-
-const manageChildren = childCount => {
-  while (content.children.length > defaultItemCount) {if (window.CP.shouldStopExecution(0)) break;
-    content.removeChild(content.lastChild);
-  }window.CP.exitedLoop(0);
-
-  for (let i = 0; i < childCount; i++) {if (window.CP.shouldStopExecution(1)) break;
-    for (let j = 0; j < defaultItemCount; j++) {if (window.CP.shouldStopExecution(2)) break;
-      const clone = content.children[j].cloneNode(true);
-      content.appendChild(clone);
-    }window.CP.exitedLoop(2);
-  }window.CP.exitedLoop(1);
-
-  content.style.width = `${itemWidth * defaultItemCount * (childCount + 1)}px`;
-};
-
-const core = width => {
-  if (width <= 1920) {
-    manageChildren(2);
-  } else if (width <= 2560) {
-    manageChildren(3);
-  } else if (width <= 3840) {
-    manageChildren(4);
-  } else {
-    manageChildren(8);
-  }
-};
-
-const debounce = (func, delay) => {
-  let timeout;
-  return () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, delay);
-  };
-};
-
-const handleResize = debounce(() => core(window.innerWidth), 600);
-
-window.addEventListener("load", () => {
-  core(window.innerWidth);
+// This is just to auto-update the data-text if you're editing it directly on the page and is not required for the actual effect
+$('[data-text]').on('keyup', function () {
+  $(this).attr('data-text', $(this).text());
 });
 
-window.addEventListener("resize", handleResize);
+particlesJS("particles-js-f", {
+   "particles": {
+    "number": {
+      "value": 12,
+      "density": {
+        "enable": true,
+        "value_area": 1000 } },
+
+    "color": {
+      "value": "#FFBF00" },
+
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0.06,
+        "color": "#D3AF37" },
+
+      "polygon": {
+        "nb_sides": 5 },
+
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100 } },
+
+
+    "opacity": {
+      "value": 0.12,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 23,
+        "opacity_min": 0.08,
+        "sync": false } },
+
+
+    "size": {
+      "value": 60,
+      "random": false,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "size_min": 50,
+        "sync": false } },
+
+
+    "line_linked": {
+      "enable": false,
+      "distance": 500,
+      "color": "#ffffff",
+      "opacity": 0.6,
+      "width": 2 },
+
+    "move": {
+      "enable": true,
+      "speed": 3,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200 } } },
+
+
+
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "bubble" },
+
+      "onclick": {
+        "enable": false,
+        "mode": "bubble" },
+
+      "resize": true },
+
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 0.34 } },
+
+
+      "bubble": {
+        "distance": 231,
+        "size": 62,
+        "duration": 0.5,
+        "opacity": 0.46,
+        "speed": 1 },
+
+      "repulse": {
+        "distance": 56.84540486109416,
+        "duration": 0.4 },
+
+      "push": {
+        "particles_nb": 4 },
+
+      "remove": {
+        "particles_nb": 2 } } },
+
+
+
+  "retina_detect": true });
+
+
+particlesJS("particles-js-m", {
+  "particles": {
+    "number": {
+      "value": 50,
+      "density": {
+        "enable": true,
+        "value_area": 1000 } },
+
+
+    "color": {
+      "value": "#116007" },
+
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0.06,
+        "color": "#116007" },
+
+      "polygon": {
+        "nb_sides": 5 },
+
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100 } },
+
+
+    "opacity": {
+      "value": 0.09,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 3,
+        "opacity_min": 0.03,
+        "sync": false } },
+
+
+    "size": {
+      "value": 60,
+      "random": false,
+      "anim": {
+        "enable": true,
+        "speed": 4,
+        "size_min": 55,
+        "sync": false } },
+
+
+    "line_linked": {
+      "enable": false,
+      "distance": 500,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 2 },
+
+    "move": {
+      "enable": true,
+      "speed": 10,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200 } } },
+
+
+
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "bubble" },
+
+      "onclick": {
+        "enable": true,
+        "mode": "bubble" },
+
+      "resize": true },
+
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 0.5 } },
+
+
+      "bubble": {
+        "distance": 231,
+        "size": 68,
+        "duration": 0.5,
+        "opacity": 0.6,
+        "speed": 1 },
+
+      "repulse": {
+        "distance": 56.84540486109416,
+        "duration": 0.4 },
+
+      "push": {
+        "particles_nb": 4 },
+
+      "remove": {
+        "particles_nb": 2 } } },
+
+
+
+  "retina_detect": true });
+
+
+particlesJS("particles-js-f-blur-bright", {
+  "particles": {
+    "number": {
+      "value": 3,
+      "density": {
+        "enable": true,
+        "value_area": 800 } },
+
+
+    "color": {
+      "value": "#1da70d" },
+
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0.1,
+        "color": "#FFBF00" },
+
+      "polygon": {
+        "nb_sides": 5 },
+
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100 } },
+
+
+    "opacity": {
+      "value": 0.4,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 23,
+        "opacity_min": 0.3,
+        "sync": false } },
+
+
+    "size": {
+      "value": 70,
+      "random": false,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "size_min": 50,
+        "sync": false } },
+
+
+    "line_linked": {
+      "enable": false,
+      "distance": 500,
+      "color": "#ffffff",
+      "opacity": 0.9,
+      "width": 2 },
+
+    "move": {
+      "enable": true,
+      "speed": 4,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200 } } },
+
+
+
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "bubble" },
+
+      "onclick": {
+        "enable": false,
+        "mode": "bubble" },
+
+      "resize": true },
+
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 0.5 } },
+
+
+      "bubble": {
+        "distance": 231,
+        "size": 68,
+        "duration": 0.5,
+        "opacity": 0.6,
+        "speed": 1 },
+
+      "repulse": {
+        "distance": 56.84540486109416,
+        "duration": 0.4 },
+
+      "push": {
+        "particles_nb": 4 },
+
+      "remove": {
+        "particles_nb": 2 } } },
+
+
+
+  "retina_detect": true });
+
+
+
+
+var count_particles, stats, update;
+
+// document.body.appendChild(stats.domElement);
+count_particles = document.querySelector('.js-count-particles');
+update = function () {
+  /*
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    // count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
+  */
+  requestAnimationFrame(update);
+};
+requestAnimationFrame(update);
+
+
+
+// Get IE or Edge browser version
+var version = detectIE();
+
+if (version === false) {
+  $('.hide-ie').show();
+  $('.social-icon').addClass('golden-grad-shad');
+  $('.social-icon').removeClass('golden-color');
+  $('.show-ie').hide();
+
+} else if (version >= 12) {
+  $('.social-icon').addClass('golden-color');
+  $('.social-icon').removeClass('golden-grad-shad');
+  $('.hide-ie').hide();
+  $('.show-ie').show();
+} else {
+  $('.social-icon').addClass('golden-color');
+  $('.social-icon').removeClass('golden-grad-shad');
+  $('.hide-ie').hide();
+  $('.show-ie').show();
+}
+
+/**
+ * detect IE
+ * returns version of IE or false, if browser is not Internet Explorer
+ */
+function detectIE() {
+  var ua = window.navigator.userAgent;
+
+  // Test values; Uncomment to check result …
+
+  // IE 10
+  // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+
+  // IE 11
+  // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+
+  // Edge 12 (Spartan)
+  // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+
+  // Edge 13
+  // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    // Edge (IE 12+) => return version number
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+
+  // other browser
+  return false;
+}
+  </script>
+   <script>
+const DEBUG_MODE = "FALSE";
+
+var divs = [];
+var counter = 0;
+var maxDivs = 300;
+var bodyH, bodyW, words, lingo;
+
+changeWords();
+
+//initially load n amount of particles
+for (i = 0; i < maxDivs / 3; i++) {
+  newLingo();
+}
+
+//add additional particles on a set interval with initial delay
+setTimeout(function () {
+  setInterval(newLingo, 25);
+}, 750);
+
+function newLingo() {
+  var buffer = 0; //as in margins
+  bodyW = document.body.clientWidth;
+  bodyH = document.body.clientHeight;
+
+  counter++;
+  lingo = getRandomValue(words);
+
+  //convert less than symbol to HTML compliant
+  var lthan = "<";
+  var regi = new RegExp(lthan, 'g');
+  lingo = lingo.replace(regi, '&lt;');
+
+  //dynamically add div
+  var div = document.createElement('div');
+  div.id = 'div' + counter;
+  div.classList.add('lingo');
+  div.style.left = getRandomInt(buffer, bodyW - div.style.width - buffer) + 'px';
+  div.style.top = getRandomInt(buffer, bodyH - div.style.height - buffer) + 'px';
+  div.innerHTML = lingo;
+
+  //set CSS animation properties
+  div.style.setProperty('--init-x', div.style.left + 'px');
+  div.style.setProperty('--init-y', div.style.top + 'px');
+  var _destZ = getRandomInt(100, 600);
+
+  var quad = getQuandrantForElem(div);
+  if (quad === 1) {
+    div.style.setProperty('--dest-x', -50 + '%');
+    div.style.setProperty('--dest-y', -50 + '%');
+    div.style.setProperty('--dest-z', _destZ + 'px');
+  }
+  if (quad === 2) {
+    div.style.setProperty('--dest-x', 50 + '%');
+    div.style.setProperty('--dest-y', -50 + '%');
+    div.style.setProperty('--dest-z', _destZ + 'px');
+  }
+  if (quad === 3) {
+    div.style.setProperty('--dest-x', -50 + '%');
+    div.style.setProperty('--dest-y', 50 + '%');
+    div.style.setProperty('--dest-z', _destZ + 'px');
+  }
+  if (quad === 4) {
+    div.style.setProperty('--dest-x', 50 + '%');
+    div.style.setProperty('--dest-y', 50 + '%');
+    div.style.setProperty('--dest-z', _destZ + 'px');
+  }
+
+  //add the div to the document and divs array
+  document.body.appendChild(div);
+  divs.push(div.id);
+  log('divs count: ' + divs.length);
+  log('width of word ' + lingo.length + ' width of div ' + div.clientWidth + ' height of div ' + div.clientHeight);
+  if (divs.length > maxDivs) {
+    //if the amount of divs is more than the max allowed specified above, delete the most recent first div applied to the document and divs array
+    log('removing element: ' + divs[0]);
+    var elem = document.getElementById(divs[0]);
+    elem.parentNode.removeChild(elem);
+    divs.shift();
+    log('shifted count: ' + divs.length + ' first Index: ' + divs[0]);
+  }
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomValue(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+// This should be refined and improved for accuracy.
+function getQuandrantForElem(elem) {
+  var result = 0;
+  //the average width to word ratio is 8.75 (based on font-size). All elements (divs) have a height of 19
+  var divDim = { 'X': elem.style.left.slice(0, -2), 'Y': elem.style.top.slice(0, -2) };
+  var buffer = 50;
+
+  if (divDim.X >= bodyW / 2 - buffer) {
+    if (divDim.Y >= bodyH / 2) {
+      result = 4;
+    }
+    if (divDim.Y <= bodyH / 2) {
+      result = 2;
+    }
+  }
+
+  if (divDim.X <= bodyW / 2 - buffer) {
+    if (divDim.Y >= bodyH / 2) {
+      result = 3;
+    }
+    if (divDim.Y <= bodyH / 2) {
+      result = 1;
+    }
+  }
+
+  return result;
+}
+
+function changeWords() {
+  var _index = document.getElementById("thisSelect").value;
+  switch (_index) {
+    case "0":
+      words = ['function()', 'Debug.Print()', "for(i=0;i<length;i++)", 'var i', 'jewelry', 'Math.random()', 'abs()', '24K', 'bool', 'hasDedidcatedThread()', 'setup.exe', 'var me = new Person()', 'terminate()', 'abort()', 'acos()', 'asin()', 'ceil()', 'gold', 'isalpha()', 'remove()', 'toupper()', 'modf()', '<html></html>', '$.ajax({})', 'int64', 'diamonds', 'AU', 'crypt()', '===', 'silver', 'empty()', 'operators', 'threading()', 'session_start', '$_GET["paramater"]', '$POST["password"]', 'hypertext', "color: black;", "font-family: Consolas", 'array_push()', 'array.push', 'array_map()', 'array_diff()', 'base64_decode', 'bcmod', 'bcpow', 'CachingIterator::count', 'new Date()', 'session_encode', 'shuffle()', 'chain', 'sizeOf', 'socket_bind', 'socket_accept', 'socket_sendto', 'DateTime::setDate'];
+      break;
+    case "1":
+      words = ['0', '1'];
+      break;}
+
+}
+
+function log(text) {
+  if (DEBUG_MODE === "TRUE") console.log(text);
+}
 //# sourceURL=pen.js
   </script>
- 
+	
+	
 </body>
 
 </html>
