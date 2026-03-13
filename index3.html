@@ -30,6 +30,47 @@ body {
   margin: 0;
 
 }
+	
+/* Setup For An Image That Fits On Most Screens And Resizes*/
+.with-bg-size {
+  background-image: url("/files/bg4.jpg");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  
+  
+  -webkit-animation: back 5s infinite; /* Safari 4+ */
+  -moz-animation:    back 5s infinite; /* Fx 5+ */
+  -o-animation:      back 5s infinite; /* Opera 12+ */
+  animation:         back 5s infinite; /* IE 10+, Fx 29+ */
+  
+  
+}
+/* The Keyframes*/
+@keyframes back {
+  
+  15%{
+    background-image: url("/files/bg5.jpg");
+  }
+   
+  30%{
+    background-image: url("/files/bg6.jpg");
+  }
+  45%{
+    background-image: url("/files/bg8.jpg");
+  }	
+  60%{
+    background-image: url("/files/bg6.jpg");
+  }
+  
+  75%{
+    background-image: url("/files/bg5.jpg");
+  }
+	
+/* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
+}
+	  
 		  canvas {
     position: relative;
 	overflow: hidden;
@@ -621,17 +662,51 @@ span.i {
 	  .wide-spacing {
       letter-spacing: 4px;
     }
+		.background-container {
+    position: relative; /* Establishes a positioning context for its children */
+    width: 100%;
+    height: 100vh; /* Make the container fill the full height of the viewport */
+    overflow: hidden; /* Hides any overflow from the animated elements */
+}
+
+.animated-background {
+    position: absolute; /* Positions the background relative to the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Puts the background at a lower stacking order */
+    /* Add your animation styles here */
+}
+
+.content-overlay {
+    position: absolute; /* Positions the content relative to the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Puts the content at a higher stacking order (any value > 1) */
+    /* Add styles for your content, such as centering or padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Example styling for visibility */
+    text-align: center;
+}
 	</style>   
 
 	<script>
   window.console = window.console || function(t) {};
 </script>
-	</head>
+	</head>	
+	<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index: 4; width:100%; margin:0;"></div>
 	        <div id="particles-js-b"></div>
         <div id="particles-js-m"></div>
         <div id="particles-js-f"></div>
         <div id="particles-js-f-blur-bright"></div>	
-
+	<div class="background-container">
+    <!-- Your animated background element (e.g., video, canvas, or another div with CSS animation) -->
+    <div class="animated-background"></div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
