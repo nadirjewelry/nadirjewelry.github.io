@@ -137,11 +137,14 @@ a {
 }
 
 #particles-js-b {
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #021C00;
+	
+	background-color: #006600; 
+  /* Apply the linear gradient from Pakistan green #006600 to transparent */
+  background-image: linear-gradient(to bottom, #006600, rgba(0, 128, 0, 0));
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
@@ -700,7 +703,8 @@ span.i {
 </script>
 	</head>	
 	<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index: 4; width:100%; margin:0;"></div>
-
+	        <div id="particles-js-b"></div>
+        <div id="particles-js-m"></div>
         <div id="particles-js-f"></div>
         <div id="particles-js-f-blur-bright"></div>	
 	<div class="background-container">
