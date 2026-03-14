@@ -482,23 +482,10 @@ z-index: 6;
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
     transition: all 0.3s ease-in-out;
-  /* Optional: Add smooth transition [1] */
 }
-/* --- PNG 1 Hover --- */
-.png1:hover {
-  content: url('/files/name01.png.png');
-}
-
-/* --- PNG 2 Hover --- */
-.png2:hover {
-  content: url('/files/name0.png');
-}
-
-/* --- PNG 3 Hover --- */
-.png3:hover {
-  content: url('/files/name02.png');
-}
-	
+.floating-png:hover {
+  background-image: url('/files/name1.png');
+}	
 /* Define keyframes for movement and fading */
 @keyframes fadeInOut {
     0% { opacity: 0; }
@@ -527,9 +514,9 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div><div id="scene">
-        <img src="/files/name.png" class="floating-png png1" id="p1" alt="">
-        <img src="/files/name1.png" class="floating-png png2" id="p2" alt="">
-	<img src="/files/name2.png" class="floating-png png3" id="p3" alt="">
+        <img src="/files/name01.png" id="p1" alt="">
+        <img src="/files/name0.png" id="p2" alt="">
+	<img src="/files/name02.png" id="p3" alt="">
     </div>
         <div id="particles-js-f-blur-bright"></div>	
 <div class="container">
