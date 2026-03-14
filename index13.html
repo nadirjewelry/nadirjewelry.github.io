@@ -477,13 +477,31 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
- .floating-img {
-        position: absolute;
-        width: 200px; /* Adjust size */
-        opacity: 0.6; /* Semi-transparent */
-        pointer-events: none; /* Allows clicking through images */
-	    z-index: 4;
-    }
+.floating-png {
+    position: absolute;
+    opacity: 0; /* Start invisible for fade-in */
+    pointer-events: none;
+    /* Base fade effect */
+    animation: fadeInOut 10s infinite alternate;
+	z-index: 1;
+}
+
+/* Define keyframes for movement and fading */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 0.6; } /* Semi-transparent */
+    80% { opacity: 0.6; }
+    100% { opacity: 0; }
+}
+
+/* Different slow movements */
+@keyframes move1 { from { transform: translate(0, 0); } to { transform: translate(50px, 100px); } }
+@keyframes move2 { from { transform: translate(0, 0); } to { transform: translate(-100px, 50px); } }
+@keyframes move3 { from { transform: translate(0, 0); } to { transform: translate(20px, -150px); } }
+
+#p1 { animation: fadeInOut 12s infinite alternate, move1 20s infinite alternate; }
+#p2 { animation: fadeInOut 15s infinite alternate, move2 25s infinite alternate; }
+#p3 { animation: fadeInOut 18s infinite alternate, move3 30s infinite alternate; }
 
 	</style>   
 
@@ -495,9 +513,11 @@ z-index: 6;
 
 </div>       <div id="particles-js-f"></div>
 	<div id="particles-js-m"></div>
-        <div id="particles-js-f-blur-bright"></div>	<div class="over"><img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img1">
-<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img2">
-<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img3"></div>
+        <div id="particles-js-f-blur-bright"></div>	<div class="over"><div id="scene">
+        <img src="name.png" class="floating-png" id="p1" alt="">
+        <img src="name.png" class="floating-png" id="p2" alt="">
+        <img src="name.png" class="floating-png" id="p3" alt="">
+    </div>
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
@@ -519,36 +539,23 @@ z-index: 6;
 
 	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
 	<script>
-const images = [
-        { el: document.getElementById('img1'), x: 0, y: 0, dx: 0.5, dy: 0.3 },
-        { el: document.getElementById('img2'), x: 0, y: 0, dx: -0.4, dy: 0.6 },
-        { el: document.getElementById('img3'), x: 0, y: 0, dx: 0.2, dy: -0.5 }
-    ];
-
-    // Initialize random positions
-    images.forEach(img => {
-        img.x = Math.random() * (window.innerWidth - 100);
-        img.y = Math.random() * (window.innerHeight - 100);
+document.addEventListener("DOMContentLoaded", () => {
+    const pngs = document.querySelectorAll('.floating-png');
+    
+    pngs.forEach(png => {
+        // Randomize initial position
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+        
+        png.style.left = `${randomX}px`;
+        png.style.top = `${randomY}px`;
+        
+        // Randomize animation speed slightly
+        const randomDuration = 15 + Math.random() * 10;
+        png.style.animationDuration = `${randomDuration}s, ${randomDuration + 5}s`;
     });
+});
 
-    function animate() {
-        images.forEach(img => {
-            // Update position
-            img.x += img.dx;
-            img.y += img.dy;
-
-            // Bounce off walls
-            if (img.x + img.el.width > window.innerWidth || img.x < 0) img.dx = -img.dx;
-            if (img.y + img.el.height > window.innerHeight || img.y < 0) img.dy = -img.dy;
-
-            // Apply movement
-            img.el.style.left = `${img.x}px`;
-            img.el.style.top = `${img.y}px`;
-        });
-        requestAnimationFrame(animate);
-    }
-
-    animate();
 	</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
