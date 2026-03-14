@@ -477,24 +477,36 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
-    .dot {
-        position: absolute;
-        border-radius: 50%;
-        /* Combined slow movement and blinking animation */
-        animation: moveDot linear infinite, blinkDot 0.5s step-start infinite;
-		z-index: 4;
-    }
+/* Define the blinking animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1; /* Dots are visible at the start and end of the cycle */
+  }
+  50% {
+    opacity: 0; /* Dots are hidden halfway through the cycle */
+  }
+}
 
-    @keyframes blinkDot {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
+/* Apply the animation to the dot elements */
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: currentcolor;
+  border-radius: 50%;
+  /* Set a short duration for a fast blink, e.g., 0.5s */
+  animation: blink 0.5s linear infinite;
+	z-index: 4;
+}
 
-    /* Random movements defined by JS dynamically */
-    @keyframes moveDot {
-        from { transform: translate(0, 0); }
-        to { transform: translate(var(--dx), var(--dy)); }
-    }
+/* Add delays to individual dots for the common "loading" effect */
+.dot:nth-child(2) {
+  animation-delay: 0.1s; /* Shorter delay for faster sequence start */
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.2s; /* Shorter delay for faster sequence start */
+}
+
 	</style>   
 
 	<script>
