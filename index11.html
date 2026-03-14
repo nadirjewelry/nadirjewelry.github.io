@@ -121,21 +121,6 @@ a {
     filter: blur(3px);
 }
 
-#particles-js-m {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
-}
-
 #particles-js-b {
     z-index: 1;
     position: absolute;
@@ -477,25 +462,14 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
-.dot {
-    position: absolute;
-    border-radius: 50%; /* Makes the elements circular */
-    animation-name: blink;
-    animation-duration: 1s; /* Speed of the blink */
-    animation-iteration-count: infinite; /* Blinks indefinitely */
-    animation-timing-function: linear;
-	z-index: 5;
-}
+ .floating-img {
+        position: absolute;
+        width: 200px; /* Adjust size */
+        opacity: 0.6; /* Semi-transparent */
+        pointer-events: none; /* Allows clicking through images */
+	    z-index: 4;
+    }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Optional: Add different shapes using specific classes */
-.square {
-    border-radius: 0;
-}
 	</style>   
 
 	<script>
@@ -505,8 +479,9 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-	<div id="particles-js-m"></div>
-        <div id="particles-js-f-blur-bright"></div>	
+        <div id="particles-js-f-blur-bright"></div>	<div class="over"><img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img1">
+<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img2">
+<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img3"></div>
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
@@ -524,8 +499,41 @@ z-index: 6;
 	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> 
+
 	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
+	<script>
+const images = [
+        { el: document.getElementById('img1'), x: 0, y: 0, dx: 0.5, dy: 0.3 },
+        { el: document.getElementById('img2'), x: 0, y: 0, dx: -0.4, dy: 0.6 },
+        { el: document.getElementById('img3'), x: 0, y: 0, dx: 0.2, dy: -0.5 }
+    ];
+
+    // Initialize random positions
+    images.forEach(img => {
+        img.x = Math.random() * (window.innerWidth - 100);
+        img.y = Math.random() * (window.innerHeight - 100);
+    });
+
+    function animate() {
+        images.forEach(img => {
+            // Update position
+            img.x += img.dx;
+            img.y += img.dy;
+
+            // Bounce off walls
+            if (img.x + img.el.width > window.innerWidth || img.x < 0) img.dx = -img.dx;
+            if (img.y + img.el.height > window.innerHeight || img.y < 0) img.dy = -img.dy;
+
+            // Apply movement
+            img.el.style.left = `${img.x}px`;
+            img.el.style.top = `${img.y}px`;
+        });
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+	</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
     <script>
@@ -549,51 +557,6 @@ const GlowingText = ({ text }) => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC * NADIR HASANOV" }));
   </script>
-	<script>
-	function createDot() {
-    const container = document.getElementById('dot-container');
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-
-    // Define two colors
-    const colors = ['#f0d8a9', '#d4af37']; // Red and Blue
-    // Define two shapes (classes defined in CSS)
-    const shapes = ['dot', 'square'];
-
-    // Random Color
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    dot.style.backgroundColor = randomColor;
-
-    // Random Size (between 4px and 10px)
-    const size = Math.floor(Math.random() * 10) + 4;
-    dot.style.width = size + 'px';
-    dot.style.height = size + 'px';
-
-    // Random Position
-    // Ensure dots are within the visible viewport
-    const posX = Math.random() * (window.innerWidth - size);
-    const posY = Math.random() * (window.innerHeight - size);
-    dot.style.left = posX + 'px';
-    dot.style.top = posY + 'px';
-
-    // Random Shape (apply the square class if selected randomly)
-    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-    if (randomShape === 'square') {
-        dot.classList.add('square');
-    }
-
-    // Random blinking duration
-    dot.style.animationDuration = (Math.random() * 1.5 + 0.5) + 's';
-
-    container.appendChild(dot);
-}
-
-// Generate a specific number of dots (e.g., 20 dots)
-for (let i = 0; i < 20; i++) {
-    createDot();
-}
-
-	</script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
     <script>
@@ -693,116 +656,6 @@ particlesJS("particles-js-f", {
       "bubble": {
         "distance": 231,
         "size": 62,
-        "duration": 0.5,
-        "opacity": 0.46,
-        "speed": 1 },
-
-      "repulse": {
-        "distance": 56.84540486109416,
-        "duration": 0.4 },
-
-      "push": {
-        "particles_nb": 4 },
-
-      "remove": {
-        "particles_nb": 2 } } },
-
-
-
-  "retina_detect": true });
-
-
-particlesJS("particles-js-m", {
- "particles": {
-    "number": {
-      "value": 9,
-      "density": {
-        "enable": true,
-        "value_area": 900 } },
-
-    "color": {
-      "value": "#FFBF00" },
-
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0.16,
-        "color": "#D3AF37" },
-
-      "polygon": {
-        "nb_sides": 5 },
-
-      "image": {
-        "src": "files/dia.svg",
-        "width": 100,
-        "height": 100 } },
-
-
-    "opacity": {
-      "value": 0.62,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 23,
-        "opacity_min": 0.08,
-        "sync": false } },
-
-
-    "size": {
-      "value": 60,
-      "random": false,
-      "anim": {
-        "enable": true,
-        "speed": 1,
-        "size_min": 50,
-        "sync": false } },
-
-
-    "line_linked": {
-      "enable": false,
-      "distance": 500,
-      "color": "#ffffff",
-      "opacity": 0.6,
-      "width": 2 },
-
-    "move": {
-      "enable": true,
-      "speed": 3,
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200 } } },
-
-
-
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "bubble" },
-
-      "onclick": {
-        "enable": false,
-        "mode": "bubble" },
-
-      "resize": true },
-
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 0.34 } },
-
-
-      "bubble": {
-        "distance": 231,
-        "size": 24,
         "duration": 0.5,
         "opacity": 0.46,
         "speed": 1 },
