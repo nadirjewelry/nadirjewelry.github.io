@@ -476,6 +476,26 @@ z-index: 6;
 .instagram-icon i:hover {
     color: #cb9a52; /* Change color on hover */
 }
+
+.dot {
+    position: absolute;
+    border-radius: 50%; /* Makes the elements circular */
+    animation-name: blink;
+    animation-duration: 1s; /* Speed of the blink */
+    animation-iteration-count: infinite; /* Blinks indefinitely */
+    animation-timing-function: linear;
+	z-index: 5;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Optional: Add different shapes using specific classes */
+.square {
+    border-radius: 0;
+}
 	</style>   
 
 	<script>
@@ -504,7 +524,7 @@ z-index: 6;
 	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
 	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
@@ -529,6 +549,51 @@ const GlowingText = ({ text }) => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADIR JEWELRY LLC * NADIR HASANOV" }));
   </script>
+	<script>
+	function createDot() {
+    const container = document.getElementById('dot-container');
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+
+    // Define two colors
+    const colors = ['#ff0000', '#0000ff']; // Red and Blue
+    // Define two shapes (classes defined in CSS)
+    const shapes = ['dot', 'square'];
+
+    // Random Color
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    dot.style.backgroundColor = randomColor;
+
+    // Random Size (between 10px and 50px)
+    const size = Math.floor(Math.random() * 41) + 10;
+    dot.style.width = size + 'px';
+    dot.style.height = size + 'px';
+
+    // Random Position
+    // Ensure dots are within the visible viewport
+    const posX = Math.random() * (window.innerWidth - size);
+    const posY = Math.random() * (window.innerHeight - size);
+    dot.style.left = posX + 'px';
+    dot.style.top = posY + 'px';
+
+    // Random Shape (apply the square class if selected randomly)
+    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+    if (randomShape === 'square') {
+        dot.classList.add('square');
+    }
+
+    // Random blinking duration
+    dot.style.animationDuration = (Math.random() * 1.5 + 0.5) + 's';
+
+    container.appendChild(dot);
+}
+
+// Generate a specific number of dots (e.g., 20 dots)
+for (let i = 0; i < 20; i++) {
+    createDot();
+}
+
+	</script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js'></script>
     <script>
