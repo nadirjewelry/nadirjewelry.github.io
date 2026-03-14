@@ -33,8 +33,8 @@ body {
 	 /* Set the background with a linear gradient (and a fallback color) */
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+     justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
     height: 100vh;
     margin: 0;
   overflow: hidden;
@@ -86,7 +86,8 @@ body {
     perspective: 1000px;
     width: 300px; /* Adjust as needed */
     height: 400px; /* Adjust as needed */
-    margin: auto;
+	
+    margin: top:20;
     position: relative;
 }
 
@@ -103,8 +104,8 @@ body {
 }
 
 .card-img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     object-fit: cover; /* Ensures the image covers the area without distortion */
     display: block;
 }
@@ -114,7 +115,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 40px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); /* Gradient overlay on content */
     color: goldenrod;
     z-index: 2;
