@@ -471,6 +471,7 @@ z-index: 6;
 	background-size: cover;
     z-index: 1;
 	}
+	/* Base styles for all floating PNGs */
 .floating-png {
 
     opacity: 0; /* Start invisible for fade-in */
@@ -480,20 +481,23 @@ z-index: 6;
     /* Ensure hardware acceleration for smooth movement */
     -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
-
+    transition: all 0.3s ease-in-out;
+  /* Optional: Add smooth transition [1] */
+}
+/* --- PNG 1 Hover --- */
+.png1:hover {
+  content: url('path-to-hover-image1.png');
 }
 
-/* Image 1 */
-.image1 { background-image: url('img1.png'); }
-.image1:hover { background-image: url('img1-hover.png'); }
+/* --- PNG 2 Hover --- */
+.png2:hover {
+  content: url('path-to-hover-image2.png');
+}
 
-/* Image 2 */
-.image2 { background-image: url('img2.png'); }
-.image2:hover { background-image: url('img2-hover.png'); }
-
-/* Image 3 */
-.image3 { background-image: url('/files/name2-1.png'); }
-.image3:hover { background-image: url('/files/name2.png'); }
+/* --- PNG 3 Hover --- */
+.png3:hover {
+  content: url('/files/name2-1.png');
+}
 	
 /* Define keyframes for movement and fading */
 @keyframes fadeInOut {
@@ -525,7 +529,7 @@ z-index: 6;
 </div>       <div id="particles-js-f"></div><div id="scene">
         <img src="/files/name.png" class="floating-png" id="p1" alt="">
         <img src="/files/name1.png" class="floating-png" id="p2" alt="">
-	<div class="image3"><img src="/files/name2-1.png" class="floating-png" id="p3" alt=""></div>
+	<img src="/files/name2.png" class="floating-png png3" id="p3" alt="">
     </div>
         <div id="particles-js-f-blur-bright"></div>	
 <div class="container">
