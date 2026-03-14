@@ -478,7 +478,7 @@ z-index: 6;
 }
 
  .myCanvas {
-  position: relative; /* or absolute, fixed, etc. */
+  position: absolute; /* or absolute, fixed, etc. */
   z-index: 4;
 }
 	</style>   
@@ -490,7 +490,7 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-	<div id="particles-js-m"></div><canvas id="canvas" class="myCanvas"></canvas>
+	<div id="particles-js-m"></div>
         <div id="particles-js-f-blur-bright"></div>	
 <div class="container">
   <div class="imageBox imageBefore">
@@ -510,7 +510,7 @@ z-index: 6;
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
-	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
+	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><canvas class="myCanvas"></canvas>
 	<script>
 // Get the canvas element and context
 const canvas = document.getElementById('myCanvas');
