@@ -477,9 +477,11 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
- .myCanvas {
-  position: absolute; /* or absolute, fixed, etc. */
-  z-index: 4;
+ canvas {
+            display: block;
+	        z-index: 5;
+        }
+
 }
 	</style>   
 
@@ -510,10 +512,10 @@ z-index: 6;
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
-	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><canvas class="myCanvas"></canvas>
+	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><canvas id="canvas"></canvas>
 	<script>
 // Get the canvas element and context
-const canvas = document.getElementById('myCanvas');
+const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // Set canvas size to full window
