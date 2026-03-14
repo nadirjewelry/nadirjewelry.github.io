@@ -476,10 +476,15 @@ z-index: 6;
     opacity: 0; /* Start invisible for fade-in */
     pointer-events: none;
     /* Base fade effect */
-    animation: fadeInOut 10s infinite alternate;
+    animation: fadeInOut 10s infinite alternate; cursor: pointer;
+    /* Ensure hardware acceleration for smooth movement */
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
 
 }
-
+.floating-png:hover {
+    opacity: 1; /* Full opacity on hover */
+}
 /* Define keyframes for movement and fading */
 @keyframes fadeInOut {
     0% { opacity: 0; }
