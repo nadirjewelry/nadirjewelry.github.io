@@ -67,7 +67,7 @@
 }
 .contact_us{
     background-color: #silver;
-    padding: 90px 0px;
+    padding: 30px 0px;
 }
 
 .contact_inner{
@@ -77,7 +77,7 @@
     border-radius: 25px;
 }
 .contact_field{
-    padding: 60px 340px 90px 100px;
+    padding: 40px 340px 90px 100px;
 }
 .right_conatct_social_icon{
     height: 100%;
@@ -261,11 +261,17 @@ height: 100vh;
                                     <div class="contact_field">
                                         <h3 class="main"><img src="files/logoch.webp" width="52" height="78" alt="Contact us"/> contact us</h3>
                                         <p>Feel Free to contact us. We will get back to you as soon as we can!.</p>
-                                         <form action="mailto:nadirjewelry@mail.com" method="POST" enctype="text/plain">
-											<!-- form elements go here --><input type="text" class="form-control form-group" placeholder="Name" />
-                                        <input type="text" class="form-control form-group" placeholder="Email" />
-                                        <textarea class="form-control form-group" placeholder="Message"></textarea>
-                                       <button class="contact_form_submit">Send</button></form>
+                                          <form id="myForm" action="/submit_page.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form><div id="message"></div>
                                     </div>
                                 </div>
                             </div>
@@ -301,20 +307,67 @@ height: 100vh;
         </div>
     </section>
 <div class="center-container">
-</div><script>
-  document.getElementById("form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent default form submission
-  const formData = new FormData(event.target);
+</div>
+<script>
+        // Get references to form elements and message area
+        const myForm = document.getElementById('myForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const messageArea = document.getElementById('message');
 
-  fetch("mailto:nadirjewelry@mail.com", {
-    method: "POST",
-    body: formData
-  }).then(response => {
-    // Handle server response (e.g., show a success message)
-  }).catch(error => {
-    // Handle errors
-  });
-});</script>
+        // Add an event listener for the form's 'submit' event
+        myForm.addEventListener('submit', function (event) {
+            // 1. Prevent the default form submission (page reload)
+            event.preventDefault();
+
+            // 2. Perform validation (e.g., check if fields are empty)
+            if (usernameInput.value === '' || emailInput.value === '') {
+                displayMessage('Ensure all fields are filled!', 'error');
+                return; // Stop further execution
+            }
+
+            // 3. Process the form data
+            const formData = {
+                username: usernameInput.value,
+                email: emailInput.value
+            };
+
+            console.log('Form data:', formData); // Log data to console for demonstration
+
+            // 4. In a real-world app, you would send this data to a server using the Fetch API
+            // Example:
+            /*
+            fetch(myForm.action, {
+                method: myForm.method,
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                displayMessage('Form submitted successfully!', 'success');
+                myForm.reset(); // Clear form fields
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                displayMessage('An error occurred. Please try again.', 'error');
+            });
+            */
+
+            // For this example, we just show a success message and clear the form
+            displayMessage('Form submitted successfully (demo)! Data logged to console.', 'success');
+            myForm.reset();
+        });
+
+        // Helper function to display messages
+        function displayMessage(text, type) {
+            messageArea.textContent = text;
+            messageArea.className = `success`; // Reset class first
+            messageArea.classList.add(type);
+        }
+		</script>
 </body>
 
 </html>
