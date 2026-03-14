@@ -122,18 +122,18 @@ a {
 }
 
 #particles-js-m {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
 }
 
 #particles-js-b {
@@ -188,34 +188,7 @@ a {
 	
 /* Animation Does Not End At 100% Because It Makes The Images Transition In/Out Better For Some Reason*/
 }
-:root {
-	--init-x: 0;
-	--init-y: 0;
-	--dest-x: 0;
-	--dest-y: 0;
-	--dest-z: 0;
-}
 
-.lingo {
-	position: absolute;
-	color: white;
-	transform: translateZ(0);
-	-webkit-animation: flythrough 5s forwards ease-in;
-  transform-origin: center;
-}
-
-#thisSelect {
-	position: absolute;
-	height: 25px;
-	z-index: 999999;
-}
-
-@-webkit-keyframes flythrough {
-	0% {opacity: 0; transform: perspective(0px) translate3d(var(--init-x),var(--init-y),0px);}
-	50% {opacity: 0.7;}
-	100% {opacity: 0; transform: perspective(500px) translate3d(var(--dest-x),var(--dest-y), var(--dest-z));}
-}
-		  
 h1 {
   position: relative;
   display: inline-block;
@@ -245,6 +218,7 @@ h3 {
   letter-spacing: 1.0vw;
   text-transform: uppercase;
   margin: 0;
+	    z-index: 6;
 }
 		  h4 {
 			  
@@ -271,7 +245,7 @@ h3 {
   margin: 0;
     grid-column: 1;
     grid-row: 1;
-    z-index: 1;
+    z-index: 6;
     animation: glow 2s ease-in-out infinite alternate;
 } 
   @keyframes glow {
@@ -462,6 +436,9 @@ z-index: 6;
     color: #goldenrod;
   }
 }
+	.over {
+  z-index: 6;
+}
 	  .half-space {
     /* 0.5em is typically half the height of the current font size */
     margin-bottom: 0.5em; 
@@ -499,6 +476,25 @@ z-index: 6;
 .instagram-icon i:hover {
     color: #cb9a52; /* Change color on hover */
 }
+
+    .dot {
+        position: absolute;
+        border-radius: 50%;
+        /* Combined slow movement and blinking animation */
+        animation: moveDot linear infinite, blinkDot 1s step-start infinite;
+		z-index: 4;
+    }
+
+    @keyframes blinkDot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    /* Random movements defined by JS dynamically */
+    @keyframes moveDot {
+        from { transform: translate(0, 0); }
+        to { transform: translate(var(--dx), var(--dy)); }
+    }
 	</style>   
 
 	<script>
@@ -508,6 +504,7 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
+	<div id="particles-js-m"></div>
         <div id="particles-js-f-blur-bright"></div>	
 <div class="container">
   <div class="imageBox imageBefore">
@@ -517,18 +514,49 @@ z-index: 6;
 
 <img src="files/logomix1.png" alt="NADIR JEWELRY USA" width="130" height="130">
 		  </div>
-</div>
-	<h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
+	</div>
+<p class="half-space"></p><h3 data-silver="Nadir HASANOV">Nadir HASANOV</h3>
 <h2 data-gold="Nadir Jewelry">Nadir Jewelry</h2>
-<h4 data-gold="Custom Made Gold and Silver Jewelry">Custom Made Gold and Silver Jewelry</h4>
+<h4 data-gold="Custom Made Gold and Silver Jewelry">Custom Made Gold and Silver Jewelry</h4><p class="half-space"></p>
 	<h1 data-silver="laser machine repairs">laser machine repairs</h1>
-	<br/><div class="container">
+	<br/><p class="half-space"></p>
 	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
-	        <div align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div>
-	</div>
-	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
+	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
+	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><div class="dot"></div>
+	<script>
+    function createDots(numDots) {
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            
+            // Random size: 4px to 12px
+            const size = Math.random() * 8 + 4;
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            
+            // Random color: Two sets
+            dot.style.backgroundColor = Math.random() > 0.5 ? '#d4af37' : '#2ed573';
+            
+            // Random starting position
+            dot.style.left = `${Math.random() * 100}vw`;
+            dot.style.top = `${Math.random() * 100}vh`;
+            
+            // Slow animation duration: 10s to 20s
+            dot.style.animationDuration = `${Math.random() * 10 + 10}s, 1s`;
+            
+            // Define random movement distance for CSS variable
+            dot.style.setProperty('--dx', `${(Math.random() - 0.5) * 100}px`);
+            dot.style.setProperty('--dy', `${(Math.random() - 0.5) * 100}px`);
+            
+            document.body.appendChild(dot);
+        }
+    }
+    
+    // Generate 50 dots
+    createDots(50);
+</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
     <script>
@@ -569,7 +597,7 @@ particlesJS("particles-js-f", {
         "value_area": 1000 } },
 
     "color": {
-      "value": "#FFBF00" },
+      "value": "#D3AF37" },
 
     "shape": {
       "type": "circle",
@@ -581,13 +609,13 @@ particlesJS("particles-js-f", {
         "nb_sides": 5 },
 
       "image": {
-        "src": "img/github.svg",
+        "src": "/files/dia.svg",
         "width": 100,
         "height": 100 } },
 
 
     "opacity": {
-      "value": 0.12,
+      "value": 0.62,
       "random": true,
       "anim": {
         "enable": false,
@@ -671,39 +699,38 @@ particlesJS("particles-js-f", {
 
 
 particlesJS("particles-js-m", {
-  "particles": {
+ "particles": {
     "number": {
-      "value": 50,
+      "value": 9,
       "density": {
         "enable": true,
-        "value_area": 1000 } },
-
+        "value_area": 900 } },
 
     "color": {
-      "value": "#116007" },
+      "value": "#FFBF00" },
 
     "shape": {
       "type": "circle",
       "stroke": {
-        "width": 0.06,
-        "color": "#116007" },
+        "width": 0.16,
+        "color": "#D3AF37" },
 
       "polygon": {
         "nb_sides": 5 },
 
       "image": {
-        "src": "img/github.svg",
+        "src": "files/dia.svg",
         "width": 100,
         "height": 100 } },
 
 
     "opacity": {
-      "value": 0.09,
+      "value": 0.62,
       "random": true,
       "anim": {
         "enable": false,
-        "speed": 3,
-        "opacity_min": 0.03,
+        "speed": 23,
+        "opacity_min": 0.08,
         "sync": false } },
 
 
@@ -712,8 +739,8 @@ particlesJS("particles-js-m", {
       "random": false,
       "anim": {
         "enable": true,
-        "speed": 4,
-        "size_min": 55,
+        "speed": 1,
+        "size_min": 50,
         "sync": false } },
 
 
@@ -721,12 +748,12 @@ particlesJS("particles-js-m", {
       "enable": false,
       "distance": 500,
       "color": "#ffffff",
-      "opacity": 0.4,
+      "opacity": 0.6,
       "width": 2 },
 
     "move": {
       "enable": true,
-      "speed": 10,
+      "speed": 3,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -743,11 +770,11 @@ particlesJS("particles-js-m", {
     "detect_on": "canvas",
     "events": {
       "onhover": {
-        "enable": false,
+        "enable": true,
         "mode": "bubble" },
 
       "onclick": {
-        "enable": true,
+        "enable": false,
         "mode": "bubble" },
 
       "resize": true },
@@ -756,14 +783,14 @@ particlesJS("particles-js-m", {
       "grab": {
         "distance": 400,
         "line_linked": {
-          "opacity": 0.5 } },
+          "opacity": 0.34 } },
 
 
       "bubble": {
         "distance": 231,
-        "size": 68,
+        "size": 24,
         "duration": 0.5,
-        "opacity": 0.6,
+        "opacity": 0.46,
         "speed": 1 },
 
       "repulse": {
@@ -976,147 +1003,8 @@ function detectIE() {
   // other browser
   return false;
 }
-  </script>
-   <script>
-const DEBUG_MODE = "FALSE";
-
-var divs = [];
-var counter = 0;
-var maxDivs = 300;
-var bodyH, bodyW, words, lingo;
-
-changeWords();
-
-//initially load n amount of particles
-for (i = 0; i < maxDivs / 3; i++) {
-  newLingo();
-}
-
-//add additional particles on a set interval with initial delay
-setTimeout(function () {
-  setInterval(newLingo, 25);
-}, 750);
-
-function newLingo() {
-  var buffer = 0; //as in margins
-  bodyW = document.body.clientWidth;
-  bodyH = document.body.clientHeight;
-
-  counter++;
-  lingo = getRandomValue(words);
-
-  //convert less than symbol to HTML compliant
-  var lthan = "<";
-  var regi = new RegExp(lthan, 'g');
-  lingo = lingo.replace(regi, '&lt;');
-
-  //dynamically add div
-  var div = document.createElement('div');
-  div.id = 'div' + counter;
-  div.classList.add('lingo');
-  div.style.left = getRandomInt(buffer, bodyW - div.style.width - buffer) + 'px';
-  div.style.top = getRandomInt(buffer, bodyH - div.style.height - buffer) + 'px';
-  div.innerHTML = lingo;
-
-  //set CSS animation properties
-  div.style.setProperty('--init-x', div.style.left + 'px');
-  div.style.setProperty('--init-y', div.style.top + 'px');
-  var _destZ = getRandomInt(100, 600);
-
-  var quad = getQuandrantForElem(div);
-  if (quad === 1) {
-    div.style.setProperty('--dest-x', -50 + '%');
-    div.style.setProperty('--dest-y', -50 + '%');
-    div.style.setProperty('--dest-z', _destZ + 'px');
-  }
-  if (quad === 2) {
-    div.style.setProperty('--dest-x', 50 + '%');
-    div.style.setProperty('--dest-y', -50 + '%');
-    div.style.setProperty('--dest-z', _destZ + 'px');
-  }
-  if (quad === 3) {
-    div.style.setProperty('--dest-x', -50 + '%');
-    div.style.setProperty('--dest-y', 50 + '%');
-    div.style.setProperty('--dest-z', _destZ + 'px');
-  }
-  if (quad === 4) {
-    div.style.setProperty('--dest-x', 50 + '%');
-    div.style.setProperty('--dest-y', 50 + '%');
-    div.style.setProperty('--dest-z', _destZ + 'px');
-  }
-
-  //add the div to the document and divs array
-  document.body.appendChild(div);
-  divs.push(div.id);
-  log('divs count: ' + divs.length);
-  log('width of word ' + lingo.length + ' width of div ' + div.clientWidth + ' height of div ' + div.clientHeight);
-  if (divs.length > maxDivs) {
-    //if the amount of divs is more than the max allowed specified above, delete the most recent first div applied to the document and divs array
-    log('removing element: ' + divs[0]);
-    var elem = document.getElementById(divs[0]);
-    elem.parentNode.removeChild(elem);
-    divs.shift();
-    log('shifted count: ' + divs.length + ' first Index: ' + divs[0]);
-  }
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getRandomValue(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-
-// This should be refined and improved for accuracy.
-function getQuandrantForElem(elem) {
-  var result = 0;
-  //the average width to word ratio is 8.75 (based on font-size). All elements (divs) have a height of 19
-  var divDim = { 'X': elem.style.left.slice(0, -2), 'Y': elem.style.top.slice(0, -2) };
-  var buffer = 50;
-
-  if (divDim.X >= bodyW / 2 - buffer) {
-    if (divDim.Y >= bodyH / 2) {
-      result = 4;
-    }
-    if (divDim.Y <= bodyH / 2) {
-      result = 2;
-    }
-  }
-
-  if (divDim.X <= bodyW / 2 - buffer) {
-    if (divDim.Y >= bodyH / 2) {
-      result = 3;
-    }
-    if (divDim.Y <= bodyH / 2) {
-      result = 1;
-    }
-  }
-
-  return result;
-}
-
-function changeWords() {
-  var _index = document.getElementById("thisSelect").value;
-  switch (_index) {
-    case "0":
-      words = ['function()', 'Debug.Print()', "for(i=0;i<length;i++)", 'var i', 'jewelry', 'Math.random()', 'abs()', '24K', 'bool', 'hasDedidcatedThread()', 'setup.exe', 'var me = new Person()', 'terminate()', 'abort()', 'acos()', 'asin()', 'ceil()', 'gold', 'isalpha()', 'remove()', 'toupper()', 'modf()', '<html></html>', '$.ajax({})', 'int64', 'diamonds', 'AU', 'crypt()', '===', 'silver', 'empty()', 'operators', 'threading()', 'session_start', '$_GET["paramater"]', '$POST["password"]', 'hypertext', "color: black;", "font-family: Consolas", 'array_push()', 'array.push', 'array_map()', 'array_diff()', 'base64_decode', 'bcmod', 'bcpow', 'CachingIterator::count', 'new Date()', 'session_encode', 'shuffle()', 'chain', 'sizeOf', 'socket_bind', 'socket_accept', 'socket_sendto', 'DateTime::setDate'];
-      break;
-    case "1":
-      words = ['0', '1'];
-      break;}
-
-}
-
-function log(text) {
-  if (DEBUG_MODE === "TRUE") console.log(text);
-}
 //# sourceURL=pen.js
   </script>
-	
-	
 </body>
 
 </html>
