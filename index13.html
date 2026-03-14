@@ -477,36 +477,10 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
-/* Define the blinking animation */
-@keyframes blink {
-  0%, 100% {
-    opacity: 1; /* Dots are visible at the start and end of the cycle */
-  }
-  50% {
-    opacity: 0; /* Dots are hidden halfway through the cycle */
-  }
+ .myCanvas {
+  position: relative; /* or absolute, fixed, etc. */
+  z-index: 4;
 }
-
-/* Apply the animation to the dot elements */
-.dot {
-  width: 20px;
-  height: 20px;
-  background-color: currentcolor;
-  border-radius: 50%;
-  /* Set a short duration for a fast blink, e.g., 0.5s */
-  animation: blink 0.5s linear infinite;
-	z-index: 4;
-}
-
-/* Add delays to individual dots for the common "loading" effect */
-.dot:nth-child(2) {
-  animation-delay: 0.1s; /* Shorter delay for faster sequence start */
-}
-
-.dot:nth-child(3) {
-  animation-delay: 0.2s; /* Shorter delay for faster sequence start */
-}
-
 	</style>   
 
 	<script>
@@ -516,7 +490,7 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-	<div id="particles-js-m"></div>
+	<div id="particles-js-m"></div><canvas id="canvas" class="myCanvas"></canvas>
         <div id="particles-js-f-blur-bright"></div>	
 <div class="container">
   <div class="imageBox imageBefore">
@@ -536,39 +510,83 @@ z-index: 6;
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
 			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
-	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><div class="dot"></div>
+	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
 	<script>
-    function createDots(numDots) {
-        for (let i = 0; i < numDots; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'dot';
-            
-            // Random size: 4px to 12px
-            const size = Math.random() * 8 + 4;
-            dot.style.width = `${size}px`;
-            dot.style.height = `${size}px`;
-            
-            // Random color: Two sets
-            dot.style.backgroundColor = Math.random() > 0.5 ? '#d4af37' : '#2ed573';
-            
-            // Random starting position
-            dot.style.left = `${Math.random() * 100}vw`;
-            dot.style.top = `${Math.random() * 100}vh`;
-            
-            // Slow animation duration: 10s to 20s
-            dot.style.animationDuration = `${Math.random() * 10 + 10}s, 1s`;
-            
-            // Define random movement distance for CSS variable
-            dot.style.setProperty('--dx', `${(Math.random() - 0.5) * 100}px`);
-            dot.style.setProperty('--dy', `${(Math.random() - 0.5) * 100}px`);
-            
-            document.body.appendChild(dot);
-        }
+// Get the canvas element and context
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas size to full window
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Dot properties
+const dots = [
+    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 15, color: 'rgba(255, 99, 132, 0.8)', shape: 'circle', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 },
+    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 20, color: 'rgba(54, 162, 235, 0.8)', shape: 'square', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 },
+    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 10, color: 'rgba(75, 192, 192, 0.8)', shape: 'triangle', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 }
+];
+
+// Function to draw a dot
+function drawDot(dot) {
+    ctx.fillStyle = dot.color;
+    ctx.beginPath();
+    if (dot.shape === 'circle') {
+        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+    } else if (dot.shape === 'square') {
+        ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
+    } else if (dot.shape === 'triangle') {
+        ctx.moveTo(dot.x, dot.y - dot.radius);
+        ctx.lineTo(dot.x - dot.radius, dot.y + dot.radius);
+        ctx.lineTo(dot.x + dot.radius, dot.y + dot.radius);
+        ctx.closePath();
+    }
+    ctx.fill();
+}
+
+// Function to update dot position and movement
+function updateDot(dot) {
+    // Reverse direction if hitting canvas boundaries
+    if (dot.x + dot.radius > canvas.width || dot.x - dot.radius < 0) {
+        dot.speedX *= -1;
+    }
+    if (dot.y + dot.radius > canvas.height || dot.y - dot.radius < 0) {
+        dot.speedY *= -1;
     }
     
-    // Generate 50 dots
-    createDots(50);
-</script>
+    // Add slight randomness to movement for a "wandering" effect
+    dot.speedX += (Math.random() - 0.5) * 0.05;
+    dot.speedY += (Math.random() - 0.5) * 0.05;
+
+    // Constrain speed to maintain slow movement
+    dot.speedX = Math.max(Math.min(dot.speedX, 0.8), -0.8);
+    dot.speedY = Math.max(Math.min(dot.speedY, 0.8), -0.8);
+
+    dot.x += dot.speedX;
+    dot.y += dot.speedY;
+}
+
+// Animation loop
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing
+    
+    dots.forEach(dot => {
+        updateDot(dot);
+        drawDot(dot);
+    });
+    
+    requestAnimationFrame(animate); // Loop the animation
+}
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Start the animation
+animate();
+	</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
     <script>
