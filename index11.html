@@ -556,7 +556,7 @@ root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADI
     dot.classList.add('dot');
 
     // Define two colors
-    const colors = ['#ff0000', '#0000ff']; // Red and Blue
+    const colors = ['#f0d8a9', '#d4af37']; // Red and Blue
     // Define two shapes (classes defined in CSS)
     const shapes = ['dot', 'square'];
 
@@ -564,8 +564,8 @@ root.render( /*#__PURE__*/React.createElement(GlowingText, { text: "© 2026 NADI
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     dot.style.backgroundColor = randomColor;
 
-    // Random Size (between 10px and 50px)
-    const size = Math.floor(Math.random() * 41) + 10;
+    // Random Size (between 4px and 10px)
+    const size = Math.floor(Math.random() * 10) + 4;
     dot.style.width = size + 'px';
     dot.style.height = size + 'px';
 
