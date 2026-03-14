@@ -477,12 +477,14 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
- canvas {
-            display: block;
-	        z-index: 5;
-        }
+ .floating-img {
+        position: absolute;
+        width: 100px; /* Adjust size */
+        opacity: 0.6; /* Semi-transparent */
+        pointer-events: none; /* Allows clicking through images */
+	    z-index: 4;
+    }
 
-}
 	</style>   
 
 	<script>
@@ -511,83 +513,42 @@ z-index: 6;
 	<h5><span class='one'>watch</span>&nbsp;<span class='two'>my</span>&nbsp;<span class='three'>showroom</span>&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a></h5>
 	<a href="https://nhjeweler.com/gallery.html"><h3 data-silver=" GALLERY"> GALLERY</h3></a>
 	        <div class="over" align="center"><p class="link2"><a href="https://nhjeweler.com/contacts.html" title="contacts">
-			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> <div id="dot-container"></div>
+			<font face="Source Sans Pro" color="#d8d8d8">CONTACTS</font></a><font face="Source Sans Pro" color="#d4af37">&ensp;&#9993;&ensp;</font><a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#d8d8d8">nadirjewelry@mail.com</font></a></p></div> 
+<div class="over"><img src="/files/eye.png" alt="NADIR JEWELRY USA" width="30" height="30" class="floating-img" id="img1">
+<img src="/files/eye.png" alt="NADIR JEWELRY USA" width="30" height="30" class="floating-img" id="img2">
+<img src="/files/eye.png" alt="NADIR JEWELRY USA" width="30" height="30" class="floating-img" id="img3"></div>
 	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div><canvas id="canvas"></canvas>
 	<script>
-// Get the canvas element and context
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const images = [
+        { el: document.getElementById('img1'), x: 0, y: 0, dx: 0.5, dy: 0.3 },
+        { el: document.getElementById('img2'), x: 0, y: 0, dx: -0.4, dy: 0.6 },
+        { el: document.getElementById('img3'), x: 0, y: 0, dx: 0.2, dy: -0.5 }
+    ];
 
-// Set canvas size to full window
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// Dot properties
-const dots = [
-    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 15, color: 'rgba(255, 99, 132, 0.8)', shape: 'circle', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 },
-    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 20, color: 'rgba(54, 162, 235, 0.8)', shape: 'square', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 },
-    { x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: 10, color: 'rgba(75, 192, 192, 0.8)', shape: 'triangle', speedX: (Math.random() - 0.5) * 0.5, speedY: (Math.random() - 0.5) * 0.5 }
-];
-
-// Function to draw a dot
-function drawDot(dot) {
-    ctx.fillStyle = dot.color;
-    ctx.beginPath();
-    if (dot.shape === 'circle') {
-        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-    } else if (dot.shape === 'square') {
-        ctx.fillRect(dot.x - dot.radius, dot.y - dot.radius, dot.radius * 2, dot.radius * 2);
-    } else if (dot.shape === 'triangle') {
-        ctx.moveTo(dot.x, dot.y - dot.radius);
-        ctx.lineTo(dot.x - dot.radius, dot.y + dot.radius);
-        ctx.lineTo(dot.x + dot.radius, dot.y + dot.radius);
-        ctx.closePath();
-    }
-    ctx.fill();
-}
-
-// Function to update dot position and movement
-function updateDot(dot) {
-    // Reverse direction if hitting canvas boundaries
-    if (dot.x + dot.radius > canvas.width || dot.x - dot.radius < 0) {
-        dot.speedX *= -1;
-    }
-    if (dot.y + dot.radius > canvas.height || dot.y - dot.radius < 0) {
-        dot.speedY *= -1;
-    }
-    
-    // Add slight randomness to movement for a "wandering" effect
-    dot.speedX += (Math.random() - 0.5) * 0.05;
-    dot.speedY += (Math.random() - 0.5) * 0.05;
-
-    // Constrain speed to maintain slow movement
-    dot.speedX = Math.max(Math.min(dot.speedX, 0.8), -0.8);
-    dot.speedY = Math.max(Math.min(dot.speedY, 0.8), -0.8);
-
-    dot.x += dot.speedX;
-    dot.y += dot.speedY;
-}
-
-// Animation loop
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing
-    
-    dots.forEach(dot => {
-        updateDot(dot);
-        drawDot(dot);
+    // Initialize random positions
+    images.forEach(img => {
+        img.x = Math.random() * (window.innerWidth - 100);
+        img.y = Math.random() * (window.innerHeight - 100);
     });
-    
-    requestAnimationFrame(animate); // Loop the animation
-}
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+    function animate() {
+        images.forEach(img => {
+            // Update position
+            img.x += img.dx;
+            img.y += img.dy;
 
-// Start the animation
-animate();
+            // Bounce off walls
+            if (img.x + img.el.width > window.innerWidth || img.x < 0) img.dx = -img.dx;
+            if (img.y + img.el.height > window.innerHeight || img.y < 0) img.dy = -img.dy;
+
+            // Apply movement
+            img.el.style.left = `${img.x}px`;
+            img.el.style.top = `${img.y}px`;
+        });
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 	</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
