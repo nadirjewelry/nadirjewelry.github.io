@@ -464,14 +464,13 @@ z-index: 6;
 .instagram-icon i:hover {
     color: #cb9a52; /* Change color on hover */
 }
-#scene { position: relative; width: 100vw; height: 100vh; }
+#scene { position: relative; z-index: 3; }
 .floating-png {
     position: absolute;
     opacity: 0; /* Start invisible for fade-in */
     pointer-events: none;
     /* Base fade effect */
     animation: fadeInOut 10s infinite alternate;
-	z-index: 3;
 }
 
 /* Define keyframes for movement and fading */
@@ -500,7 +499,7 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-        <div id="particles-js-f-blur-bright"></div>	<div id="scene" class="over">
+        <div id="particles-js-f-blur-bright"></div>	<div id="scene">
         <img src="/files/name.png" class="floating-png" id="p1" alt="">
         <img src="/files/name.png" class="floating-png" id="p2" alt="">
         <img src="/files/name.png" class="floating-png" id="p3" alt="">
