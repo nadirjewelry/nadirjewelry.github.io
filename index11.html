@@ -462,13 +462,37 @@ z-index: 6;
     color: #cb9a52; /* Change color on hover */
 }
 
- .floating-img {
-        position: absolute;
-        width: 200px; /* Adjust size */
-        opacity: 0.6; /* Semi-transparent */
-        pointer-events: none; /* Allows clicking through images */
-	    z-index: 2;
+.floating-img {
+    position: absolute;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    opacity: 0.5; /* Initial semi-transparency */
+    transition: opacity 0.5s ease-in-out, transform 5s ease-in-out infinite alternate, opacity 3s ease-in-out infinite alternate;
+    cursor: pointer;
+    /* Ensure hardware acceleration for smooth movement */
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+}
+
+.floating-img:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Define keyframes for movement and fade in/out within the animation */
+@keyframes floatAndFade {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.2; /* Fade out point */
     }
+    50% {
+        opacity: 0.8; /* Fade in point */
+    }
+    100% {
+        transform: translate(calc(100vw - 100px), calc(100vh - 100px));
+        opacity: 0.2; /* Fade out point */
+    }
+}
+
 
 	</style>   
 
@@ -479,9 +503,9 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-        <div id="particles-js-f-blur-bright"></div>	<div class="over"><img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img1">
-<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img2">
-<img src="/files/name.png" alt="NADIR JEWELRY USA" class="floating-img" id="img3"></div>
+        <div id="particles-js-f-blur-bright"></div>	<div class="over"><img src="/files/name.png" alt="Image 1" class="floating-img" id="img1">
+        <img src="/files/name1.png" alt="Image 2" class="floating-img" id="img2">
+        <img src="/files/name2.png" alt="Image 3" class="floating-img" id="img3"></div>
 <div class="container">
   <div class="imageBox imageBefore">
 				<img src="files/logomix.png" alt="NADIR JEWELRY USA" width="130" height="130">
@@ -503,36 +527,27 @@ z-index: 6;
 
 	<div id="root" style="position:fixed; bottom:20px; z-index:1; margin:0;" ></div>
 	<script>
-const images = [
-        { el: document.getElementById('img1'), x: 0, y: 0, dx: 0.5, dy: 0.3 },
-        { el: document.getElementById('img2'), x: 0, y: 0, dx: -0.4, dy: 0.6 },
-        { el: document.getElementById('img3'), x: 0, y: 0, dx: 0.2, dy: -0.5 }
-    ];
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.floating-img');
+    
+    images.forEach((img, index) => {
+        // Set initial random position
+        const startX = Math.random() * (window.innerWidth - 100); // 100 is image width
+        const startY = Math.random() * (window.innerHeight - 100); // 100 is image height
+        img.style.left = `${startX}px`;
+        img.style.top = `${startY}px`;
 
-    // Initialize random positions
-    images.forEach(img => {
-        img.x = Math.random() * (window.innerWidth - 100);
-        img.y = Math.random() * (window.innerHeight - 100);
+        // Apply animation with different durations/delays for varied movement
+        img.style.animationName = 'floatAndFade';
+        // Different durations and delays for each image
+        img.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5 to 10 seconds
+        img.style.animationDelay = `${Math.random() * 2}s`;
+        img.style.animationIterationCount = 'infinite';
+        img.style.animationDirection = 'alternate';
+        img.style.animationTimingFunction = 'ease-in-out';
     });
+});
 
-    function animate() {
-        images.forEach(img => {
-            // Update position
-            img.x += img.dx;
-            img.y += img.dy;
-
-            // Bounce off walls
-            if (img.x + img.el.width > window.innerWidth || img.x < 0) img.dx = -img.dx;
-            if (img.y + img.el.height > window.innerHeight || img.y < 0) img.dy = -img.dy;
-
-            // Apply movement
-            img.el.style.left = `${img.x}px`;
-            img.el.style.top = `${img.y}px`;
-        });
-        requestAnimationFrame(animate);
-    }
-
-    animate();
 	</script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js'></script>
