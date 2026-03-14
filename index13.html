@@ -121,21 +121,6 @@ a {
     filter: blur(3px);
 }
 
-#particles-js-m {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
-}
-
 #particles-js-b {
     z-index: 1;
     position: absolute;
@@ -512,7 +497,6 @@ z-index: 6;
 		<div class="with-bg-size" style="position:fixed; bottom:0px; left:0px; z-index:-1; width:100%; margin:0;">
 
 </div>       <div id="particles-js-f"></div>
-	<div id="particles-js-m"></div>
         <div id="particles-js-f-blur-bright"></div>	<div id="scene" class="over">
         <img src="/files/name.png" class="floating-png" id="p1" alt="">
         <img src="/files/name.png" class="floating-png" id="p2" alt="">
@@ -591,7 +575,7 @@ $('[data-text]').on('keyup', function () {
 particlesJS("particles-js-f", {
    "particles": {
     "number": {
-      "value": 12,
+      "value": 5,
       "density": {
         "enable": true,
         "value_area": 1000 } },
@@ -602,7 +586,7 @@ particlesJS("particles-js-f", {
     "shape": {
       "type": "circle",
       "stroke": {
-        "width": 0.06,
+        "width": 0.5,
         "color": "#D3AF37" },
 
       "polygon": {
@@ -615,7 +599,7 @@ particlesJS("particles-js-f", {
 
 
     "opacity": {
-      "value": 0.62,
+      "value": 0.5,
       "random": true,
       "anim": {
         "enable": false,
@@ -678,117 +662,7 @@ particlesJS("particles-js-f", {
 
       "bubble": {
         "distance": 231,
-        "size": 62,
-        "duration": 0.5,
-        "opacity": 0.46,
-        "speed": 1 },
-
-      "repulse": {
-        "distance": 56.84540486109416,
-        "duration": 0.4 },
-
-      "push": {
-        "particles_nb": 4 },
-
-      "remove": {
-        "particles_nb": 2 } } },
-
-
-
-  "retina_detect": true });
-
-
-particlesJS("particles-js-m", {
- "particles": {
-    "number": {
-      "value": 9,
-      "density": {
-        "enable": true,
-        "value_area": 900 } },
-
-    "color": {
-      "value": "#FFBF00" },
-
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0.16,
-        "color": "#D3AF37" },
-
-      "polygon": {
-        "nb_sides": 5 },
-
-      "image": {
-        "src": "files/dia.svg",
-        "width": 100,
-        "height": 100 } },
-
-
-    "opacity": {
-      "value": 0.62,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 23,
-        "opacity_min": 0.08,
-        "sync": false } },
-
-
-    "size": {
-      "value": 60,
-      "random": false,
-      "anim": {
-        "enable": true,
-        "speed": 1,
-        "size_min": 50,
-        "sync": false } },
-
-
-    "line_linked": {
-      "enable": false,
-      "distance": 500,
-      "color": "#ffffff",
-      "opacity": 0.6,
-      "width": 2 },
-
-    "move": {
-      "enable": true,
-      "speed": 3,
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200 } } },
-
-
-
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "bubble" },
-
-      "onclick": {
-        "enable": false,
-        "mode": "bubble" },
-
-      "resize": true },
-
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 0.34 } },
-
-
-      "bubble": {
-        "distance": 231,
-        "size": 24,
+        "size": 58,
         "duration": 0.5,
         "opacity": 0.46,
         "speed": 1 },
