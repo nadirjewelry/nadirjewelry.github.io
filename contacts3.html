@@ -88,7 +88,7 @@ body {
 
 .contact-form-container h1 {
   font-size: 24px;
-  color: #006494;
+  color: #006600;
   margin-bottom: 10px;
   animation: textFadeIn 1.2s ease-in-out;
 }
@@ -157,7 +157,7 @@ body {
 }
 
 .contact-button {
-  background-color: #006494;
+  background-color: #006600;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -169,7 +169,8 @@ body {
 }
 
 .contact-button:hover {
-  background-color: #004c70;
+  background-color: #goldenrod;
+	color: #silver;
   transform: scale(1.05);
 }
 
@@ -195,7 +196,7 @@ body {
   <div id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   
-    <script id="rendered-js" >
+    <script>
 new Vue({
   el: '#app',
   data: {
@@ -206,14 +207,14 @@ new Vue({
 
   methods: {
     handleSubmit() {
-      alert('Your message has been sent. We will get back to you in 24 hours.');
+      alert('Your message has been sent. We will get back to you as soon as we can.');
       // Here you would typically send the data to a server
     } },
 
   template: `
     <div class="contact-form-container">
-      <h1>Contact Us</h1>
-      <p class="subtitle">Let's Start the Conversation</p>
+      <p class="subtitle">Nadir Hasanov<br>+1 347 2613581<br>510 Brighton Beach Ave. Brooklyn NY 11235, USA.<br> nadirjewelry@mail.com</p>
+<h1>Contact Us</h1>
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
           <label for="firstName">First Name <span class="required">*</span></label>
@@ -236,7 +237,6 @@ new Vue({
       </form>
     </div>
   ` });
-//# sourceURL=pen.js
   </script>
 
 </body>
