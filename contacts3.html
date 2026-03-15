@@ -302,9 +302,12 @@ h3 {
 }
 .container {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  display: flex;
+  height: fit-content; /* Or a specific height like 75% */
+  width: fit-content; /* Or a specific width like 75% */
+  margin: 0 auto; /* Centers the block horizontally */
+  justify-content: center; /* Centers horizontally */
+  z-index: 6;
 
 }
   .half-space {
