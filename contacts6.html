@@ -479,10 +479,18 @@ a:link, a:visited, a:hover, a:active {
 	<div class='background'>
 	<span id="text">LUSIGNAN</span>
 
-
+<svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath xlink:href="#path" />
+           <path class="path0" stroke="#transparent" fill="#fff"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath xlink:href="#path0" />
+      </animateMotion>
+  </svg>
 
   </div>
-
+<script src='https://assets.codepen.io/16327/MorphSVGPlugin3.min.js'></script>
 
 </body>
 
