@@ -435,6 +435,9 @@ a:link, a:visited, a:hover, a:active {
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1.6px;
   -webkit-text-stroke-color: white;
+			    overflow: hidden; /* Hides the overflowing inner span content */
+  display: inline-block; /* Allows width/height properties to work */
+  cursor: pointer;
 }
 #_text{
  color: white;
@@ -466,7 +469,7 @@ a:link, a:visited, a:hover, a:active {
 }
 		  
 .fill-up-text {
-  position: relative;
+   position: absolute;
   /* Set initial text appearance (e.g., an outline or a different color) */
   color: #ccc; /* Fallback color for browsers without webkit-text-fill-color support */
   -webkit-text-fill-color: transparent; /* Makes the original text transparent */
