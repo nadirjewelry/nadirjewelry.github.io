@@ -375,6 +375,46 @@ a:link, a:visited, a:hover, a:active {
 .image-container:hover {
     transform: scale(1.1) rotate(5deg); /* Example: Scale up and rotate slightly on hover */
 }
+		  #text{
+  position:absolute;
+  border-radius:50px;
+  padding:1%;
+   font-size:6em;
+  z-index:9999;
+  top:20%;
+ color: black;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.6px;
+  -webkit-text-stroke-color: white;
+}
+#_text{
+ color: white;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .7px;
+  -webkit-text-stroke-color: black;
+  position:absolute;
+   font-size:1.6em;
+  z-index:9999;
+  top:80%;
+}
+@media screen and (max-width: 992px) {
+#_text{
+  font-size:1.5em;
+  }
+  #text{
+  font-size:4em;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+#_text{
+  font-size:.8em;
+  }
+  #text{
+  font-size:1.8em;
+  }
+}
 </style>
 
   <script>
@@ -386,71 +426,60 @@ a:link, a:visited, a:hover, a:active {
 </head>
 
 <body translate="no">
-<div class="image-container">
-    <img class="img-default" src="/files/j9-1.png" alt="Default Image">
-    <img class="img-hover" src="/files/j9.png" alt="Hover Image">
+	<div class='background'>
+   <span id="text">Click Anywhere</span>
+  <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath xlink:href="#path" />
+           <path class="path0" stroke="#transparent" fill="#fff"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
+      <animateMotion dur="9.5s" repeatCount="indefinite">
+        <mpath xlink:href="#path0" />
+      </animateMotion>
+  </svg>
 </div>
-<!-- Repeat for multiple floating images -->
 
-  <div id="app"></div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  
+  </div>
+
+
+ 
+<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+<script src='https://assets.codepen.io/16327/MorphSVGPlugin3.min.js'></script>
     <script>
-new Vue({
-  el: '#app',
-  data: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: '' },
+const _random = () => {
+  var num = Math.round(0xffffff * Math.random());
+  var r = num >> 16;
+  var g = num >> 8 & 250;
+  var b = num & 250;
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+};
+let _rand;
+let _gooey;
+let tl = gsap.timeline({ ease: 'Sine.in' });
+let click = false;
 
-  methods: {
-    handleSubmit() {
-      alert('Your message has been sent. We will get back to you as soon as we can.');
-      // Here you would typically send the data to a server
-    } },
 
-  template: `
-    <div class="contact-form-container">
-      <p class="subtitle">Nadir Hasanov &nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/nadirjewelry2026?igsh=MXF1b3hpcHBobmxtcA%3D%3D" class="instagram-icon"><i class="fab fa-instagram"></i></a><br><i class="fas fa-map-marked-alt map-icon-animated"></i>&nbsp;&nbsp;510 Brighton Beach Ave. Brooklyn NY 11235, USA.<br><i class="fas fa-headset"></i>&nbsp;&nbsp;+1 347 2613581<br><i class="fas fa-envelope-open-text animated-icon"></i>&nbsp;&nbsp;<a href="mailto:nadirjewelry@mail.com"><font face="Source Sans Pro" color="#7C6310">nadirjewelry@mail.com</font></a><br>CONTACT US  /  or back to <font face="Source Sans Pro" color="#006600">Homepage</font>&nbsp;&nbsp;<a href="https://nhjeweler.com/" title="HOME"><i class="fas fa-home animated-home"></i></a></p>
+document.addEventListener('click', () => {
+  _gooey = Math.floor(Math.random() * 100);
+  _rand = _random();
 
-      <form @submit.prevent="handleSubmit">
-        <div class="form-group">
-          <label for="firstName">First Name <span class="required">*</span></label>
-          <input type="text" id="firstName" v-model="firstName" required>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name (Optional)</label>
-          <input type="text" id="lastName" v-model="lastName">
-        </div>
-        <div class="form-group">
-          <label for="email">Email <span class="required">*</span></label>
-          <input type="email" id="email" v-model="email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" v-model="message" rows="5" required></textarea>
-        </div>
-        <p class="response-time">You will get a response in 24 hours</p>
-        <button type="submit" class="contact-button">Contact!</button>
-      </form>
-    </div>
-  ` });
-  </script>
-<script>
-// Example of adding the floating class to all containers on load
-document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.image-container');
-    containers.forEach(container => {
-        container.classList.add('floating');
-    });
+
+  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, duration: .6, visibility: 'visible', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
+
+  tl.to('.path', { attr: { d: `M 0 100 V 0 Q ${_gooey}  0 100 0 V 100 z` }, duration: .3, stagger: 0.01, fill: _rand, ease: Power2.easeOut });
+  tl.to('.background', { background: _rand });
+
+  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, visibility: 'hidden', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
+
+  tl.to('.path', { attr: { d: `M 0 100 V 100 Q ${_gooey}  100 100 100 V 100  z` }, stagger: 0.01, visibility: 'hidden', fill: _rand, ease: Power2.easeOut });
+
+
+
+
+
 });
+  </script>
 
-// Example of a more complex movement animation using JavaScript (e.g., following the mouse, a physics-based float, etc.)
-// This can get complex quickly and might require a library. The pure CSS animation is usually sufficient for simple floating effects.
-
-
-	</script>
 </body>
 
 </html>
