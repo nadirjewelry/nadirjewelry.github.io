@@ -90,7 +90,7 @@ body {
   align-items: center;
   height:100%;
   color:goldenrod;
-  cursor:pointer;
+
   left:0%;
   width:100%;
   background:rgb(255, 130, 130);
@@ -473,7 +473,6 @@ a:link, a:visited, a:hover, a:active {
   
   /* Text styling */
     font-size:6em;
-  z-index:9;
   font-weight: bold;
     font-family: "Libre Barcode 39 Extended Text", system-ui;
   position: relative;
@@ -513,6 +512,9 @@ a:link, a:visited, a:hover, a:active {
 .animated-text:hover {
   animation: pulse 1s infinite alternate; /* Animates slightly up and down while hovered */
 }
+		 	.over {
+  z-index: 9999;
+} 
 </style>
 
   <script>
@@ -526,8 +528,8 @@ a:link, a:visited, a:hover, a:active {
 <body translate="no">
 	<div class='background'>
 		<span id="text">LUSIGNAN</span>
-		<br/>
-<span class="animated-text">SCAN THE BARCODE HERE</span>
+		<br/><div class="over">
+				  <span class="animated-text">SCAN THE BARCODE HERE</span></div>
 <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
@@ -539,7 +541,43 @@ a:link, a:visited, a:hover, a:active {
   </svg>
 
   </div>
+ <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
 <script src='https://assets.codepen.io/16327/MorphSVGPlugin3.min.js'></script>
+    <script id="rendered-js" >
+const _random = () => {
+  var num = Math.round(0xffffff * Math.random());
+  var r = num >> 16;
+  var g = num >> 8 & 250;
+  var b = num & 250;
+  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+};
+let _rand;
+let _gooey;
+let tl = gsap.timeline({ ease: 'Sine.in' });
+let click = false;
+
+
+document.addEventListener('click', () => {
+  _gooey = Math.floor(Math.random() * 100);
+  _rand = _random();
+
+
+  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, duration: .6, visibility: 'visible', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
+
+  tl.to('.path', { attr: { d: `M 0 100 V 0 Q ${_gooey}  0 100 0 V 100 z` }, duration: .3, stagger: 0.01, fill: _rand, ease: Power2.easeOut });
+  tl.to('.background', { background: _rand });
+
+  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, visibility: 'hidden', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
+
+  tl.to('.path', { attr: { d: `M 0 100 V 100 Q ${_gooey}  100 100 100 V 100  z` }, stagger: 0.01, visibility: 'hidden', fill: _rand, ease: Power2.easeOut });
+
+
+
+
+
+});
+//# sourceURL=pen.js
+  </script>
 
 </body>
 
