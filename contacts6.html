@@ -20,7 +20,6 @@
 <title>Nadir Jewelry / Custom Made Jewelry \ nhjeweler.com / Nadir Hasanov Jewelry \ nadirjewelry.com</title>
 <!-- Add the style sheet. -->
 <link href="/files/favicon.ico" rel="icon" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 	  <style>
     @-webkit-keyframes shine {
@@ -39,13 +38,24 @@
     background-position: -10% 0%, 0 0;
   }
 }
-		  font-family: 'Montserrat', sans-serif;
-  width:100%;
-  font-weight:900;
-  height:100vh;
-  overflow:hidden;
+	@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Monsieur+La+Doulaise&family=Uncial+Antiqua&display=swap');
+	
+		  .monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+		  .uncial-antiqua-regular {
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
+.libre-barcode-39-extended-text-regular {
+  font-family: "Libre Barcode 39 Extended Text", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 #section{
 width:100%;
   height:100vh;
@@ -66,6 +76,8 @@ body {
     background-repeat: no-repeat; /* Prevents repeating */
 
 
+  font-family: 'Uncial Antiqua', system-ui;
+  font-weight:900;  
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
   margin: 0;	
   animation: fadeIn 1s ease-in-out;
@@ -464,7 +476,7 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-   <span id="text">Click Anywhere</span>
+   <span id="text">LUSIGNAN</span>
   <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
