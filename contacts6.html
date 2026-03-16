@@ -429,7 +429,7 @@ a:link, a:visited, a:hover, a:active {
   border-radius:50px;
   padding:1%;
    font-size:6em;
-  z-index:9999;
+  z-index:9;
   top:20%;
  color: black;
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
@@ -471,7 +471,10 @@ a:link, a:visited, a:hover, a:active {
     display: inline-block; /* Allows width/height to be set and positioning to work */
     font-size: 8em;
     font-weight: bold;
-    color: #transparent; /* Original color */
+     color: black;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.6px;
+  -webkit-text-stroke-color: white;
     overflow: hidden; /* Hides the ::before content initially */
     text-decoration: none;
 	z-index: 9999;
@@ -509,50 +512,12 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-		<span id="text"><a href="#" class="fill-animation" data-content="Hover Effect">LUSIGNAN</a></span>
+		<a href="#" class="fill-animation" data-content="Hover Effect"><span id="text">LUSIGNAN</span></a>
 
 
 
   </div>
 
-
- 
-<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
-<script src='https://assets.codepen.io/16327/MorphSVGPlugin3.min.js'></script>
-    <script>
-const _random = () => {
-  var num = Math.round(0xffffff * Math.random());
-  var r = num >> 16;
-  var g = num >> 8 & 250;
-  var b = num & 250;
-  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
-};
-let _rand;
-let _gooey;
-let tl = gsap.timeline({ ease: 'Sine.in' });
-let click = false;
-
-
-document.addEventListener('click', () => {
-  _gooey = Math.floor(Math.random() * 100);
-  _rand = _random();
-
-
-  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, duration: .6, visibility: 'visible', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
-
-  tl.to('.path', { attr: { d: `M 0 100 V 0 Q ${_gooey}  0 100 0 V 100 z` }, duration: .3, stagger: 0.01, fill: _rand, ease: Power2.easeOut });
-  tl.to('.background', { background: _rand });
-
-  tl.to('.path', { attr: { d: `M ${-_gooey} 100 V ${_gooey} Q ${_gooey} 0 100 ${_gooey} V 100 z` }, visibility: 'hidden', stagger: 0.01, fill: _rand, ease: Power2.easeIn });
-
-  tl.to('.path', { attr: { d: `M 0 100 V 100 Q ${_gooey}  100 100 100 V 100  z` }, stagger: 0.01, visibility: 'hidden', fill: _rand, ease: Power2.easeOut });
-
-
-
-
-
-});
-  </script>
 
 </body>
 
