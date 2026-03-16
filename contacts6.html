@@ -464,42 +464,7 @@ a:link, a:visited, a:hover, a:active {
   font-size:1.8em;
   }
 }
-		  
-.fill-animation {
-    /* Original text styles */
-    position: absolute;
-    display: inline-block; /* Allows width/height to be set and positioning to work */
-    font-size: 8em;
-    font-weight: bold;
-     color: black;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1.6px;
-  -webkit-text-stroke-color: white;
-    overflow: hidden; /* Hides the ::before content initially */
-    text-decoration: none;
-	z-index: 9999;
-}
 
-.fill-animation::before {
-    /* Colored overlay */
-    content: attr(data-content); /* Copies the text from data-content attribute */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0; /* Starts with 0 height */
-    color: #ff0000; /* The color you want to fill with */
-    overflow: hidden;
-    transition: height 0.5s ease-out; /* Animates the height property */
-    /* Ensures the pseudo-element text doesn't wrap */
-    white-space: nowrap; 
-}
-
-.fill-animation:hover::before {
-    /* On hover, increase height to 100% */
-    height: 100%;
-}
-	
 </style>
 
   <script>
@@ -512,7 +477,7 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-		<a href="#" class="fill-animation" data-content="Hover Effect"><span id="text">LUSIGNAN</span></a>
+	<span id="text">LUSIGNAN</span>
 
 
 
