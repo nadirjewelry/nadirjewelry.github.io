@@ -435,8 +435,7 @@ a:link, a:visited, a:hover, a:active {
   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1.6px;
   -webkit-text-stroke-color: white;
-			    overflow: hidden; /* Hides the overflowing inner span content */
-  cursor: pointer;
+
 }
 #_text{
  color: white;
@@ -446,6 +445,7 @@ a:link, a:visited, a:hover, a:active {
   position:absolute;
    font-size:1.6em;
   z-index:9999;
+	  cursor: pointer;
   top:80%;
 }
 @media screen and (max-width: 992px) {
@@ -476,6 +476,7 @@ a:link, a:visited, a:hover, a:active {
     color: #transparent; /* Original color */
     overflow: hidden; /* Hides the ::before content initially */
     text-decoration: none;
+	z-index: 9999;
 }
 
 .fill-animation::before {
