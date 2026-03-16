@@ -451,6 +451,7 @@ a:link, a:visited, a:hover, a:active {
   display: inline-block;
   overflow: hidden; /* Hide the color fill overflow */
   cursor: pointer;
+	z-index: 3;
 }
 
 .animated-text::before {
@@ -462,7 +463,7 @@ a:link, a:visited, a:hover, a:active {
   height: 0; /* Starts as completely down/hidden */
   background: linear-gradient(to top, blue, purple); /* Color fill gradient */
   transition: height 2s ease-in-out; /* Slow motion animation */
-  z-index: -1; /* Place the fill behind the text outline effect */
+  z-index: 2; /* Place the fill behind the text outline effect */
 
   /* Clip the background to the text shape */
   -webkit-background-clip: text; 
@@ -485,7 +486,7 @@ a:link, a:visited, a:hover, a:active {
   animation: pulse 1s infinite alternate; /* Animates slightly up and down while hovered */
 }
 		 	.over {
-  z-index: 9999;
+  z-index: 1;
 } 
 </style>
 
