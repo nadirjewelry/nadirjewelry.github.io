@@ -464,6 +464,26 @@ a:link, a:visited, a:hover, a:active {
   font-size:1.8em;
   }
 }
+		  .fill-text {
+  font-size: 6em;
+  font-weight: bold;
+  /* Set initial text color to transparent and use background for color */
+  color: transparent; 
+  -webkit-background-clip: text; /* For cross-browser compatibility */
+  background-clip: text;
+
+  /* Define the background (e.g., a linear gradient) */
+  background-image: linear-gradient(to top, #D4AF37, #FFCC00); 
+  background-size: 100% 200%; /* Make the background twice as tall as the text */
+  background-position-y: 0%; /* Start with the bottom half (the empty color) showing */
+  
+  /* Add a smooth transition for the background position */
+  transition: background-position-y 0.5s ease-in-out; 
+}
+
+.fill-text:hover {
+  background-position-y: 100%; /* Move the background up to reveal the top half (the full color) */
+}
 </style>
 
   <script>
@@ -476,7 +496,7 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-   <span id="text">LUSIGNAN</span>
+   <span id="text" class="fill-text">LUSIGNAN</span>
   <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
