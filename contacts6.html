@@ -465,32 +465,36 @@ a:link, a:visited, a:hover, a:active {
   }
 }
 		  
-		  .fill-text {
+.fill-up-text {
+  position: relative;
+  /* Set initial text appearance (e.g., an outline or a different color) */
+  color: #ccc; /* Fallback color for browsers without webkit-text-fill-color support */
+  -webkit-text-fill-color: transparent; /* Makes the original text transparent */
+  -webkit-text-stroke: 1px #ccc; /* Optional: adds an outline */
   font-size: 6em;
   font-weight: bold;
-  /* Set initial text color to transparent and use background for color */
-  color: transparent; 
-  -webkit-background-clip: text; /* For cross-browser compatibility */
-  background-clip: text;
-
-  /* Define the background (e.g., a linear gradient) */
-  background-image: linear-gradient(to top, #D4AF37, #FFCC00); 
-  background-size: 100% 200%; /* Make the background twice as tall as the text */
-  background-position-y: 0%; /* Start with the bottom half (the empty color) showing */
-  
-  /* Add a smooth transition for the background position */
-  transition: background-position-y 0.5s ease-in-out; 
-}
-
-.fill-text:hover {
-  background-position-y: 100%; /* Move the background up to reveal the top half (the full color) */
-}
-		  h1 {
-  position: relative;
+  cursor: pointer;
+  /* Ensure parent has position: relative for absolute positioning of pseudo-element */
   display: inline-block;
+}
 
-  margin: 0;
-	z-index: 9999;
+.fill-up-text::before {
+  content: attr(data-content); /* Uses the text from the data-content attribute */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%; /* Start with 0 height */
+  overflow: hidden; /* Hides the color fill outside the height */
+  color: midnightblue; /* The color you want to fill with */
+  transition: height 0.5s ease-out; /* Animates the height change */
+  -webkit-text-fill-color: midnightblue; /* Ensures the filled text has this color */
+}
+
+.fill-up-text:hover::before {
+  height: 100%; /* Fills up completely on hover */
+}
+	
 </style>
 
   <script>
@@ -503,7 +507,7 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-  <h1 class="fill-text"><span id="text">LUSIGNAN</span></h1>
+  <span id="text" class="fill-up-text">LUSIGNAN</span>
   <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
