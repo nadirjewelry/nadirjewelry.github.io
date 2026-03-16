@@ -464,7 +464,55 @@ a:link, a:visited, a:hover, a:active {
   font-size:1.8em;
   }
 }
+.animated-text {
+  /* Initial state: transparent fill with white outline */
+  color: transparent; 
+  -webkit-text-fill-color: transparent; /* For compatibility*/
+  -webkit-text-stroke-width: 1px; /* White line outline */
+  -webkit-text-stroke-color: white; 
+  
+  /* Text styling */
+    font-size:6em;
+  z-index:9;
+  font-weight: bold;
+    font-family: "Libre Barcode 39 Extended Text", system-ui;
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Hide the color fill overflow */
+  cursor: pointer;
+}
 
+.animated-text::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0; /* Starts as completely down/hidden */
+  background: linear-gradient(to top, blue, purple); /* Color fill gradient */
+  transition: height 2s ease-in-out; /* Slow motion animation */
+  z-index: -1; /* Place the fill behind the text outline effect */
+
+  /* Clip the background to the text shape */
+  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+.animated-text:hover::before {
+  height: 100%; /* Fills up completely on hover */
+}
+
+/* Add an additional effect to simulate "up and down" movement */
+@keyframes pulse {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.animated-text:hover {
+  animation: pulse 1s infinite alternate; /* Animates slightly up and down while hovered */
+}
 </style>
 
   <script>
@@ -477,8 +525,9 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-	<span id="text">LUSIGNAN</span>
-
+		<span id="text">LUSIGNAN</span>
+		<br/>
+<span class="animated-text">SCAN THE BARCODE HERE</span>
 <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
