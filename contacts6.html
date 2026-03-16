@@ -436,7 +436,6 @@ a:link, a:visited, a:hover, a:active {
   -webkit-text-stroke-width: 1.6px;
   -webkit-text-stroke-color: white;
 			    overflow: hidden; /* Hides the overflowing inner span content */
-  display: inline-block; /* Allows width/height properties to work */
   cursor: pointer;
 }
 #_text{
@@ -468,35 +467,35 @@ a:link, a:visited, a:hover, a:active {
   }
 }
 		  
-.fill-up-text {
-   position: absolute;
-  /* Set initial text appearance (e.g., an outline or a different color) */
-  color: #ccc; /* Fallback color for browsers without webkit-text-fill-color support */
-  -webkit-text-fill-color: transparent; /* Makes the original text transparent */
-  -webkit-text-stroke: 1px #ccc; /* Optional: adds an outline */
-  font-size: 6em;
-  font-weight: bold;
-  cursor: pointer;
-  /* Ensure parent has position: relative for absolute positioning of pseudo-element */
-  display: inline-block;
-	  z-index:9999;
+.fill-animation {
+    /* Original text styles */
+    position: relative;
+    display: inline-block; /* Allows width/height to be set and positioning to work */
+    font-size: 8em;
+    font-weight: bold;
+    color: #transparent; /* Original color */
+    overflow: hidden; /* Hides the ::before content initially */
+    text-decoration: none;
 }
 
-.fill-up-text::before {
-  content: attr(data-content); /* Uses the text from the data-content attribute */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0%; /* Start with 0 height */
-  overflow: hidden; /* Hides the color fill outside the height */
-  color: midnightblue; /* The color you want to fill with */
-  transition: height 0.5s ease-out; /* Animates the height change */
-  -webkit-text-fill-color: midnightblue; /* Ensures the filled text has this color */
+.fill-animation::before {
+    /* Colored overlay */
+    content: attr(data-content); /* Copies the text from data-content attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Starts with 0 height */
+    color: #ff0000; /* The color you want to fill with */
+    overflow: hidden;
+    transition: height 0.5s ease-out; /* Animates the height property */
+    /* Ensures the pseudo-element text doesn't wrap */
+    white-space: nowrap; 
 }
 
-.fill-up-text:hover::before {
-  height: 100%; /* Fills up completely on hover */
+.fill-animation:hover::before {
+    /* On hover, increase height to 100% */
+    height: 100%;
 }
 	
 </style>
@@ -511,7 +510,7 @@ a:link, a:visited, a:hover, a:active {
 
 <body translate="no">
 	<div class='background'>
-  <span id="text" class="fill-up-text">LUSIGNAN</span>
+  <a href="#" class="fill-animation" data-content="Hover Effect"><span id="text">LUSIGNAN</span></a>
   <svg class="transition" viewBox="0 0 100 100" preserveAspectRatio="none">
     <path class="path" stroke="#transparent" fill="#000"  dur="10s" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z"/>
       <animateMotion dur="9.5s" repeatCount="indefinite">
