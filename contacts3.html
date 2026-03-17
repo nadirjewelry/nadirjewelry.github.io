@@ -23,22 +23,12 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 	  <style>
-	@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Monsieur+La+Doulaise&family=Uncial+Antiqua&display=swap');
-	
-		  .monsieur-la-doulaise-regular {
-  font-family: "Monsieur La Doulaise", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-		  .uncial-antiqua-regular {
-  font-family: "Uncial Antiqua", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.libre-barcode-39-extended-text-regular {
-  font-family: "Libre Barcode 39 Extended Text", system-ui;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Monsieur+La+Doulaise&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Uncial+Antiqua&display=swap');
+		  
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
   font-style: normal;
 }
     @-webkit-keyframes shine {
@@ -83,9 +73,9 @@ body {
 .animated-text-container {
     position: relative;
     display: inline-block;
-    font-family: "Uncial Antiqua", system-ui;
+      font-family: "Montserrat", sans-serif;
     font-size: 4vw;
-    font-weight: normal;
+    font-weight: bold;
     text-transform: uppercase;
     /* The base text styling (transparent with white stroke) */
     color: transparent;
@@ -129,13 +119,13 @@ body {
 }
 
 .dropping-texts > div {
-	font-family: "Monsieur La Doulaise", cursive;
-  font-size:2vw;
+	font-family:  "Montserrat", sans-serif;
+  font-size:1vw;
   color: antiquewhite;
   opacity:0;
   margin-left:20px;
   position:absolute;
-  font-weight:200;   
+  font-weight:400;   
   box-shadow: 0px 60px 25px -20px rgba(0,0,0,0.5);
 }
 	  
