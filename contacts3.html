@@ -80,7 +80,15 @@ body {
     text-transform: uppercase;
     /* The base text styling (transparent with white stroke) */
     color: transparent;
-    -webkit-text-stroke: 1px white; /* */
+    /* Silver color for the stroke */
+  -webkit-text-stroke: 0.6px #c0c0c0;
+  /* Shiny silver gradient fill */
+  background: linear-gradient(to bottom, #fff 0%, #c0c0c0 50%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Optional: smoothing */
+  -webkit-font-smoothing: antialiased;
 }
 
 .dropping-texts {
