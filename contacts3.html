@@ -90,27 +90,6 @@ body {
     transition: color 0.2s ease-in-out; /* Smooth transition for potential JS color changes */
 }
 
-/* The filling effect is achieved using a pseudo-element with a background */
-.letter::before {
-    content: attr(data-letter); /* Gets content from data-letter attribute set by JS */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0%; /* Start as 0% height (hidden) */
-    background: linear-gradient(to top, #006600, #7C6310); /* The color wave gradient */
-    -webkit-background-clip: text; /* Clips the background to the text shape */
-    background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the fill transparent so gradient shows */
-    text-fill-color: transparent;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out; /* Slow motion transition for the fill height */
-}
-
-/* Hover effect to fill the text with color */
-.animated-text-container:hover .letter::before {
-    height: 100%; /* Fills up completely on container hover */
-}
 .dropping-texts {
   display: inline-block;
   width: 180px;
@@ -236,7 +215,42 @@ body {
   83% {background: #F44336;}
   100% {background: #F44336;}
 }
-	a:link, a:visited, a:hover, a:active {
+		.animated-gradient-text {
+    /* Set the font size and weight for better visibility */
+    font-size: 6vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    /* Define the gradient background with multiple color stops */
+    /* Ensure the start and end colors match for a seamless loop */
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff7e5f); 
+    
+    /* Set the background size to be much larger than the text itself */
+    background-size: 400% 100%;
+
+    /* Clip the background to the text shape */
+    -webkit-background-clip: text; /* For compatibility with webkit browsers */
+    background-clip: text;
+    
+    /* Make the text transparent so the background shows through */
+    -webkit-text-fill-color: transparent; /* For compatibility with webkit browsers */
+    color: transparent; /* Fallback for other browsers */
+
+    /* Apply the animation */
+    /* Adjust the duration for "slow motion" (e.g., 15s) */
+    animation: moveGradient 15s linear infinite; /* Increased duration for a slow effect */
+}
+
+/* Define the keyframe animation */
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+	  
+		  a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }  
 		  /* Link Style */
@@ -272,8 +286,11 @@ body {
 </head>
 
 <body translate="no">
+
   	<div class="animated-text-container" id="text-container">
-    <span class="letter">LUSIGNAN</span>
+    	<h1 class="animated-gradient-text">
+    LUSIGNAN
+</h1>
 </div>
 <div class="dropping-texts">
   <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;web</div>
