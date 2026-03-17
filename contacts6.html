@@ -407,6 +407,8 @@ a:link, a:visited, a:hover, a:active {
 }
 
 h1 {
+		width: 50%;
+	height: 200px;
   font-size: 6em;
   font-family: 'Uncial Antiqua', serif;
   position: relative; /* Needed for positioning the pseudo-element or background */
@@ -481,6 +483,8 @@ h1:hover {
 .water-text-container {
   position: relative;
   display: inline-block;
+	width: 50%;
+	height: 200px;
   font-size: 6em;
   font-family: sans-serif;
   cursor: pointer;
@@ -488,6 +492,7 @@ h1:hover {
 
 /* The actual text element */
 .water-text-container h1 {
+	
   /* Initial transparent text with white stroke */
   color: transparent;
   -webkit-text-stroke: 1px white; /* Creates the "white lines" outline */
@@ -503,12 +508,12 @@ h1:hover {
   background-repeat: no-repeat;
   
   /* Smooth transition for the fill effect, creating "slow motion" */
-  transition: background-size 2.5s ease-in-out; /* Adjust duration and easing for slow motion */
+  transition: background-size 4.5s ease-in-out; /* Adjust duration and easing for slow motion */
 }
 
 /* The hover effect to "fill" the text */
 .water-text-container:hover h1 {
-  background-size: 100% 100%; /* Fill to 100% height on hover */
+  background-size: 0% 100%; /* Fill to 100% height on hover */
 }
 </style>
 
