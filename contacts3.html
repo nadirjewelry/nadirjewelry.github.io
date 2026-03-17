@@ -75,19 +75,13 @@ body {
     display: inline-block;
       font-family: "Montserrat", sans-serif;
     font-size: 6vw;
-    font-weight: bold;
+    font-weight: normal;
 	letter-spacing: 2px;
     text-transform: uppercase;
     /* The base text styling (transparent with white stroke) */
     color: transparent;
     -webkit-text-stroke: 1px white; /* */
     overflow: hidden; /* Essential for containing the filling effect */
-}
-
-.letter {
-    position: relative;
-    display: inline-block;
-    transition: color 0.2s ease-in-out; /* Smooth transition for potential JS color changes */
 }
 
 .dropping-texts {
@@ -216,10 +210,14 @@ body {
   100% {background: #F44336;}
 }
 .animated-gradient-text {
-  font-size: 5vw;
-  font-weight: bold;
+  font-size: 6vw;
+  font-weight: normal;
   /* Set text color to transparent so the background can show through */
-  color: transparent; 
+	    text-transform: uppercase;
+    overflow: hidden;
+      /* The base text styling (transparent with white stroke) */
+    color: transparent;
+    -webkit-text-stroke: 1px white; /* */
   /* Clip the background to the text shape */
   -webkit-background-clip: text; /* For webkit browsers */
   background-clip: text;
@@ -323,7 +321,6 @@ body {
 
 <body translate="no">
 
-  	<div class="animated-text-container" id="text-container">
     	<h1 class="shiny-text">
     LUSIGNAN
 </h1>
@@ -334,7 +331,7 @@ body {
   <div>master&nbsp;&nbsp;</div>
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
-</div></div>
+</div>
 </body>
 
 </html>
