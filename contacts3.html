@@ -274,7 +274,46 @@ body {
     color: #fff;
     box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2);
 }
-	  
+.shiny-text {
+  /* 1. Set text to transparent to show background */
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* 2. Silver/Gold Gradient */
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,   /* Transparent start */
+    rgba(192, 192, 192, 0.5) 25%, /* Silver */
+    #FFD700 50%,                 /* Gold Center */
+    rgba(192, 192, 192, 0.5) 75%, /* Silver */
+    rgba(255, 255, 255, 0) 100%  /* Transparent end */
+  );
+  
+  /* 3. Size and Position for animation */
+  background-size: 300% 100%; /* Large size makes it move slow */
+  background-position: -100% 0; /* Starts off-screen */
+  
+  /* 4. Slow Motion Animation */
+  animation: fillAnimation 10s linear infinite;
+  font-family: "Montserrat", sans-serif;
+    font-size: 6vw;
+    font-weight: bold;
+	letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@keyframes fillAnimation {
+  0% {
+    background-position: 200% 0; /* Start hidden */
+  }
+  50% {
+    background-position: 0% 0; /* Centered in text */
+  }
+  100% {
+    background-position: -200% 0; /* End hidden */
+  }
+}	  
 </style>
 
   
@@ -285,7 +324,7 @@ body {
 <body translate="no">
 
   	<div class="animated-text-container" id="text-container">
-    	<h1 class="animated-gradient-text">
+    	<h1 class="shiny-text">
     LUSIGNAN
 </h1>
 </div>
