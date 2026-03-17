@@ -23,7 +23,24 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 	  <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+	@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Monsieur+La+Doulaise&family=Uncial+Antiqua&display=swap');
+	
+		  .monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+		  .uncial-antiqua-regular {
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-barcode-39-extended-text-regular {
+  font-family: "Libre Barcode 39 Extended Text", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
     @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
@@ -63,7 +80,47 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+.animated-text-container {
+    position: relative;
+    display: inline-block;
+    font-family: "Uncial Antiqua", system-ui;
+    font-weight: 400;
+    font-size: 4vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* The base text styling (transparent with white stroke) */
+    color: transparent;
+    -webkit-text-stroke: 1px white; /* */
+    overflow: hidden; /* Essential for containing the filling effect */
+}
 
+.letter {
+    position: relative;
+    display: inline-block;
+    transition: color 0.2s ease-in-out; /* Smooth transition for potential JS color changes */
+}
+
+/* The filling effect is achieved using a pseudo-element with a background */
+.letter::before {
+    content: attr(data-letter); /* Gets content from data-letter attribute set by JS */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Start as 0% height (hidden) */
+    background: linear-gradient(to top, #006600, #7C6310); /* The color wave gradient */
+    -webkit-background-clip: text; /* Clips the background to the text shape */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the fill transparent so gradient shows */
+    text-fill-color: transparent;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out; /* Slow motion transition for the fill height */
+}
+
+/* Hover effect to fill the text with color */
+.animated-text-container:hover .letter::before {
+    height: 100%; /* Fills up completely on container hover */
+}
 .dropping-texts {
   display: inline-block;
   width: 180px;
@@ -80,7 +137,7 @@ body {
   font-weight:200;   
   box-shadow: 0px 60px 25px -20px rgba(0,0,0,0.5);
 }
-
+	  
 .dropping-texts > div:nth-child(1) {
   animation: roll 5s linear infinite 0s;
 }
@@ -184,6 +241,7 @@ body {
   83% {background: #F44336;}
   100% {background: #F44336;}
 }
+		  
 </style>
 
   
@@ -192,7 +250,9 @@ body {
 </head>
 
 <body translate="no">
-  UX works for 
+  	<div class="animated-text-container" id="text-container">
+    <span class="letter">LUSIGNAN</span>
+</div>
 <div class="dropping-texts">
   <div>Developers</div>
   <div>Designers</div>
