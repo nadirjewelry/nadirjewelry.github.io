@@ -477,7 +477,39 @@ h1:hover {
 .animated-text-container:hover .letter::before {
     height: 100%; /* Fills up completely on container hover */
 }
+/* Container for positioning the effect */
+.water-text-container {
+  position: relative;
+  display: inline-block;
+  font-size: 8vw;
+  font-family: sans-serif;
+  cursor: pointer;
+}
 
+/* The actual text element */
+.water-text-container h1 {
+  /* Initial transparent text with white stroke */
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* Creates the "white lines" outline */
+  position: relative;
+  
+  /* Create the filling effect using a pseudo-element or a clipped background */
+  /* This example uses the background clip method for simplicity */
+  background: linear-gradient(to bottom, dodgerblue, dodgerblue); /* The "water" color */
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 100% 0%; /* Start with 0% height fill */
+  background-position: bottom; /* Fill from the bottom up */
+  background-repeat: no-repeat;
+  
+  /* Smooth transition for the fill effect, creating "slow motion" */
+  transition: background-size 1.5s ease-in-out; /* Adjust duration and easing for slow motion */
+}
+
+/* The hover effect to "fill" the text */
+.water-text-container:hover h1 {
+  background-size: 100% 100%; /* Fill to 100% height on hover */
+}
 </style>
 
   <script>
@@ -489,7 +521,9 @@ h1:hover {
 </head>
 
 <body translate="no">
-	
+	<div class="water-text-container">
+  <h1>Water Effect</h1>
+</div>
 	<div class="animated-text-container" id="text-container">
     <span class="letter">LUSIGNAN</span>
     <span class="letter">I</span><span class="letter">G</span><span class="letter">N</span>
