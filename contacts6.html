@@ -397,56 +397,43 @@ a:link, a:visited, a:hover, a:active {
     transform: scale(1.1) rotate(5deg); /* Example: Scale up and rotate slightly on hover */
 }
 
-.animated-text {
-  /* Initial state: transparent fill with white outline */
-  color: transparent; 
-  -webkit-text-fill-color: transparent; /* For compatibility*/
-  -webkit-text-stroke-width: 1px; /* White line outline */
+.text-container {
+  /* Center the text for demonstration */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333; /* A dark background helps the effect stand out */
+}
+
+h1 {
+  font-size: 6em;
+  font-family: 'Uncial Antiqua', serif;
+  position: relative; /* Needed for positioning the pseudo-element or background */
+  cursor: pointer;
+  
+  /* Initial state: transparent fill, white outline */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* For webkit browsers */
+  -webkit-text-stroke-width: 1px; /* White lines (outline) */
   -webkit-text-stroke-color: white; 
   
-  /* Text styling */
-    font-size:6em;
-  font-weight: bold;
-    font-family: "Libre Barcode 39 Extended Text", system-ui;
-  position: relative;
-  display: inline-block;
-  overflow: hidden; /* Hide the color fill overflow */
-  cursor: pointer;
-}
-
-.animated-text::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0; /* Starts as completely down/hidden */
-  background: linear-gradient(to top, blue, purple); /* Color fill gradient */
-  transition: height 2s ease-in-out; /* Slow motion animation */
-  z-index: -1; /* Place the fill behind the text outline effect */
-
-  /* Clip the background to the text shape */
-  -webkit-background-clip: text; 
+  /* Set up the background for clipping */
+  background: linear-gradient(to bottom, #ff0000, #0000ff); /* Example: Red to blue gradient */
+  background-size: 100% 200%; /* Make background twice the height of text for up/down animation */
+  background-position: 100% 100%; /* Start position at the bottom (transparent part covers text) */
+  -webkit-background-clip: text; /* Clip background to text shape */
   background-clip: text;
-  -webkit-text-fill-color: transparent; 
+
+  /* Slow motion transition */
+  transition: background-position 1s ease-in-out; /* Animates background position over 1 second */
 }
 
-.animated-text:hover::before {
-  height: 100%; /* Fills up completely on hover */
+h1:hover {
+  /* On hover, move the background position to the top (color part covers text) */
+  background-position: 100% 0%; 
 }
-
-/* Add an additional effect to simulate "up and down" movement */
-@keyframes pulse {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-
-.animated-text:hover {
-  animation: pulse 1s infinite alternate; /* Animates slightly up and down while hovered */
-}
-		 	.over {
-} 
+ 
 </style>
 
   <script>
@@ -460,7 +447,9 @@ a:link, a:visited, a:hover, a:active {
 <body translate="no">
 	
 	
-				  <span class="animated-text">SCAN THE BARCODE HERE</span>
+<div class="text-container">
+  <h1>SCAN THE BARCODE HERE</h1>
+</div>
 
 
 
