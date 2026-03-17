@@ -215,39 +215,36 @@ body {
   83% {background: #F44336;}
   100% {background: #F44336;}
 }
-		.animated-gradient-text {
-    /* Set the font size and weight for better visibility */
-    font-size: 6vw;
-    font-weight: bold;
-    letter-spacing: 2px;
-    /* Define the gradient background with multiple color stops */
-    /* Ensure the start and end colors match for a seamless loop */
-    background: linear-gradient(90deg, #transparent, #8BC34A, #F44336, #0094ff, #8BC34A); 
-    
-    /* Set the background size to be much larger than the text itself */
-    background-size: 400% 100%;
-
-    /* Clip the background to the text shape */
-    -webkit-background-clip: text; /* For compatibility with webkit browsers */
-    background-clip: text;
-    
-    /* Make the text transparent so the background shows through */
-    -webkit-text-fill-color: transparent; /* For compatibility with webkit browsers */
-    color: transparent; /* Fallback for other browsers */
-
-    /* Apply the animation */
-    /* Adjust the duration for "slow motion" (e.g., 15s) */
-    animation: moveGradient 15s linear infinite; /* Increased duration for a slow effect */
+.animated-gradient-text {
+  font-size: 5vw;
+  font-weight: bold;
+  /* Set text color to transparent so the background can show through */
+  color: transparent; 
+  /* Clip the background to the text shape */
+  -webkit-background-clip: text; /* For webkit browsers */
+  background-clip: text;
+  
+  /* Define the initial gradient and size */
+  background-image: linear-gradient(
+    to right, 
+    rgba(255, 0, 0, 0) 0%, /* Start as fully transparent red */
+    rgb(255, 0, 0) 50%,    /* Transition to solid red */
+    rgb(0, 0, 255) 100%    /* End with solid blue */
+  );
+  /* Make the background wider than the text so we can animate its position */
+  background-size: 300% 100%; 
+  /* Start the animation off-screen (to the left) */
+  background-position: -200% 0; 
+  
+  /* Apply the animation */
+  animation: slowFill 8s ease-in-out forwards; /* 8s duration for slow motion, forwards to stop at the end */
 }
 
-/* Define the keyframe animation */
-@keyframes moveGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+@keyframes slowFill {
+  to {
+    /* Animate the background position to the end, revealing the gradient */
+    background-position: 100% 0; 
+  }
 }
 	  
 		  a:link, a:visited, a:hover, a:active {
