@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
 	  <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
     @-webkit-keyframes shine {
   0% {
     background-position: 110% 0%, 0 0;
@@ -45,7 +46,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
      transition: background-image 1s ease-in-out; /* Smooth transition */
 	 background-color: #006600; /* Fallback color (Pakistan green / #006600 / #060 Hex Color Code) */
 	/* Other background properties */
@@ -57,6 +57,7 @@ body {
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75);
   margin: 0;	
   animation: fadeIn 1s ease-in-out;
+  animation:bg 5s linear infinite;
 }
 
 @keyframes fadeIn {
@@ -64,575 +65,144 @@ body {
   to { opacity: 1; }
 }
 
-        :root {
-            --primary-blue: #2196F3;
-            --dark-blue: #0D47A1;
-            --light-blue: #BBDEFB;
-            --text-color: #37474F;
-            --ripple-duration: 1.2s;
-            --dissolve-duration: 1s;
-        }
+.dropping-texts {
+  display: inline-block;
+  width: 180px;
+  text-align: left;
+  height: 36px;
+  vertical-align: -2px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.dropping-texts > div {
+  font-size:0px;
+  opacity:0;
+  margin-left:-30px;
+  position:absolute;
+  font-weight:300;   
+  box-shadow: 0px 60px 25px -20px rgba(0,0,0,0.5);
+}
 
+.dropping-texts > div:nth-child(1) {
+  animation: roll 5s linear infinite 0s;
+}
+.dropping-texts > div:nth-child(2) {
+  animation: roll 5s linear infinite 1s;
+}
+.dropping-texts > div:nth-child(3) {
+  animation: roll 5s linear infinite 2s;
+}
+.dropping-texts > div:nth-child(4) {
+  animation: roll2 5s linear infinite 3s;
+}
 
+@keyframes roll {
+  0% {
+    font-size:0px;
+    opacity:0;
+    margin-left:-30px;
+    margin-top:0px;
+    transform: rotate(-25deg);
+  }
+  3% {
+    opacity:1;
+    transform: rotate(0deg);
+  }
+  5% {
+    font-size:inherit;
+    opacity:1;
+    margin-left:0px;
+    margin-top:0px;
+  }
+  20% {
+    font-size:inherit;
+    opacity:1;
+    margin-left:0px;
+    margin-top:0px;
+    transform: rotate(0deg);
+  }
+  27% {
+    font-size:0px;
+    opacity:0.5;
+    margin-left:20px;
+    margin-top:100px;
+  }
+  100% {
+    font-size:0px;
+    opacity:0;
+    margin-left:-30px;
+    margin-top:0px;
+    transform: rotate(15deg);
+  }
+}
 
-        .ocean {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            background: linear-gradient(180deg, rgba(3, 169, 244, 0.8) 0%, rgba(13, 71, 161, 0.9) 100%);
-            overflow: hidden;
-            z-index: 1;
-            transform-origin: bottom;
-        }
+@keyframes roll2 {
+  0% {
+    font-size:0px;
+    opacity:0;
+    margin-left:-30px;
+    margin-top:0px;
+    transform: rotate(-25deg);
+  }
+  3% {
+    opacity:1;
+    transform: rotate(0deg);
+  }
+  5% {
+    font-size:inherit;
+    opacity:1;
+    margin-left:0px;
+    margin-top:0px;
+  }
+  30% {
+    font-size:inherit;
+    opacity:1;
+    margin-left:0px;
+    margin-top:0px;
+    transform: rotate(0deg);
+  }
+  37% {
+    font-size:1500px;
+    opacity:0;
+    margin-left:-1000px;
+    margin-top:-800px;
+  }
+  100% {
+    font-size:0px;
+    opacity:0;
+    margin-left:-30px;
+    margin-top:0px;
+    transform: rotate(15deg);
+  }
+}
 
-        .wave {
-            position: absolute;
-            top: -25px;
-            left: 0;
-            width: 200%;
-            height: 50px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 350 50" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L0,50 L350,50 L350,0 Q175,55 0,0 Z" fill="%230D47A1" opacity="0.7"/></svg>');
-            background-repeat: repeat-x;
-            background-size: 350px 50px;
-            animation: wave 15s linear infinite;
-        }
+@keyframes bg {
+  0% {background: #ff0075;}
+  3% {background: #0094ff;}
+  20% {background: #0094ff;}
+  23% {background: #b200ff;}
+  40% {background: #b200ff;}
+  43% {background: #8BC34A;}
+  60% {background: #8BC34A;}
+  63% {background: #F44336;}
+  80% {background: #F44336;}
+  83% {background: #F44336;}
+  100% {background: #F44336;}
+}
+</style>
 
-        .wave:nth-child(2) {
-            top: -20px;
-            opacity: 0.5;
-            animation: wave 17s linear infinite reverse;
-        }
-
-        .wave:nth-child(3) {
-            top: -15px;
-            opacity: 0.3;
-            animation: wave 20s linear infinite;
-        }
-
-        @keyframes wave {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 20px;
-            text-align: center;
-            z-index: 2;
-        }
-
-        h1 {
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-            font-weight: 700;
-            font-size: 2.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtitle {
-            color: var(--text-color);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .btn-open {
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-open:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
-        }
-
-        .btn-open:active {
-            transform: translateY(0);
-        }
-
-        /* Button water ripple effect */
-        .btn-open::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%, -50%);
-            transform-origin: 50% 50%;
-        }
-
-        .btn-open:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(100, 100);
-                opacity: 0;
-            }
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(3, 169, 244, 0.2);
-            backdrop-filter: blur(3px);
-            z-index: 998;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .modal {
-            background: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            position: relative;
-            z-index: 999;
-        }
-
-        .modal.active {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: white;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .modal-body {
-            padding: 25px;
-            color: var(--text-color);
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .modal-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .modal-content {
-            margin: 15px 0;
-            line-height: 1.6;
-        }
-
-        .modal-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .feature-item {
-            background-color: #F5F9FF;
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(33, 150, 243, 0.15);
-        }
-
-        .feature-icon {
-            background-color: var(--light-blue);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .feature-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .feature-desc {
-            font-size: 0.85rem;
-            color: #607D8B;
-        }
-
-        .modal-footer {
-            padding: 15px 25px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            border-top: 1px solid #EEEEEE;
-        }
-
-        .btn-close {
-            background-color: white;
-            color: var(--primary-blue);
-            border: 1px solid var(--primary-blue);
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-close:hover {
-            background-color: #F5F9FF;
-        }
-
-        .btn-learn-more {
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-learn-more:hover {
-            background-color: #1976D2;
-        }
-
-        /* Water transition effects */
-        .ripple-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 997;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background-color: rgba(33, 150, 243, 0.15);
-            transform: scale(0);
-            will-change: transform;
-        }
-
-        .ripple.animate {
-            animation: ripple-effect var(--ripple-duration) cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-        }
-
-        @keyframes ripple-effect {
-            0% {
-                transform: scale(0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        /* Dissolve animation for modal */
-        .dissolve-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(13, 71, 161, 0.8));
-            opacity: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .dissolve-bubbles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .bubble {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            animation: float-up 3s ease-in infinite;
-        }
-
-        @keyframes float-up {
-            0% {
-                transform: translateY(100%) scale(0);
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive styles */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .modal-features {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-footer {
-                flex-direction: column;
-            }
-            
-            .btn-close, .btn-learn-more {
-                width: 100%;
-            }
-        }
-
-        @media (max-height: 700px) {
-            .ocean {
-                height: 30%;
-            }
-        }
-    </style>
+  
+  
+  
 </head>
-<body>
-    <div class="ocean">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
 
-    <div class="container">
-        <h1>Fluid Transitions</h1>
-        <p class="subtitle">Experience our innovative water-based modal transitions, where interface elements emerge and dissolve like ripples on a calm sea surface. Perfect for creating an immersive user experience.</p>
-        <button class="btn-open" id="openModal">Open Water Modal</button>
-    </div>
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modal">
-            <div class="modal-header">
-                <h2 class="modal-title">Water Transition Effects</h2>
-                <p class="modal-subtitle">Fluid animations for modern interfaces</p>
-                <div class="dissolve-overlay" id="dissolveOverlay"></div>
-                <div class="dissolve-bubbles" id="dissolveBubbles"></div>
-            </div>
-            <div class="modal-body">
-                <p class="modal-content">
-                    Our water-based modal transitions create a seamless and engaging experience as components emerge from and dissolve back into the interface. These transitions are designed to be both visually appealing and functional.
-                </p>
-                <div class="modal-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">💧</div>
-                        <h3 class="feature-title">Fluid Motion</h3>
-                        <p class="feature-desc">Natural movement patterns that mimic water physics</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🌊</div>
-                        <h3 class="feature-title">Wave Effects</h3>
-                        <p class="feature-desc">Rippling animations that guide user attention</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔄</div>
-                        <h3 class="feature-title">Seamless Transitions</h3>
-                        <p class="feature-desc">Smooth entrances and exits between interface states</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-close" id="closeModal">Close</button>
-                <button class="btn-learn-more">Learn More</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="ripple-container" id="rippleContainer"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const openModalBtn = document.getElementById('openModal');
-            const closeModalBtn = document.getElementById('closeModal');
-            const modal = document.getElementById('modal');
-            const modalOverlay = document.getElementById('modalOverlay');
-            const rippleContainer = document.getElementById('rippleContainer');
-            const dissolveOverlay = document.getElementById('dissolveOverlay');
-            const dissolveBubbles = document.getElementById('dissolveBubbles');
-            
-            // Add floating bubbles to the ocean
-            function createOceanBubbles() {
-                const ocean = document.querySelector('.ocean');
-                for (let i = 0; i < 15; i++) {
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble');
-                    bubble.style.width = `${Math.random() * 20 + 5}px`;
-                    bubble.style.height = bubble.style.width;
-                    bubble.style.left = `${Math.random() * 100}%`;
-                    bubble.style.animationDuration = `${Math.random() * 5 + 3}s`;
-                    bubble.style.animationDelay = `${Math.random() * 2}s`;
-                    ocean.appendChild(bubble);
-                }
-            }
-            
-            createOceanBubbles();
-            
-            // Create ripple effect
-            function createRipple(e) {
-                const ripple = document.createElement('div');
-                ripple.classList.add('ripple');
-                
-                const button = e.currentTarget;
-                const buttonRect = button.getBoundingClientRect();
-                
-                // Use the button's center as the ripple starting point
-                const size = Math.max(window.innerWidth, window.innerHeight) * 2;
-                
-                ripple.style.width = `${size}px`;
-                ripple.style.height = `${size}px`;
-                ripple.style.left = `${buttonRect.left + buttonRect.width / 2}px`;
-                ripple.style.top = `${buttonRect.top + buttonRect.height / 2}px`;
-                ripple.style.marginLeft = `-${size / 2}px`;
-                ripple.style.marginTop = `-${size / 2}px`;
-                
-                rippleContainer.appendChild(ripple);
-                
-                // Start the animation
-                setTimeout(() => {
-                    ripple.classList.add('animate');
-                }, 0);
-                
-                // Remove the ripple element after animation completes
-                setTimeout(() => {
-                    ripple.remove();
-                }, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ripple-duration')) * 1000);
-            }
-            
-            // Create dissolve effect bubbles for closing modal
-            function createDissolveBubbles() {
-                dissolveBubbles.innerHTML = '';
-                
-                for (let i = 0; i < 20; i++) {
-                    const bubble = document.createElement('div');
-                    bubble.classList.add('bubble');
-                    bubble.style.width = `${Math.random() * 50 + 10}px`;
-                    bubble.style.height = bubble.style.width;
-                    bubble.style.left = `${Math.random() * 100}%`;
-                    bubble.style.top = `${Math.random() * 100}%`;
-                    bubble.style.animationDuration = `${Math.random() * 2 + 1}s`;
-                    bubble.style.animationDelay = `${Math.random() * 0.5}s`;
-                    dissolveBubbles.appendChild(bubble);
-                }
-            }
-            
-            // Open modal with water effect
-            openModalBtn.addEventListener('click', function(e) {
-                createRipple(e);
-                
-                // Delay the modal showing to sync with ripple effect
-                setTimeout(() => {
-                    modalOverlay.classList.add('active');
-                    // Small delay for the modal to appear after overlay
-                    setTimeout(() => {
-                        modal.classList.add('active');
-                    }, 100);
-                }, 300);
-            });
-            
-            // Close modal with dissolve effect
-            closeModalBtn.addEventListener('click', function() {
-                // Create dissolve bubbles
-                createDissolveBubbles();
-                dissolveOverlay.style.opacity = '1';
-                dissolveBubbles.style.opacity = '1';
-                
-                // Animate modal out
-                modal.classList.remove('active');
-                
-                // Wait for modal to complete its exit animation
-                setTimeout(() => {
-                    modalOverlay.classList.remove('active');
-                    // Reset dissolve effects after modal is closed
-                    setTimeout(() => {
-                        dissolveOverlay.style.opacity = '0';
-                        dissolveBubbles.style.opacity = '0';
-                    }, 500);
-                }, 400);
-            });
-            
-            // Also close when clicking on overlay
-            modalOverlay.addEventListener('click', function(e) {
-                if (e.target === modalOverlay) {
-                    closeModalBtn.click();
-                }
-            });
-            
-            // Prevent propagation from modal to overlay
-            modal.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        });
-    </script>
+<body translate="no">
+  UX works for 
+<div class="dropping-texts">
+  <div>Developers</div>
+  <div>Designers</div>
+  <div>Coders</div>
+  <div>EVERYONE!</div>
+</div>
 </body>
 
 </html>
