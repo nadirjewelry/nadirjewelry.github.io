@@ -403,7 +403,7 @@ a:link, a:visited, a:hover, a:active {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #333; /* A dark background helps the effect stand out */
+  background-color: #transparent;
 }
 
 h1 {
@@ -417,7 +417,12 @@ h1 {
   -webkit-text-fill-color: transparent; /* For webkit browsers */
   -webkit-text-stroke-width: 1px; /* White lines (outline) */
   -webkit-text-stroke-color: white; 
-  
+
+}
+
+h1:hover {
+
+	  
   /* Set up the background for clipping */
   background: linear-gradient(to bottom, #ff0000, #0000ff); /* Example: Red to blue gradient */
   background-size: 100% 200%; /* Make background twice the height of text for up/down animation */
@@ -427,9 +432,8 @@ h1 {
 
   /* Slow motion transition */
   transition: background-position 1s ease-in-out; /* Animates background position over 1 second */
-}
-
-h1:hover {
+	
+		
   /* On hover, move the background position to the top (color part covers text) */
   background-position: 100% 0%; 
 }
