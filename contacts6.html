@@ -433,18 +433,20 @@ body {
    <a href="#" class="btn">
     <span>my jobs</span>
 	</a></div><div class="button-container">
-	<a href="#" class="btn">
-    <span class="btn1">anonymous</span>
+	<a href="#" class="btn1">
+    <span>anonymous</span>
 	</a></div><div class="button-container">
-	<a href="#" class="btn">
-    <span class="btn2">reach out</span>
+	<a href="#" class="btn2">
+    <span>reach out</span>
   </a>
 </div>
 	 <script>
-	// 1. Select all buttons
+	// Select all buttons
 
-const buttons = document.querySelectorAll(".btn"); 	 
-
+const btn = document.querySelector(".btn");	 
+const btn1 = document.querySelector(".btn1");
+const btn2 = document.querySelector(".btn2");
+		 
 let rippleDiv;
 
 btn.addEventListener("mouseenter", e => {
