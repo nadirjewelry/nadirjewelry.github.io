@@ -378,7 +378,24 @@ body {
   text-transform: lowercase;
   letter-spacing: 0.2rem;
 }
-	  
+.btn1 span {
+  position: relative;
+  font-family:  "Montserrat", sans-serif;
+  font-size:1vw;
+  font-weight:400;
+  color: antiquewhite;
+  text-transform: lowercase;
+  letter-spacing: 0.2rem;
+}
+	.btn2 span {
+  position: relative;
+  font-family:  "Montserrat", sans-serif;
+  font-size:1vw;
+  font-weight:400;
+  color: antiquewhite;
+  text-transform: lowercase;
+  letter-spacing: 0.2rem;
+}	  
 .ripple {
   position: absolute;
   width: 100%;
@@ -429,7 +446,8 @@ body {
   </a>
 </div>
 	 <script>
-const btn = document.querySelector(".btn", ".btn1", ".btn2");
+	// Selects ALL elements with the class 'btn' OR the class 'btn1' OR the class 'btn2' 
+const buttons = document.querySelectorAll(".btn, .btn1, .btn2"); 	 
 
 let rippleDiv;
 
