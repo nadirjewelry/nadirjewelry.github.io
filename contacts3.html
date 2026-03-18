@@ -314,7 +314,75 @@ body {
   100% {
     background-position: -200% 0; /* End hidden */
   }
-}	  
+}	
+		 
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Hides the text that is off-screen */
+  padding: 10px;
+	
+}
+
+.text-original, .text-hover {
+  display: block;
+  transition: transform 0.4s ease; /* Smooth transition */
+	  position: absolute;
+  width: 12rem;
+  height: 4rem;
+  font-size:1vw;
+  font-weight:400;
+  color: antiquewhite;
+  background-color: transparent; /* Makes the background fully transparent */
+  border-radius: 25%;
+  border: 0.1rem dotted #silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+/* Position new text above or below the original */
+.text-hover {
+  position: absolute;
+  transform: translateY(100%); /* Start hidden below */
+  opacity: 0;
+  width: 12rem;
+  height: 4rem;
+  font-size:1vw;
+  font-weight:400;
+  color: antiquewhite;
+  background-color: transparent; /* Makes the background fully transparent */
+  border-radius: 25%;
+  border: 0.1rem dotted #silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+/* Roll over effect on hover */
+.hover-container:hover .text-original {
+  transform: translateY(-100%); /* Original slides up */
+  opacity: 0;
+}
+
+.hover-container:hover .text-hover {
+  transform: translateY(0); /* New slides in */
+  opacity: 1;
+}
+
+
+		  
 </style>
 
   
@@ -334,6 +402,21 @@ body {
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
 </div>
+	<div class="hover-container">
+  <span class="text-original">my jobs</span>	
+  <span class="text-hover">select one!</span>
+</div><img src="files/clear.png" width="20px" height="20px" alt="img1">
+		<div class="hover-container">
+  <span class="text-original">anonymous</span>
+  <span class="text-hover">select two!</span>
+</div><img src="files/clear.png" width="20px" height="20px" alt="img2">
+	<div class="hover-container">
+  <span class="text-original">reach out</span>
+		<a href="#" class="btn">
+			<span class="text-hover">select three!</span></a>
+</div>
+	
+
 </body>
 
 </html>
