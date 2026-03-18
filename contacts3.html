@@ -316,9 +316,13 @@ body {
   }
 }	
 		  .button {
-
+  width: 100%;
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stacks buttons vertically */
+  justify-content: center; /* Centers vertically within the container */
+  align-items: center; /* Centers horizontally within the container */
+  gap: 2rem; /* Adds space between the buttons */   
   width: 220px;
-  text-align: left;
   height: 36px; 
   z-index: 1000;
 }
