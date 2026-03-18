@@ -340,7 +340,35 @@ body {
   padding: 10px 20px;
   overflow: hidden;
 }
-
+        .btn1 {
+  position: absolute;
+  width: 12rem;
+  height: 4rem;
+  background-color: transparent; /* Makes the background fully transparent */
+  border-radius: 25%;
+  border: 0.1rem dotted #silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px 30px;
+  overflow: hidden;
+}
+		  .btn2 {
+  position: absolute;
+  width: 12rem;
+  height: 4rem;
+  background-color: transparent; /* Makes the background fully transparent */
+  border-radius: 25%;
+  border: 0.1rem dotted #silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 30px 40px;
+  overflow: hidden;
+}
+		  
 .btn span {
   position: relative;
   font-family:  "Montserrat", sans-serif;
@@ -350,14 +378,7 @@ body {
   text-transform: lowercase;
   letter-spacing: 0.2rem;
 }
-		  .btn1 {
-  margin-top: 40px;
-  padding: 20px 30px;
-}
-			  .btn2 {
-  margin-top: 50px;
-  padding: 30px 40px;
-}	  
+	  
 .ripple {
   position: absolute;
   width: 100%;
@@ -378,6 +399,7 @@ body {
     height: 220%;
   }
 }
+
 </style>
 
   
@@ -400,14 +422,14 @@ body {
 	<div class="button-container">
   <a href="#" class="btn">
     <span>my jobs</span>
-  </a>  <a href="#" class="btn">
-    <span class="btn1">anonymous</span>
-  </a>	 <a href="#" class="btn">
-    <span class="btn2">reach out</span>
+  </a>  <a href="#" class="btn1">
+    <span>anonymous</span>
+  </a>	 <a href="#" class="btn2">
+    <span>reach out</span>
   </a>
 </div>
 	 <script>
-const btn = document.querySelector(".btn");
+const btn = document.querySelector(".btn", ".btn1", ".btn2");
 
 let rippleDiv;
 
