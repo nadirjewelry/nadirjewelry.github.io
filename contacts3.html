@@ -371,7 +371,44 @@ body {
     <span class="hover-text" style="display: none;">Click for Yahoo!</span>
   </div>
 </div>
+<script>
+	// Define the links corresponding to each span
+const links = [
+  "https://www.google.com",
+  "https://www.bing.com",
+  "https://www.yahoo.com"
+];
 
+// Get all the wrappers
+const wrappers = document.querySelectorAll('.span-wrapper');
+
+wrappers.forEach((wrapper, index) => {
+  const initialText = wrapper.querySelector('.initial-text');
+  const hoverText = wrapper.querySelector('.hover-text');
+
+  // Add mouseover (hover in) event listener
+  wrapper.addEventListener('mouseover', () => {
+    initialText.style.display = 'none';
+    hoverText.style.display = 'inline';
+    // Optional: Add styling to make it look more like a link using JS
+    hoverText.style.color = 'blue';
+    hoverText.style.textDecoration = 'underline';
+  });
+
+  // Add mouseout (hover out) event listener
+  wrapper.addEventListener('mouseout', () => {
+    initialText.style.display = 'inline';
+    hoverText.style.display = 'none';
+  });
+
+  // Add click event listener for redirection
+  wrapper.addEventListener('click', () => {
+    // Redirect to the assigned URL
+    window.location.href = links[index];
+  });
+});
+
+	</script>
 </body>
 
 </html>
