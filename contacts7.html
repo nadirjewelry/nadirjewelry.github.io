@@ -315,27 +315,6 @@ body {
     background-position: -200% 0; /* End hidden */
   }
 }	
-		  .dropping-hover {
-  display: flex;
-  width: 280px;
-			  height: 90;
-  text-align: left;
-}
-
-.dropping-hover > div {
-  font-family:  "Montserrat", sans-serif;
-  font-size:1vw;
-  color: antiquewhite;
-  opacity:1;
-  margin-top: 80px;
-  margin-left:20px;
-  position:absolute;
-  font-weight:400;   
-}
-	  
-.dropping-hover > div:nth-child(1) {
-  animation: linear infinite 0s;
-}
 	  .hover-link {
     /* Ensure the link is treated as a block for consistent styling if needed */
     display: inline-block;
@@ -347,7 +326,7 @@ body {
     font-size:15px;
 		    font-weight:400; 
     color: antiquewhite;
-		  margin-top: 80;
+		  margin-top: 0;
 	letter-spacing: 0.3px;
 		  	z-index: 1000;
 }
@@ -411,28 +390,7 @@ body {
 <a href="https://xtube.pw" class="hover-link" data-hover-text="are anonymous | wanna reach out?">
     <span class="original-text">all my jobs</span>
 </a>
-	 <script>
-const btn = document.querySelector(".btn");	 
-		 
-let rippleDiv;
 
-btn.addEventListener("mouseenter", e => {
-  //get the coordinates of the cursor
-  const left = e.clientX - e.target.getBoundingClientRect().left;
-  const top = e.clientY - e.target.getBoundingClientRect().top;
-
-  rippleDiv = document.createElement("div");
-  rippleDiv.classList.add("ripple");
-  rippleDiv.style.left = `${left}px`;
-  rippleDiv.style.top = `${top}px`;
-
-  btn.prepend(rippleDiv);
-});
-
-btn.addEventListener("mouseleave", () => {
-  btn.removeChild(rippleDiv);
-});
-</script>
 </body>
 
 </html>
