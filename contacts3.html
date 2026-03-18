@@ -372,16 +372,56 @@ body {
     height: 220%;
   }
 }
-.fold-txt::after {
-  content: attr(data-temp);
-	text-align: left;
-	width: 300px;
+.hover-link {
+    /* Ensure the link is treated as a block for consistent styling if needed */
+    display: inline-block;
+    position: relative;
+    /* Hide the overflow to keep the text in the same "place" visually */
+    overflow: hidden; 
+    text-decoration: none; /* Optional: remove default underline */
+
+  width: 12rem;
+  height: 4rem;
+  font-size:1vw;
+  font-weight:400;
+  color: antiquewhite;
+  background-color: transparent; /* Makes the background fully transparent */
 }
-.fold-txt:hover::after {
-  content: attr(data-next);
-	text-align: right;
-	width: 300px;
+
+/* Style for the original text span */
+.hover-link .original-text {
+    display: inline-block;
+    transition: transform 0.3s ease; /* Smooth transition for the text movement */
 }
+
+/* Hide the pseudo-element by default */
+.hover-link::after {
+    content: attr(data-hover-text); /* Use the text from the data-hover-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Start the new text off-screen or hidden */
+    transform: translateY(100%); 
+    transition: transform 0.3s ease; /* Smooth transition for the new text movement */
+    color: #ff0000; /* Optional: change color on hover */
+}
+
+/* Hover effect for the link */
+.hover-link:hover .original-text {
+    /* Move the original text off-screen */
+    transform: translateY(-100%);
+}
+
+.hover-link:hover::after {
+    /* Bring the new text into view in the same position */
+    transform: translateY(0);
+}
+
 		  
 </style>
 
@@ -404,7 +444,9 @@ body {
 </div>
 
 <div class="button-container">
- <a href="#" class="button"> <span class="fold-txt" data-temp=" " data-next="wanna reach out?">all my jobs&nbsp;</span></a></div>
+ <a href="https://example.com" class="hover-link" data-hover-text="The new text">
+    <span class="original-text">Original text</span>
+</a></div>
 	
 <script>
 	
