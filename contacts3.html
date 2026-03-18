@@ -315,17 +315,18 @@ body {
     background-position: -200% 0; /* End hidden */
   }
 }	
-		  .button {
+			  .button-container {
   width: 100%;
+
   display: flex; /* Enables Flexbox */
-  flex-direction: column; /* Stacks buttons vertically */
-  justify-content: center; /* Centers vertically within the container */
-  align-items: center; /* Centers horizontally within the container */
-  gap: 2rem; /* Adds space between the buttons */   
-  width: 220px;
+    flex-direction: column; /* Stacks buttons vertically */
+    justify-content: center; /* Centers vertically within the container */
+    align-items: center; /* Centers horizontally within the container */
+				    width: 220px;
   height: 36px; 
   z-index: 1000;
-}
+}	 
+
 
 .hover-link {
     /* Ensure the link is treated as a block for consistent styling if needed */
@@ -335,41 +336,33 @@ body {
     overflow: hidden; 
     text-decoration: none; /* Optional: remove default underline */
   color: antiquewhite;
+		font-family:  "Montserrat", sans-serif;
+    font-size:1.2vw;
+    color: antiquewhite;
+	letter-spacing: 1px;
 }
 
 /* Style for the original text span */
 .hover-link .original-text {
     display: inline-block;
     transition: transform 0.3s ease; /* Smooth transition for the text movement */
-	font-family:  "Montserrat", sans-serif;
-    font-size:1.2vw;
-    color: antiquewhite;
-    opacity:1;
-
-    position:absolute;
-    font-weight:400; 
-	letter-spacing: 1px;
-    box-shadow: 0px 60px 25px -20px rgba(0,0,0,0.5);
 }
 
 /* Hide the pseudo-element by default */
 .hover-link::after {
     content: attr(data-hover-text); /* Use the text from the data-hover-text attribute */
     position: absolute;
-
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-	font-family:  "Montserrat", sans-serif;
-    font-size:1.2vw;
-    color: antiquewhite; /* Optional: change color on hover */
-    opacity:1;
     display: flex;
     align-items: center;
     justify-content: center;
-	letter-spacing: 1px;
     /* Start the new text off-screen or hidden */
     transform: translateY(100%); 
     transition: transform 0.3s ease; /* Smooth transition for the new text movement */
+    color: #ff0000; /* Optional: change color on hover */
 }
 
 /* Hover effect for the link */
@@ -382,7 +375,6 @@ body {
     /* Bring the new text into view in the same position */
     transform: translateY(0);
 }
-
 		  
 </style>
 
@@ -403,50 +395,11 @@ body {
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
 </div>
-
+<div class="button-container">
  <a href="https://xtube.pw" class="hover-link" data-hover-text="are anonymous | wanna reach out?">
     <span class="original-text">all my jobs</span>
-</a>
-	
-<script>
-	
-function pageReady(callback) {
-  if (document.readyState !== "loading") {
-    callback();
-  } else document.addEventListener("DOMContentLoaded", callback);
-}
+</a></div>
 
-const Button = {
-  init: () => {
-    Button.rippleEffectMovement();
-  },
-
-  rippleEffectMovement: () => {
-    const buttonsNodeList = document.querySelectorAll("button");
-    buttonsNodeList.forEach((btn) => {
-      btn.addEventListener("mouseenter", function (e) {
-        const target = e.target;
-        const x = e.clientX - target.offsetLeft;
-        const y = e.clientY - target.offsetTop;
-        const rEffect = document.createElement("span");
-
-        rEffect.style.left = `${x}px`;
-        rEffect.style.top = `${y}px`;
-
-        this.appendChild(rEffect);
-        setTimeout(() => {
-          rEffect.remove();
-        }, 850);
-      });
-    });
-  }
-};
-
-pageReady(() => {
-  Button.init();
-});
-
-	</script>
 </body>
 
 </html>
