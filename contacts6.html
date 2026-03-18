@@ -374,7 +374,11 @@ body {
     height: 220%;
   }
 }
-
+  .block-span {
+    display: inline-block; /* Allows vertical padding/margin to work as expected */
+    padding: 40px;
+    background-color: lightblue;
+  }
 </style>
 
   
@@ -396,8 +400,8 @@ body {
 </div>
 	<div class="button-container">
    <a href="#" class="btn">
-    <span>my jobs</span></a><img src="files/clear.png" width="20px" height="20px" alt="img1"><a href="#" class="btn">
-    <span>anonymous</span></a><img src="files/clear.png" width="20px" height="20px" alt="img2"><a href="#" class="btn"><span>reach out</span></a></div>
+    <span class="block-span">my jobs</span></a><img src="files/clear.png" width="20px" height="20px" alt="img1"><a href="#" class="btn">
+    <span class="block-span">anonymous</span></a><img src="files/clear.png" width="20px" height="20px" alt="img2"><a href="#" class="btn"><span class="block-span">reach out</span></a></div>
 	 <script>
 const btn = document.querySelector(".btn");	 
 		 
