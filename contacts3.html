@@ -325,7 +325,7 @@ body {
     gap: 2rem; /* Adds space between the buttons */   
   z-index: 1000;
 }
-.btn {
+.button {
   position: absolute;
   width: 12rem;
   height: 4rem;
@@ -338,20 +338,40 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 50px;
   padding: 10px 20px;
   overflow: hidden;
 }
 	
-		  .btn span {
+		  .button span {
   position: relative;
   font-family:  "Montserrat", sans-serif;
   font-size:1vw;
   font-weight:400;
   color: antiquewhite;
   text-transform: lowercase;
-  letter-spacing: 0.2rem;
-}		  
+  letter-spacing: 2px;
+}	
+		  .ripple {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e7be08;
+  border-radius: 25%;
+  transform: translate(-50%, -50%);
+  animation: rippleAnim 0.7s forwards;
+}
+
+@keyframes rippleAnim {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 220%;
+    height: 220%;
+  }
+}
 .fold-txt::after {
   content: attr(data-temp);
 }
@@ -380,9 +400,47 @@ body {
 </div>
 
 <div class="button-container">
- <a href="#" class="btn"> <span class="fold-txt" data-temp="examp..." data-next="example text">This is just an&nbsp;</span></a></div>
+ <a href="#" class="button"> <span class="fold-txt" data-temp="will be anonymous. Wanna reach out? CLICK!" data-next="example text">all my jobs&nbsp;</span></a></div>
 	
+<script>
+	
+function pageReady(callback) {
+  if (document.readyState !== "loading") {
+    callback();
+  } else document.addEventListener("DOMContentLoaded", callback);
+}
 
+const Button = {
+  init: () => {
+    Button.rippleEffectMovement();
+  },
+
+  rippleEffectMovement: () => {
+    const buttonsNodeList = document.querySelectorAll("button");
+    buttonsNodeList.forEach((btn) => {
+      btn.addEventListener("mouseenter", function (e) {
+        const target = e.target;
+        const x = e.clientX - target.offsetLeft;
+        const y = e.clientY - target.offsetTop;
+        const rEffect = document.createElement("span");
+
+        rEffect.style.left = `${x}px`;
+        rEffect.style.top = `${y}px`;
+
+        this.appendChild(rEffect);
+        setTimeout(() => {
+          rEffect.remove();
+        }, 850);
+      });
+    });
+  }
+};
+
+pageReady(() => {
+  Button.init();
+});
+
+	</script>
 </body>
 
 </html>
