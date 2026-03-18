@@ -315,74 +315,107 @@ body {
     background-position: -200% 0; /* End hidden */
   }
 }	
-		 
-.container {
-  position: relative;
-  display: inline-block;
+
+		  *,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.hover-container {
-  position: relative;
+/* .button */
+.button {
   display: inline-block;
-  overflow: hidden; /* Hides the text that is off-screen */
-	z-index: 1000;
-	
-	
-}
-
-.text-original, .text-hover {
-  display: block;
-  transition: transform 0.4s ease; /* Smooth transition */
-	  position: absolute;
-  width: 12rem;
-  height: 4rem;
-  font-size:1vw;
-  font-weight:400;
-  color: antiquewhite;
-
-  border-radius: 25%;
-  border: 0.1rem dotted #silver;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  padding: 10px 20px;
+  position: relative;
+  margin: 1em;
+  padding: 10px 30px;
+  border: 2px solid #cc8f52;
   overflow: hidden;
+  text-decoration: none;
+  font-size: 14px;
+  outline: none;
+  color: #cc8f52;
+  background: transparent;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
 }
 
-/* Position new text above or below the original */
-.text-hover {
+.button span {
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.button:before,
+.button:after {
+  content: "";
   position: absolute;
-  transform: translateY(100%); /* Start hidden below */
+  top: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
   opacity: 0;
-  width: 12rem;
-  height: 4rem;
-  font-size:1vw;
-  font-weight:400;
-  color: antiquewhite;
-
-  border-radius: 25%;
-  border: 0.1rem dotted #silver;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  padding: 10px 20px;
-  overflow: hidden;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
 }
 
-/* Roll over effect on hover */
-.hover-container:hover .text-original {
-  transform: translateY(-100%); /* Original slides up */
-  opacity: 0;
+/* :before */
+.button:before {
+  content: attr(data-hover);
+  -webkit-transform: 0.4s;
+  -moz-transform: 0.4s;
+  -ms-transform: 0.4s;
+  -o-transform: 0.4s;
+  transform: 0.4s;
 }
 
-.hover-container:hover .text-hover {
-  transform: translateY(0); /* New slides in */
+/* Span on :hover and :active */
+.button:hover span,
+.button:active span {
+  opacity: 0;
+  -webkit-transform: 0.4s;
+  -moz-transform: 0.4s;
+  -ms-transform: 0.4s;
+  -o-transform: 0.4s;
+  transform: 0.4s;
+}
+
+/*  
+    We show :before pseudo-element on :hover 
+    and :after pseudo-element on :active 
+*/
+.button:hover:before,
+.button:active:after {
   opacity: 1;
+  -webkit-transform: 0.4s;
+  -moz-transform: 0.4s;
+  -ms-transform: 0.4s;
+  -o-transform: 0.4s;
+  transform: 0.4s;
+  -webkit-transition-delay: 0.4s;
+  -moz-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 
-
+/* 
+  We hide :before pseudo-element on :active
+*/
+.button:active:before {
+  -webkit-transform: 0.4s;
+  -moz-transform: 0.4s;
+  -ms-transform: 0.4s;
+  -o-transform: 0.4s;
+  transform: 0.4s;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
 		  
 </style>
 
@@ -403,19 +436,10 @@ body {
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
 </div>
-	<div class="hover-container">
-  <span class="text-original">my jobs</span>	
-  <span class="text-hover">select one!</span>
-</div><img src="files/clear.png" width="20px" height="20px" alt="img1">
-		<div class="hover-container">
-  <span class="text-original">anonymous</span>
-  <span class="text-hover">select two!</span>
-</div><img src="files/clear.png" width="20px" height="20px" alt="img2">
-	<div class="hover-container">
-  <span class="text-original">reach out</span>
-		<a href="#" class="btn">
-			<span class="text-hover">select three!</span></a>
-</div>
+
+  <button class="button" type="button" data-hover="SURE!"><span>WANNA SEE MORE?</span><img src="files/clear.png" width="20px" height="20px" alt="img1"><span>WANNA SEE MORE?</span></button>
+	
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	
 
 </body>
