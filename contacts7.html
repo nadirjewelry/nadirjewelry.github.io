@@ -371,19 +371,11 @@ body {
     display: none;
 	width: 280px;
 	height: auto;
-    position: absolute;
-    top: 0;
-    left: 40;
 	text-decoration: none;
 	font-family:  "Montserrat", sans-serif;
     font-size:15px;
     font-weight:400; 	
     letter-spacing: 0.3px;
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(100%); 
-    transition: transform 0.3s ease; /* Smooth transition for the new text movement */
     color: steelblue;
 }
 </style>
@@ -409,10 +401,8 @@ body {
 <a href="#" id="toggle-link" class="hover-link" data-hover-text="are anonymous | wanna reach out?">
     <span class="original-text">all my jobs</span>
 </a>
-<div><img src="files/clear.png" width="100px" height="20px" alt="img"></div>
-<span id="target-span" class="hidden-span">
-    This is the hidden content only for click.
-</span>
+
+<span id="target-span" class="hidden-span">This is the hidden content only for click.</span>
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
     const toggleLink = document.getElementById("toggle-link");
