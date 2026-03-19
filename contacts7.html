@@ -428,9 +428,9 @@ body {
 <a href="#" class="hover-link"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
 	
 <a href="#" id="show-image-link">Show Image</a>
-<div class="image-frame">
+
   <img src="/files/j9-1.png" alt="Description of image" id="fadeImage">
-</div>
+
   
 
 	<script>
@@ -445,7 +445,18 @@ body {
 });
 
 	</script>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    const link = document.getElementById('show-image-link');
+    const image = document.getElementById('fade-image');
 
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the link from jumping to the top of the page
+        image.classList.add('visible'); // Add the 'visible' class to trigger the CSS transition
+    });
+});
+
+	</script>
 </body>
 
 </html>
