@@ -455,35 +455,8 @@ body {
 		  .matrix {
   width: 100%;
   height: 25%;
-			   /* 1. Set text to transparent to show background */
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  
-  /* 2. Silver/Icy Metal Gradient */
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,   /* Transparent start */
-    rgba(192, 192, 192, 0.5) 25%, /* Silver */
-    #B0C4DE 50%,                 /* Icy Metal Center */
-    rgba(192, 192, 192, 0.5) 75%, /* Silver */
-    rgba(255, 255, 255, 0) 100%  /* Transparent end */
-  );
-			    /* 4. Slow Motion Animation */
-  animation: fillAnimation 10s linear infinite;
-}
-
-@keyframes fillAnimation {
-  0% {
-    background-position: 200% 0; /* Start hidden */
-  }
-  50% {
-    background-position: 0% 0; /* Centered in text */
-  }
-  100% {
-    background-position: -200% 0; /* End hidden */
-  }
-}
+		 /* Hex #B0C4DE is RGB(176, 196, 222) */
+  background-color: rgba(176, 196, 222, 0.5);
 </style>
 
   
@@ -612,7 +585,7 @@ body {
         this.letters[index] = y + this.letterSize;
       });
 
-      this.ctx.fillStyle = `rgba(192, 192, 192, 0.1)`;
+      this.ctx.fillStyle = `rgba(176, 196, 222, 0.1)`;
       this.ctx.fillRect(0, 0, this.width, this.height);
     }
 
@@ -653,7 +626,7 @@ body {
 
 
 
-const matrix = new MatrixAnimation(document.querySelector('#matrix'), '#A67B00', 10, 'Arial', 80);
+const matrix = new MatrixAnimation(document.querySelector('#matrix'), '#DE3163', 10, 'Arial', 80);
 
 matrix.init();
 
