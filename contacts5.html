@@ -472,7 +472,7 @@ body {
     <span class="original-text">all my jobs</span>
 </a>
 
-<a href="https://xtube.pw" class="hover-link"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
+<a href="https://xtube.pw" class="hover-link" onclick="anchorHandler(event)"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
 	<div id="fader">	<div class="image-container">
     <img class="img-default" src="/files/j9-1.png" alt="Default Image">
     <img class="img-hover" src="/files/j9.png" alt="Hover Image">
@@ -523,7 +523,24 @@ body {
 
 	</script>
 
+<script>
+  function function1() {
+    console.log("Action 1 triggered.");
+  }
 
+  function function2() {
+    console.log("Action 2 triggered.");
+  }
+
+  function anchorHandler(event) {
+    // Prevent the default anchor behavior (page navigation)
+    event.preventDefault();
+
+    // Call all the desired functions sequentially
+    function1();
+    function2();
+  }
+</script>
 </body>
 
 </html>
