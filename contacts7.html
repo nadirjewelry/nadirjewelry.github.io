@@ -378,6 +378,29 @@ body {
   display: flex;
 			    margin-top: 20px; /* Moves the container down by 20 pixels */
 }
+		  .image-frame {
+  /* Optional: styling for your frame container */
+  width: 400px;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#fadeImage {
+  /* Initial state: hidden */
+  opacity: 0;
+  visibility: hidden; /* Use visibility to prevent the element from taking up space in the DOM when hidden */
+  
+  /* Add CSS transition for smooth fading */
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Class to be added by JavaScript for the fade-in effect */
+#fadeImage.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 </style>
 
   
@@ -402,7 +425,10 @@ body {
     <span class="original-text">all my jobs</span>
 </a>
 
-<a href="#" class="hover-link"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
+<a href="#" id="showImageLink" class="hover-link"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
+	<div class="image-frame">
+  <img src="/files/j9-1.png" alt="Description of image" id="fadeImage">
+</div>
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
     const toggleLink = document.getElementById("toggle-link");
@@ -412,6 +438,24 @@ body {
         event.preventDefault(); // Prevent the link from navigating away
         targetSpan.classList.toggle("hidden-span"); // Toggle the visibility
     });
+});
+
+	</script>
+	<script>
+	// Ensure the script runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', (event) => {
+  const showImageLink = document.getElementById('showImageLink');
+  const fadeImage = document.getElementById('fadeImage');
+
+  showImageLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent the anchor link from navigating away
+    
+    // Add the 'is-visible' class to trigger the CSS fade-in
+    fadeImage.classList.add('is-visible');
+    
+    // Optional: Hide the link after it's clicked
+    showImageLink.style.display = 'none'; 
+  });
 });
 
 	</script>
