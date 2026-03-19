@@ -469,6 +469,21 @@ body {
     rgba(192, 192, 192, 0.5) 75%, /* Silver */
     rgba(255, 255, 255, 0) 100%  /* Transparent end */
   );
+			    /* 4. Slow Motion Animation */
+  animation: fillAnimation 10s linear infinite;
+}
+
+@keyframes fillAnimation {
+  0% {
+    background-position: 200% 0; /* Start hidden */
+  }
+  50% {
+    background-position: 0% 0; /* Centered in text */
+  }
+  100% {
+    background-position: -200% 0; /* End hidden */
+  }
+}
   font-size: 10px; 
 }
 </style>
