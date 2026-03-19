@@ -374,6 +374,10 @@ body {
 	text-decoration: none;
 			  transition: transform 0.3s ease; /* Smooth transition for the text movement */
 }
+		  .container {
+  display: flex;
+			    margin-top: 20px; /* Moves the container down by 20 pixels */
+}
 </style>
 
   
@@ -393,12 +397,12 @@ body {
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
 </div>
-
+<div class="container">
 <a href="#" id="toggle-link" class="hover-link" data-hover-text="are anonymous | wanna reach out?">
     <span class="original-text">all my jobs</span>
 </a>
 
-<a href="#" class="hover-link"><span id="target-span" class="hidden-span">This is the hidden content only for click.</span></a>
+<a href="#" class="hover-link"><span id="target-span" class="hidden-span">This is the hidden content only for click.</span></a></div>
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
     const toggleLink = document.getElementById("toggle-link");
