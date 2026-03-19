@@ -315,70 +315,88 @@ body {
     background-position: -200% 0; /* End hidden */
   }
 }	
-		  .button-container {
-  width: 100%;
-
-  display: flex; /* Enables Flexbox */
-    flex-direction: column; /* Stacks buttons vertically */
-    justify-content: center; /* Centers vertically within the container */
-    align-items: center; /* Centers horizontally within the container */
-    gap: 2rem; /* Adds space between the buttons */   
-  z-index: 1000;
+	  .hover-link {
+    /* Ensure the link is treated as a block for consistent styling if needed */
+    display: inline-block;
+    position: relative;
+    /* Hide the overflow to keep the text in the same "place" visually */
+    overflow: hidden; 
+    text-decoration: none; /* Optional: remove default underline */
+		font-family:  "Montserrat", sans-serif;
+    font-size:15px;
+		    font-weight:400; 
+    color: antiquewhite;
+		  margin-top: 0;
+	letter-spacing: 0.3px;
+		  	z-index: 1000;
 }
 
-.btn {
-  position: absolute;
-  width: 12rem;
-  height: 4rem;
-  font-size:1vw;
-  font-weight:400;
-  color: antiquewhite;
-  background-color: transparent; /* Makes the background fully transparent */
-  border-radius: 25%;
-  border: 0.1rem dotted #silver;
+/* Style for the original text span */
+.hover-link .original-text {
+    display: flex;
+	width: 280px;
+	height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for the text movement */
+
+}
+
+/* Hide the pseudo-element by default */
+.hover-link::after {
+    content: attr(data-hover-text); /* Use the text from the data-hover-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+   	width: 280px;
+	height: auto;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    /* Start the new text off-screen or hidden */
+    transform: translateY(100%); 
+    transition: transform 0.3s ease; /* Smooth transition for the new text movement */
+    color: antiquewhite;
+}
+
+/* Hover effect for the link */
+.hover-link:hover .original-text {
+    /* Move the original text off-screen */
+    transform: translateY(-100%);
+}
+
+.hover-link:hover::after {
+    /* Bring the new text into view in the same position */
+    transform: translateY(0);
+}
+		  .hidden-span {
+    display: none;
+	width: 280px;
+	height: auto;
+	text-decoration: none;
+			  transition: transform 0.3s ease; /* Smooth transition for the text movement */
+}
+		  .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-  padding: 10px 20px;
-  overflow: hidden;
+			    margin-top: 20px; /* Moves the container down by 20 pixels */
 }
-	
-		  .btn span {
-  position: relative;
-  font-family:  "Montserrat", sans-serif;
-  font-size:1vw;
-  font-weight:400;
-  color: antiquewhite;
-  text-transform: lowercase;
-  letter-spacing: 0.2rem;
-}
-  
-.ripple {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #e7be08;
-  border-radius: 25%;
-  transform: translate(-50%, -50%);
-  animation: rippleAnim 0.7s forwards;
+#fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Match your page background color */
+    opacity: 0; /* Initially transparent */
+    pointer-events: none; /* Allows interaction with page content below it initially */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for when we add a class */
+    z-index: 100; /* Ensure it's on top */
 }
 
-@keyframes rippleAnim {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  100% {
-    width: 220%;
-    height: 220%;
-  }
+/* Class to be added by JavaScript to start the fade-out of the page */
+#fader.fade-in {
+    opacity: 1;
+    pointer-events: all; /* Prevents interaction during the fade */
 }
-  .block-span {
 
-    padding: 40px;
-
-  }
 </style>
 
   
@@ -398,31 +416,56 @@ body {
   <div>&nbsp;&nbsp;&nbsp;coder</div>
   <div>my prices starting from 0.1 Bitcoin</div>
 </div>
-	<div class="button-container">
-   <a href="#" class="btn">
-    <span class="block-span">my jobs</span></a></div>
-	 <script>
-const btn = document.querySelector(".btn");	 
-		 
-let rippleDiv;
+<div class="container">
+<a href="#" id="toggle-link" class="hover-link" data-hover-text="are anonymous | wanna reach out?">
+    <span class="original-text">all my jobs</span>
+</a>
 
-btn.addEventListener("mouseenter", e => {
-  //get the coordinates of the cursor
-  const left = e.clientX - e.target.getBoundingClientRect().left;
-  const top = e.clientY - e.target.getBoundingClientRect().top;
+<a href="#" class="hover-link"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
+	<div id="fader"></div>
+<!-- The rest of your page content -->
+	<script>
+	document.addEventListener("DOMContentLoaded", function() {
+    const toggleLink = document.getElementById("toggle-link");
+    const targetSpan = document.getElementById("target-span");
 
-  rippleDiv = document.createElement("div");
-  rippleDiv.classList.add("ripple");
-  rippleDiv.style.left = `${left}px`;
-  rippleDiv.style.top = `${top}px`;
-
-  btn.prepend(rippleDiv);
+    toggleLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the link from navigating away
+        targetSpan.classList.toggle("hidden-span"); // Toggle the visibility
+    });
 });
 
-btn.addEventListener("mouseleave", () => {
-  btn.removeChild(rippleDiv);
+	</script>
+	<script>
+	document.addEventListener('DOMContentLoaded', () => {
+    const fader = document.getElementById('fader');
+    const anchors = document.querySelectorAll('a');
+    
+    // Add click event to all links
+    anchors.forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault(); // Stop immediate navigation
+            const target = e.currentTarget.href;
+            
+            fader.classList.add('fade-in'); // Start fade animation
+            
+            // Navigate after transition finishes
+            fader.addEventListener('transitionend', () => {
+                window.location.href = target;
+            }, { once: true });
+        });
+    });
 });
-</script>
+
+	</script>
+	<script>
+	window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        document.getElementById('fader').classList.remove('fade-in');
+    }
+});
+
+	</script>
 </body>
 
 </html>
