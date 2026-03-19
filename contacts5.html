@@ -398,18 +398,27 @@ body {
 }
 .image-container {
     position: absolute; /* Allows for "floating" positioning */
-    width: 150px; /* Adjust size as needed */
+    width: 100%; /* Adjust size as needed */
     height: auto;
     /* Example positions (adjust for each image) */
     top: 0px;
-    left: 219px;
+    left: 0px;
+	  /* Set a background color/image behind the gradient to see the effect */
+  background-color: #transparent; 
+	  /* Apply the linear gradient */
+  background-image: linear-gradient(to right, 
+    rgba(0, 0, 0, 0) 0%,      /* Start: fully transparent black */
+    rgba(0, 0, 0, 0.5) 50%,   /* Center: 50% vampire black */
+    rgba(0, 0, 0, 0) 100%     /* End: fully transparent black */
+  );
+
     transition: transform 0.5s ease-out, opacity 0.3s ease-in-out; /* Smooth transitions for movement and opacity */
 	z-index: 0;
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
+    height: 260px;
     /* Ensure smooth transitions for image changes */
     transition: opacity 0.3s ease-in-out;
 }
@@ -448,6 +457,15 @@ body {
 .image-container:hover {
     transform: scale(1.1) rotate(5deg); /* Example: Scale up and rotate slightly on hover */
 }
+		  * {
+  box-sizing: border-box;
+}
+
+		  .matrix {
+  width: 100%;
+  height: 25%;
+  background-image: url('');
+		  }
 </style>
 
   
@@ -473,11 +491,13 @@ body {
 </a>
 
 <a href="https://xtube.pw" class="hover-link" onclick="anchorHandler(event)"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
-	<div id="fader">	<div class="image-container">
-    <img class="img-default" src="/files/j9-1.png" alt="Default Image">
-    <img class="img-hover" src="/files/j9.png" alt="Hover Image">
+	<div id="fader">	  <div id="matrix" class="matrix"></div>
+	<div class="image-container">
+    <img class="img-default" src="/files/cobra.png" alt="Default Image">
+    <img class="img-hover" src="/files/cobra.png" alt="Hover Image">
 </div>
 <!-- Repeat for multiple floating images --></div>
+	</div>
 <!-- The rest of your page content -->
 
 	<script>
@@ -541,6 +561,95 @@ body {
     function2();
   }
 </script>
+	<script>
+	class MatrixAnimation {
+  /**
+   * 
+   * @param {object} element HTML Object in dem der Matrix Effekt gerendert werden soll
+   * @param {string} lettersColor Farbe der Schrift
+   * @param {number} letterSize Größe der Schrift
+   * @param {*} font Schriftfamilie
+   * @param {*} speed Geschwindigkeit
+   */
+  constructor(element, lettersColor, letterSize, font, speed) {
+    this.element = element;
+    this.width = element.offsetWidth;
+    this.height = element.offsetHeight;
+    this.lettersColor = lettersColor;
+    this.letterSize = letterSize;
+    this.font = font;
+    this.speed = speed < 24 ? 24 : speed;
+    this.status = true;
+    this.ctx = undefined;
+    this.letters = undefined;
+  }
+
+  drawAnimation() {
+
+    if (this.status) {
+      this.ctx.fillStyle = this.lettersColor;
+      this.ctx.font = `${this.letterSize}pt ${this.font}`;
+
+      this.letters.forEach((y, index) => {
+        const randomSymbol = String.fromCharCode(Math.random() * 128);
+        const x = index * this.letterSize;
+
+        this.ctx.fillText(randomSymbol, x, y);
+
+        if (y > 250 + Math.random() * 15000) this.letters[index] = 0;else
+        this.letters[index] = y + this.letterSize;
+      });
+
+      this.ctx.fillStyle = `rgba(13, 2, 8, 0.1)`;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+
+  }
+
+  createCanvas(element) {
+    this.element.innerHTML = '';
+
+    this.width = element ? element.offsetWidth : this.width;
+    this.height = element ? element.offsetHeight : this.height;
+
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('id', 'canvas');
+    canvas.setAttribute('width', this.width);
+    canvas.setAttribute('height', this.height);
+
+    this.ctx = canvas.getContext('2d');
+
+    const col = Math.floor(this.width / this.letterSize);
+    this.letters = Array(col).fill(0);
+
+    this.element.append(canvas);
+
+  }
+
+  init() {
+    this.createCanvas();
+
+    setInterval(() => {
+      this.drawAnimation();
+    }, this.speed);
+
+  }
+
+  pausePlay() {
+    this.status = this.status ? false : true;
+  }}
+
+
+
+const matrix = new MatrixAnimation(document.querySelector('#matrix'), '#F0D8A9', 10, 'Arial', 80);
+
+matrix.init();
+
+window.addEventListener('resize', () => {
+  matrix.createCanvas(document.querySelector('#matrix'));
+});
+  </script>
+
 </body>
 
 </html>
