@@ -468,7 +468,7 @@ body {
 }
 
 .container-letters {
-  margin: 50px auto;
+  margin: 1;
   text-align: center;
   border: 0px solid #E0E0E0;
 }	  
@@ -484,10 +484,10 @@ body {
 
 .letter {
   float: left;
-  width: 110px;
+  width: 90px;
   font-family: "Roboto Condensed";
   font-weight: 200;
-  font-size: 20px;
+  font-size: 14px;
   opacity: 1;
   visibility: visible;
   transition: all 0.4s;
@@ -535,7 +535,8 @@ body {
     <img class="img-default" src="/files/code_3.png" alt="Default Image">
     <img class="img-hover" src="/files/code_1.png" alt="Hover Image">
 </div>
-<div class="letters">
+<!-- Repeat for multiple floating images --></div><div class="container-letters">
+			<div class="letters">
     <div class="letter">1</div>
     <div class="letter">2</div>
     <div class="letter">3</div>
@@ -543,8 +544,9 @@ body {
     <div class="letter">5</div>
     <div class="letter">6</div>
     <div class="letter">7</div>
-  </div>	
-<!-- Repeat for multiple floating images --></div>
+	<div class="letter">8</div>		
+  </div>  
+		</div>
 	
 <!-- The rest of your page content -->
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -701,7 +703,7 @@ window.addEventListener('resize', () => {
 	var app = app || {
 
   init: function () {
-    app.change_to("ABCDEFGH");
+    app.change_to("LUSIGNAN");
     app.animate_input();
   },
 
@@ -722,7 +724,7 @@ window.addEventListener('resize', () => {
 
     //Hide/show characters to present proper number
     $(".letter").removeClass("is-hidden");
-    for (var z = chars.length; z < 7; z++) {if (window.CP.shouldStopExecution(0)) break;
+    for (var z = chars.length; z < 8; z++) {if (window.CP.shouldStopExecution(0)) break;
       $(".letter").eq(z).addClass("is-hidden");
     }
 
