@@ -398,14 +398,13 @@ body {
 }
 .image-container {
     position: absolute; /* Allows for "floating" positioning */
-width: 100%;           /* Ensures the image scales with its container */
+width: 400px;           /* Ensures the image scales with its container */
   height: auto;          /* Maintains natural proportions unless aspect-ratio is set */
-  aspect-ratio: 16 / 9;  /* Forces a 16:9 ratio, overriding the natural height */
     top: 0px;
     left: 0px;
-	opacity: 0.6; /* 60% transparency */
+	opacity: 0.5; /* 50% transparency */
   /* Filter property for older Internet Explorer compatibility (IE8 and below not fully supported) */
-  filter: alpha(opacity=60);
+  filter: alpha(opacity=50);
     transition: transform 0.5s ease-out, opacity 0.3s ease-in-out; /* Smooth transitions for movement and opacity */
 }
 
@@ -486,8 +485,8 @@ width: 100%;           /* Ensures the image scales with its container */
 <a href="https://xtube.pw" class="hover-link" onclick="anchorHandler(event)"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
 	<div id="fader">	  <div id="matrix" class="matrix"></div>
 	<div class="image-container">
-    <img class="img-default" src="/files/cob2.png" alt="Default Image">
-    <img class="img-hover" src="/files/cob2.png" alt="Hover Image">
+    <img class="img-default" src="/files/cobra1.png" alt="Default Image">
+    <img class="img-hover" src="/files/cobra1.png" alt="Hover Image">
 </div>
 <!-- Repeat for multiple floating images --></div>
 	</div>
