@@ -517,17 +517,19 @@ body {
   font-size:15px;
   font-weight:600; 
 	    /* Silver color for the stroke */
-  -webkit-text-stroke: 0.6px #d5d5d7;
-  color:#080808;
+  -webkit-text-stroke: 0.5px #080808;
+  color:#00FF41;
   /* Optional: smoothing */
   -webkit-font-smoothing: antialiased;
-  margin-top: 0;
+  top: 20vh;          /* 20% from the top of the viewport */
+  left: 50%;          /* Optional: horizontal centering */
+  transform: translateX(-50%);
+  margin-top: -10;
   letter-spacing: 0.3px;
   opacity: 1;
   visibility: visible;
   transition: all 0.4s;
   overflow: hidden;
-    padding: 10px;
 	z-index: 0;
 }		  
 /* This keyframes block creates a simple floating/bobbing animation */
@@ -565,7 +567,7 @@ body {
 </a>
 
 <a href="https://xtube.pw" class="hover-link" onclick="anchorHandler(event)"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
-	<div id="fader">	  <div id="matrix" class="matrix"></div><div id="text-container" class="scramble">THE MATRIX KEY CODE</div>
+	<div id="fader">	  <div id="matrix" class="matrix"></div><div id="text-container" class="scramble">THE MATRIX KEY CODE 10010 ONCLICK</div>
 	<div class="image-container">
     <img class="img-default" src="/files/code_3.png" alt="Default Image">
     <img class="img-hover" src="/files/code_1.png" alt="Hover Image">
@@ -593,7 +595,7 @@ const container = document.getElementById('text-container');
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 function scrambleText() {
-    const text = "THE MATRIX KEY CODE"; // Target text
+    const text = "THE MATRIX KEY CODE 10010 ON CLICK"; // Target text
     let iteration = 0;
     
     clearInterval(window.scrambleInterval);
