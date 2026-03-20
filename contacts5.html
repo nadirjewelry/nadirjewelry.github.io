@@ -398,27 +398,21 @@ body {
 }
 .image-container {
     position: absolute; /* Allows for "floating" positioning */
-    width: 100%; /* Adjust size as needed */
+    width: 50%; /* Adjust size as needed */
     height: auto;
-    /* Example positions (adjust for each image) */
+    /* Example positions (adjust for each image) */      
     top: 0px;
-    left: 0px;
-	  /* Set a background color/image behind the gradient to see the effect */
-  background-color: #transparent; 
-	  /* Apply the linear gradient */
-  background-image: linear-gradient(to right, 
-    rgba(0, 0, 0, 0) 0%,      /* Start: fully transparent black */
-    rgba(0, 0, 0, 0.5) 50%,   /* Center: 50% vampire black */
-    rgba(0, 0, 0, 0) 100%     /* End: fully transparent black */
-  );
-
-    transition: transform 0.5s ease-out, opacity 0.3s ease-in-out; /* Smooth transitions for movement and opacity */
+    left: 25%;
 	z-index: 0;
+	opacity: 1; /* 100% transparency */
+  /* Filter property for older Internet Explorer compatibility (IE8 and below not fully supported) */
+  filter: alpha(opacity=100);
+    transition: transform 0.5s ease-out, opacity 0.3s ease-in-out; /* Smooth transitions for movement and opacity */
 }
 
 .image-container img {
     width: 100%;
-    height: 260px;
+    height: auto;
     /* Ensure smooth transitions for image changes */
     transition: opacity 0.3s ease-in-out;
 }
@@ -466,6 +460,34 @@ body {
   height: 25%;
   background-image: url('');
 		  }
+
+.letters {
+  display: inline-block;
+}
+.letters::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.letter {
+  float: left;
+  width: 110px;
+  font-family: "Roboto Condensed";
+  font-weight: 200;
+  font-size: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.letter.is-hidden {
+  opacity: 1;
+  width: 0;
+  visibility: hidden;
+}
+		  
+		  
 </style>
 
   
@@ -493,8 +515,18 @@ body {
 <a href="https://xtube.pw" class="hover-link" onclick="anchorHandler(event)"><span id="target-span" class="hidden-span">Click for it!</span></a></div>
 	<div id="fader">	  <div id="matrix" class="matrix"></div>
 	<div class="image-container">
-    <img class="img-default" src="/files/cobra.png" alt="Default Image">
-    <img class="img-hover" src="/files/cobra.png" alt="Hover Image">
+    <img class="img-default" src="/files/code_3.png" alt="Default Image">
+    <img class="img-hover" src="/files/code_1.png" alt="Hover Image">
+		  <div class="letters">
+    <div class="letter">1</div>
+    <div class="letter">2</div>
+    <div class="letter">3</div>
+    <div class="letter">4</div>
+    <div class="letter">5</div>
+    <div class="letter">6</div>
+    <div class="letter">7</div>
+	<div class="letter">8</div>
+  </div>
 </div>
 <!-- Repeat for multiple floating images --></div>
 	</div>
@@ -600,7 +632,7 @@ body {
         this.letters[index] = y + this.letterSize;
       });
 
-      this.ctx.fillStyle = `rgba(13, 2, 8, 0.1)`;
+      this.ctx.fillStyle = `rgba(248, 249, 249, 0.1)`;
       this.ctx.fillRect(0, 0, this.width, this.height);
     }
 
@@ -641,7 +673,7 @@ body {
 
 
 
-const matrix = new MatrixAnimation(document.querySelector('#matrix'), '#F0D8A9', 10, 'Arial', 80);
+const matrix = new MatrixAnimation(document.querySelector('#matrix'), '#080808', 10, 'Arial', 80);
 
 matrix.init();
 
@@ -649,7 +681,65 @@ window.addEventListener('resize', () => {
   matrix.createCanvas(document.querySelector('#matrix'));
 });
   </script>
+<script>
+	var app = app || {
 
+  init: function () {
+    app.change_to("LUSIGNAN");
+    app.animate_input();
+  },
+
+  i: 0,
+
+  animate_input: function () {
+    $("#change-text").on("click", function () {
+      app.i = 0;
+      app.change_to($("#new-text").val());
+    });
+  },
+
+  change_to: function (chars) {
+
+    //Settings
+    var char_cycles = 20; //how many nonsense letters it cycles through
+    var char_cycle_length = 30; //length of each cycle in milliseconds
+
+    //Hide/show characters to present proper number
+    $(".letter").removeClass("is-hidden");
+    for (var z = chars.length; z < 8; z++) {if (window.CP.shouldStopExecution(0)) break;
+      $(".letter").eq(z).addClass("is-hidden");
+    }
+
+    //Cycle through the appropriate number of letters,
+    //according to the settings above
+    window.CP.exitedLoop(0);if (app.i < char_cycles) {
+      setTimeout(function () {
+        app.i++;
+        for (var x = 0; x < chars.length; x++) {if (window.CP.shouldStopExecution(1)) break;
+          $(".letter").eq(x).text(app.all_characters[Math.floor(Math.random() * 36)]);
+        }window.CP.exitedLoop(1);
+        app.change_to(chars);
+      }, char_cycle_length);
+    }
+
+    //After cycling, assign the chosen characters
+    else {
+        chars = chars.toUpperCase();
+        for (var y = 0; y < chars.length; y++) {if (window.CP.shouldStopExecution(2)) break;
+          $(".letter").eq(y).text(chars.substring(y, y + 1));
+        }window.CP.exitedLoop(2);
+      }
+
+  },
+
+  all_characters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'] };
+
+
+
+$(document).ready(function () {
+  app.init();
+});
+	</script>
 </body>
 
 </html>
