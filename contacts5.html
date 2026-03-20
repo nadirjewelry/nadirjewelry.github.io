@@ -470,7 +470,11 @@ body {
 .container-letters {
   margin: 1;
   text-align: center;
-  border: 0px solid #E0E0E0;
+  position: absolute; 
+  top: 24vh;          /* 24% from the top of the viewport */
+  left: 50%;          /* Optional: horizontal centering */
+  transform: translateX(-50%); /* Optional: adjust horizontal center */
+	z-index: 100;
 }	  
 	  
 .letters {
