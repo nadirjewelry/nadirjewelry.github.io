@@ -492,7 +492,7 @@ body {
   font-family:  "Montserrat", sans-serif;
   font-size:15px;
   font-weight:400; 
-  color: darkmagenta;
+  color: #080808;
   margin-top: 0;
   letter-spacing: 0.3px;
   opacity: 1;
@@ -551,7 +551,10 @@ body {
     <div class="letter">5</div>
     <div class="letter">6</div>
     <div class="letter">7</div>
-	<div class="letter">8</div>		
+	<div class="letter">8</div>	
+				    <div class="letter">9</div>
+    <div class="letter">10</div>
+	<div class="letter">11</div>
   </div>  
 		</div>
 	
@@ -710,7 +713,7 @@ window.addEventListener('resize', () => {
 	var app = app || {
 
   init: function () {
-    app.change_to("LUSIGNAN");
+    app.change_to("LUSIGNAN.ai");
     app.animate_input();
   },
 
@@ -726,12 +729,12 @@ window.addEventListener('resize', () => {
   change_to: function (chars) {
 
     //Settings
-    var char_cycles = 20; //how many nonsense letters it cycles through
-    var char_cycle_length = 30; //length of each cycle in milliseconds
+    var char_cycles = 30; //how many nonsense letters it cycles through
+    var char_cycle_length = 40; //length of each cycle in milliseconds
 
     //Hide/show characters to present proper number
     $(".letter").removeClass("is-hidden");
-    for (var z = chars.length; z < 8; z++) {if (window.CP.shouldStopExecution(0)) break;
+    for (var z = chars.length; z < 11; z++) {if (window.CP.shouldStopExecution(0)) break;
       $(".letter").eq(z).addClass("is-hidden");
     }
 
