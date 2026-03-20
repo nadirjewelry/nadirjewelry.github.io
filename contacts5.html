@@ -460,7 +460,18 @@ body {
   height: 25%;
   background-image: url('');
 		  }
+		  
+	@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
+.container-letters {
+  margin: 50px auto;
+  text-align: center;
+  border: 0px solid #E0E0E0;
+}	  
+	  
 .letters {
   display: inline-block;
 }
@@ -517,7 +528,8 @@ body {
 	<div class="image-container">
     <img class="img-default" src="/files/code_3.png" alt="Default Image">
     <img class="img-hover" src="/files/code_1.png" alt="Hover Image">
-		  <div class="letters">
+</div><div class="container-letters">
+			  <div class="letters">
     <div class="letter">1</div>
     <div class="letter">2</div>
     <div class="letter">3</div>
@@ -526,8 +538,8 @@ body {
     <div class="letter">6</div>
     <div class="letter">7</div>
 	<div class="letter">8</div>
-  </div>
-</div>
+  </div>	
+		</div>
 <!-- Repeat for multiple floating images --></div>
 	</div>
 <!-- The rest of your page content -->
