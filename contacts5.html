@@ -497,7 +497,12 @@ body {
   width: 0;
   visibility: hidden;
 }
-		  
+
+.inputs {
+  text-align: center;
+	color: #transparent;
+	background-color: #transparent;
+}		  
 		  
 </style>
 
@@ -528,7 +533,10 @@ body {
 	<div class="image-container">
     <img class="img-default" src="/files/code_3.png" alt="Default Image">
     <img class="img-hover" src="/files/code_1.png" alt="Hover Image">
-</div><div class="container-letters">
+</div>
+
+<!-- Repeat for multiple floating images --></div>
+	<div class="container-letters">
 			  <div class="letters">
     <div class="letter">1</div>
     <div class="letter">2</div>
@@ -539,11 +547,12 @@ body {
     <div class="letter">7</div>
 	<div class="letter">8</div>
   </div>	
-		</div>
-<!-- Repeat for multiple floating images --></div>
-	</div>
+		</div><div class="inputs">
+  <input id="new-text" type="text" placeholder="Enter up to 7 letters" maxlength="7"/>
+  <button id="change-text"></button>
+</div>
 <!-- The rest of your page content -->
-
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script>
 	document.addEventListener("DOMContentLoaded", function() {
     const toggleLink = document.getElementById("toggle-link");
