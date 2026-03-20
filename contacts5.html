@@ -697,7 +697,7 @@ window.addEventListener('resize', () => {
 	var app = app || {
 
   init: function () {
-    app.change_to("LUSIGNAN");
+    app.change_to("LUSIGNA");
     app.animate_input();
   },
 
@@ -718,7 +718,7 @@ window.addEventListener('resize', () => {
 
     //Hide/show characters to present proper number
     $(".letter").removeClass("is-hidden");
-    for (var z = chars.length; z < 8; z++) {if (window.CP.shouldStopExecution(0)) break;
+    for (var z = chars.length; z < 7; z++) {if (window.CP.shouldStopExecution(0)) break;
       $(".letter").eq(z).addClass("is-hidden");
     }
 
